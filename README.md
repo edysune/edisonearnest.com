@@ -25,3 +25,42 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+## Setup and Versions used in project:
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo npm install -g @angular/cli
+
+node --version
+v14.18.1
+
+npm --version
+6.14.15
+
+ng version
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
+
+Angular CLI: 12.2.11
+Node: 14.18.1
+Package Manager: npm 6.14.15
+OS: linux x64
+
+Angular: 
+... 
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.1202.11 (cli-only)
+@angular-devkit/core         12.2.11 (cli-only)
+@angular-devkit/schematics   12.2.11 (cli-only)
+@schematics/angular          12.2.11 (cli-only)
