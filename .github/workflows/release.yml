@@ -10,16 +10,14 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    # runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: ng version
-        run: ng version
-
-      - name: NPM Install
-        run: npm install
-
-      - name: NPM Build
-        run: npm run build
+      - name: Setup node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: npm install
+      - run: npm run build
