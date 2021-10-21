@@ -25,7 +25,7 @@ jobs:
       - name: Copy Build to Prod
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: dist/*
+          local: dist/edison-earnest-site
           remote: /var/www/html
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
