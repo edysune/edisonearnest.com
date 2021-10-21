@@ -21,3 +21,12 @@ jobs:
           node-version: 14.x
       - run: npm install
       - run: npm run build
+
+      - name: Copy Build to Prod
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: dist
+          remote: /root/site
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.PASSWORD }}
