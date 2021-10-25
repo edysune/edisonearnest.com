@@ -88,3 +88,18 @@ sudo rm -rf /usr/local/bin/node*
 
 ## Libraries
 https://mdbootstrap.com/
+
+
+## NGINX Configurations for https/SSL
+
+Steps may involve creating a CSR using openssl, then using that to create a certificate from your provider. KEEP the key generated when CSR is created, and then keep the CRT that is generated from your provider. Both will need to be put onto your server.
+
+Configurations stored in the ngingx_config file allow redirection of http to https. Once configurations are placed, you may need to check some of the hardcoded values and paths.
+
+Always edit in /etc/nginx/sites-available/<configuration>, not sites-enabled.
+
+After editing use sudo nginx -t to validate configurations, and then sudo nginx -s reload OR sudo systemctl reload nginx to refresh site.
+
+Problems: check the error logs in /var/log/nginx/error.log if you think there might be errors.
+
+It might also be a good idea to give permissions to key and crt files using chmod 700.
