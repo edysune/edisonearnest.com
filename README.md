@@ -72,7 +72,8 @@ sudo rm -rf /usr/local/bin/node*
 
 ## Libraries
 https://getbootstrap.com/docs/5.1
-
+https://icons.getbootstrap.com/
+https://www.w3schools.com/cssref/css_selectors.asp
 
 ## NGINX Configurations for https/SSL
 

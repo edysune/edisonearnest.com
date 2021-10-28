@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalConstants } from '../globals/globalConstants';
 
 @Component({
-  selector: 'app-nav-bar-component',
-  templateUrl: './nav-bar-component.component.html',
-  styleUrls: ['./nav-bar-component.component.scss']
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponentComponent implements OnInit {
+export class NavBarComponent implements OnInit {
 
   constructor() { }
 
