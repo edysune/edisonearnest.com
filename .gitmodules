@@ -1,0 +1,3 @@
+[submodule "src/assets/edisonearnest_assets"]
+	path = src/assets/edisonearnest_assets
+	url = git@github.com:edysune/edisonearnest_assets.git
