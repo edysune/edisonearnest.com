@@ -88,3 +88,26 @@ After editing use sudo nginx -t to validate configurations, and then sudo nginx 
 Problems: check the error logs in /var/log/nginx/error.log if you think there might be errors.
 
 It might also be a good idea to give permissions to key and crt files using chmod 700.
+
+# update submodule in the master branch
+# skip this if you use --recurse-submodules
+# and have the master branch checked out
+cd [submodule directory]
+git checkout master
+git pull
+
+# commit the change in main repo
+# to use the latest commit in master of the submodule
+cd ..
+git add [submodule directory]
+git commit -m "move submodule to latest commit in master"
+
+# share your changes
+git push
+
+# another developer wants to get the changes
+git pull
+
+# this updates the submodule to the latest
+# commit in master as set in the last example
+git submodule update
