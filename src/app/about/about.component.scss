@@ -5,6 +5,9 @@
 .selfie{
     height: 400px;
 }
+p {
+    white-space: pre-wrap;
+}
 
 img{
     margin-bottom: 50px;
@@ -15,6 +18,5 @@ img{
 }
 
 .inner-about-text p{
-    margin-left: 40px;
-    font-size: 20px;
+    font-size: 25px;
 }

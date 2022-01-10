@@ -9,8 +9,16 @@ export class AboutComponent implements OnInit {
 
   constructor() { }
 
-  public shortText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-  public longText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec adipiscing tristique risus nec feugiat in fermentum posuere urna. Sed enim ut sem viverra. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Maecenas accumsan lacus vel facilisis volutpat est. Turpis egestas sed tempus urna et pharetra pharetra massa. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. A lacus vestibulum sed arcu. Dignissim cras tincidunt lobortis feugiat vivamus at augue. Magna etiam tempor orci eu lobortis elementum. Pellentesque elit eget gravida cum sociis. Tellus molestie nunc non blandit massa enim nec dui nunc. Tristique senectus et netus et malesuada fames ac turpis. Condimentum mattis pellentesque id nibh tortor id aliquet.\nVel pharetra vel turpis nunc eget lorem dolor. Id diam vel quam elementum pulvinar etiam non quam lacus. Maecenas volutpat blandit aliquam etiam erat velit. Laoreet suspendisse interdum consectetur libero id faucibus. Ornare quam viverra orci sagittis eu. Ipsum a arcu cursus vitae congue mauris. Diam in arcu cursus euismod quis viverra nibh cras. Natoque penatibus et magnis dis. Consequat ac felis donec et odio pellentesque diam volutpat. Amet porttitor eget dolor morbi non.";
+  public shortText = 
+  "My name is Edison. I'm a Programmer who currently does Full Stack Development. On the side I have a couple of projects I switch off when I'm not day dreaming about owning a cabin in the woods and looking at cat memes.\n\n" + 
+  "";
+
+  public longText = 
+  "I'm originally from Washington, and enjoy the rain and trees. I've always been into computers since I was young.\n\n" + 
+  "In 2018, I graduated from Utah Valley University with a degree in Computer Science. For my capstone I wrote a simple Virtual Machine in C++, and a Compiler for an object oriented language in DLang.\n\n" +
+  "During my time at UVU, I was a CS Academic tutor for almost 2 years. I eventually started working at Micro Focus, where I mostly worked as a QA Engineer for Voltage Encryption Software.\n\n" +
+  "I am currently working at Motorola Solutions, where I fix and develop features for our cloud app in Angular and .Net. I've also had a lot of fun learning about Azure Devops and other tools like pipelines.\n\n" +
+  "I really enjoy just jumping in and learning about different things. In the next couple of years I plan on spending more time writing scripts and programs for some of my hobbies, and maybe dig into things like AI. But for now I'm just hoping to survive Covid like everyone else."
 
   ngOnInit(): void {
   }
