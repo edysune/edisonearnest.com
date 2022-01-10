@@ -1,1 +1,26 @@
-<app-construction-component [componentName]="constructName"></app-construction-component>
+<div style="background-color:white;" class="container-md">
+    <div class="center">
+        <div class="blog-search">
+            <input class="form-control me-2" type="search" placeholder="Search Blogs" aria-label="Search">
+            <button class="btn" data-bs-toggle="modal" data-bs-target="#filterModal">
+                <i class="bi bi-filter"></i>
+            </button>
+        </div>
+    </div>
+    <app-blog-view></app-blog-view>
+</div>
+
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterModalLabel">Filter</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Todo: Filter Settings
+            </div>
+        </div>
+    </div>
+</div>
+  

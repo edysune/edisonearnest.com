@@ -9,8 +9,6 @@ export class BlogComponent implements OnInit {
 
   constructor() { }
 
-  public constructName = "Blog Page";
-
   ngOnInit(): void {
   }
 

@@ -14,6 +14,7 @@ import { CheckersComponent } from './games/checkers/checkers.component';
 import { ChessComponent } from './games/chess/chess.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavImageComponent } from './nav-image/nav-image.component';
+import { BlogViewComponent } from './blog/blog-view/blog-view.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavImageComponent } from './nav-image/nav-image.component';
     CheckersComponent,
     ChessComponent,
     FooterComponent,
-    NavImageComponent
+    NavImageComponent,
+    BlogViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<div class="blog-view">
+
+    <!-- needs to switch back and forth between selected and item list-->
+    <div *ngFor="let blog of blogs">
+        <div class="card blog-card">
+            <h6 class="card-subtitle">{{blog.date | date: 'MM/dd/yyyy'}}</h6>
+            <img src={{blog.image}} class="card-img-top" alt={{blog.title}}>
+            <div class="card-body">
+                <h5 class="card-title">{{blog.title}}</h5>
+                <p class="card-text">{{blog.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
