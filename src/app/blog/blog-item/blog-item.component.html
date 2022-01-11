@@ -1,0 +1,12 @@
+    
+<div class="card blog-card">
+    <div class="card-content" (click)="blogClicked()">
+        <h6 class="card-subtitle">{{model.date | date: 'MM/dd/yyyy'}}</h6>
+        <img src={{model.image}} class="card-img-top img-fluid" alt={{model.title}}>
+        <div class="card-body">
+            <h5 class="card-title">{{model.title}}</h5>
+            <p class="card-text">{{model.description}}</p>
+            <p *ngIf="isActivated"> CONTENT IS BEING SHOWN                  [X]</p>
+        </div>
+    </div>
+</div>

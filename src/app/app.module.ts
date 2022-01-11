@@ -15,6 +15,7 @@ import { ChessComponent } from './games/chess/chess.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavImageComponent } from './nav-image/nav-image.component';
 import { BlogViewComponent } from './blog/blog-view/blog-view.component';
+import { BlogItemComponent } from './blog/blog-item/blog-item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BlogViewComponent } from './blog/blog-view/blog-view.component';
     ChessComponent,
     FooterComponent,
     NavImageComponent,
-    BlogViewComponent
+    BlogViewComponent,
+    BlogItemComponent
   ],
   imports: [
     BrowserModule,
