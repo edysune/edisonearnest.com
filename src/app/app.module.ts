@@ -3,19 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar-component/nav-bar.component';
-import { ConstructionComponent } from './construction/construction.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BlogComponent } from './blog/blog.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { CheckersComponent } from './games/checkers/checkers.component';
-import { ChessComponent } from './games/chess/chess.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavImageComponent } from './nav-image/nav-image.component';
-import { BlogViewComponent } from './blog/blog-view/blog-view.component';
-import { BlogItemComponent } from './blog/blog-item/blog-item.component';
+import { AboutComponent } from './components/about/about.component';
+import { BlogItemComponent } from './components/blog/blog-item/blog-item.component';
+import { BlogViewComponent } from './components/blog/blog-view/blog-view.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { ConstructionComponent } from './components/construction/construction.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CheckersComponent } from './components/games/checkers/checkers.component';
+import { ChessComponent } from './components/games/chess/chess.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavBarComponent } from './components/nav-bar-component/nav-bar.component';
+import { NavImageComponent } from './components/nav-image/nav-image.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+
 
 @NgModule({
   declarations: [

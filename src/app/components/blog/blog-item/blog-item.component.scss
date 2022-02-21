@@ -1,12 +1,12 @@
 .card{
     margin: 100px;
     padding: 20px;
-    border: 0px;
+    border: 1px solid #DCDCDC;
 }
 
-.card img {
-    width: 600px;
-}
+// .card img {
+//     width: 600px;
+// }
 
 .card-content {
     display: block;
@@ -15,5 +15,6 @@
 }
 
 .card-content:hover {
-    border: 1px solid black;
+    // border: 1px solid black;
+    cursor: pointer;
 }

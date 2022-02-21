@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalConstants } from '../globals/globalConstants';
+import { GlobalConstants } from 'src/app/globals/globalConstants';
 
 @Component({
   selector: 'app-nav-bar',
