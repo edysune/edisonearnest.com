@@ -10,6 +10,6 @@ export class MobileCheckService {
   constructor() { }
 
   public isMobileScreenSize() {
-      document.body.offsetWidth < this.mobileSize;
+      return document.body.offsetWidth < this.mobileSize;
   }
 }
