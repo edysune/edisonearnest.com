@@ -45,9 +45,9 @@ export class PageNotFoundComponent implements OnInit {
     
     this.genNextToastMessage();
 
-    var toastLiveExample = document.getElementById('toastBody');
+    var toastElement = document.getElementById('toastBody');
 
-    var toast = new bootstrap.Toast(toastLiveExample);
+    var toast = new bootstrap.Toast(toastElement);
     
     toast.show();
 

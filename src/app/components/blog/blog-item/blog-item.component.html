@@ -1,10 +1,15 @@
     
 <div class="card blog-card"
     (click)="blogClicked()"
-    [ngClass]=" isMobile ? 'mobile-card' : 'desktop-card'">
+    [ngClass]=" isMobile ? 'mobile-card' : 'desktop-card'"
+    [class.activated] = "isActivated">
 
     <div class="card-content">
         <h6 class="card-subtitle">{{model.date | date: 'MM/dd/yyyy'}}</h6>
+        <div class="tags" *ngFor="let tag of model.tags">
+            <h4><span class="badge bg-secondary">{{tag}}</span></h4>
+        </div>
+
         <img src={{model.image}} class="card-img-top img-fluid" alt={{model.title}}>
         <div class="card-body">
             <h5 class="card-title">{{model.title}}</h5>
@@ -13,3 +18,4 @@
         </div>
     </div>
 </div>
+<div class="row spacer"></div>

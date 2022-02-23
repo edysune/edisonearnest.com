@@ -1,5 +1,7 @@
+$spacer-length: 80px;
+
 .spacer{
-    height: 80px;
+    height: $spacer-length;
 }
 
 .selfie{
@@ -19,4 +21,10 @@ img{
 
 .inner-about-text p{
     font-size: 25px;
+}
+
+.container-md{
+    // calculation so content is scrollable instead of the html -> 70px for the size of navbar
+    height: calc(100% - 70px);
+    overflow: auto;
 }

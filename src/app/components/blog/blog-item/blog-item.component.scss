@@ -1,3 +1,5 @@
+$blog-item-spacer-length: 80px;
+
 .card{
     border: 1px solid #DCDCDC;
     margin-left: auto;
@@ -6,7 +8,7 @@
 }
 
 .desktop-card {
-    width: 50%;
+    width: 70%;
     padding: 1em;
 }
 
@@ -23,5 +25,36 @@
 
 .card:hover {
     cursor: pointer;
+}
+
+.card:hover:not(.activated) {
     background-color: #F8F8F8
+}
+
+.activated {
+    background-color: #DCDCDC;
+}
+
+.activated.desktop-card {
+    width: 85%;
+}
+
+.activated.mobile-card {
+    width: 98%;
+}
+
+.blog-item-spacer{
+    height: $blog-item-spacer-length;
+}
+
+.badge{
+    color: white;
+    float: right;
+    padding: 2px 5px;
+    margin: 5px;
+}
+
+.badge:hover{
+    // color: black;
+    background-color: black !important;
 }

@@ -1,10 +1,17 @@
 .center {
     padding: 70px 0;
     text-align: center;
-
 }
 
 i {
     font-size: 40px;
     padding: 10px;
+}
+
+.container-md{
+    // calculation so content is scrollable instead of the html
+    //  -> 70px for the size of navbar
+    //  -> 40vh for the size of the nav-image
+    height: calc(100% - 70px - 40vh);
+    overflow: auto;
 }
