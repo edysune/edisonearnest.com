@@ -15,7 +15,12 @@
             <h5 *ngIf="isMobile" class="card-title">{{model.title}}</h5>
             <h3 *ngIf="!isMobile" class="card-title">{{model.title}}</h3>
             <p class="card-text">{{model.description}}</p>
-            <p *ngIf="isActivated"> CONTENT IS BEING SHOWN                  [X]</p>
+            <app-blog-content 
+                *ngIf="isActivated"
+                [page]="model.component"
+                >
+
+            </app-blog-content>
         </div>
     </div>
 </div>

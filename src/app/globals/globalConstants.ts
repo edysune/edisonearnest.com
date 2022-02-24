@@ -7,5 +7,6 @@ export interface blog {
     title: string;
     description: string;
     date: Date;
-    tags: string[]
-  }
+    tags: string[];
+    component: string;
+}

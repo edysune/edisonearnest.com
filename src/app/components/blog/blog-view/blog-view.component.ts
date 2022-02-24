@@ -16,7 +16,8 @@ export class BlogViewComponent implements OnInit {
       title: "Life with Covid",
       description: "Still Alive - Just an update with Covid from 2019-2022.",
       date: new Date(2022, 0, 9),
-      tags: ["covid", "life"]
+      tags: ["covid", "life"],
+      component: "covid 2022 - 1"
     }
   ]
 
