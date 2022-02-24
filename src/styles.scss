@@ -15,11 +15,11 @@ html, body, app-root {
     overflow: auto;
 }
 
-$navbar-size: 70px;
+$navbar-size: 80px;
 
-nav {
-    height: $navbar-size;
-}
+// app-nav-bar {
+//     height: $navbar-size;
+// }
 
 // .scrollbar {
 //     margin-left: 30px;

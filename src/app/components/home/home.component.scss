@@ -10,8 +10,8 @@ i {
 
 .container-md{
     // calculation so content is scrollable instead of the html
-    //  -> 70px for the size of navbar
+    //  -> 80px for the size of navbar
     //  -> 40vh for the size of the nav-image
-    height: calc(100% - 70px - 40vh);
+    height: calc(100% - 80px - 40vh);
     overflow: auto;
 }

@@ -24,7 +24,7 @@ img{
 }
 
 .container-md{
-    // calculation so content is scrollable instead of the html -> 70px for the size of navbar
-    height: calc(100% - 70px);
+    // calculation so content is scrollable instead of the html -> 80px for the size of navbar
+    height: calc(100% - 80px);
     overflow: auto;
 }

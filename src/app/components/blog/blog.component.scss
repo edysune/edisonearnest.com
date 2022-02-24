@@ -6,12 +6,17 @@
 
 .blog-search {
     float: right;
-    padding-left: 5vh;
+}
+
+.search-blog-input {
+    width: 15em;
 }
 
 button > i {
     font-size: 32px;
     padding: 10px;
+    position: relative;
+
 }
 
 button {
@@ -27,8 +32,8 @@ input {
 
 .container-md{
     // calculation so content is scrollable instead of the html
-    //  -> 70px for the size of navbar
-    //  -> 40vh for the size of the nav-image
-    height: calc(100% - 70px);
+    //  -> 80px for the size of navbar
+    //TODO: may need to come back to this as it doeesn't seem like it fits exactly for mobile
+    height: calc(100% - 80px);
     overflow: auto;
 }
