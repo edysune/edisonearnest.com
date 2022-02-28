@@ -1,27 +1,27 @@
     
-<div class="card blog-card"
-    (click)="blogClicked()"
-    [ngClass]=" isMobile ? 'mobile-card' : 'desktop-card'"
-    [class.activated] = "isActivated">
+<a class="blog-router" [routerLink]="[model.routerLink]">
+    <div class="card blog-card"
+        [ngClass]=" isMobile ? 'mobile-card' : 'desktop-card'"
+        >
 
-    <div class="card-content">
-        <p class="card-subtitle">{{model.date | date: 'MM/dd/yyyy'}}</p>
-        <div class="tags" *ngFor="let tag of model.tags">
-            <h4><span class="badge bg-secondary">{{tag}}</span></h4>
-        </div>
+        <div class="card-content">
+            <p class="card-subtitle">{{model.date | date: 'MM/dd/yyyy'}}</p>
+            <div class="tags" *ngFor="let tag of model.tags">
+                <h4><span class="badge bg-secondary">{{tag}}</span></h4>
+            </div>
 
-        <img src={{model.image}} class="card-img-top img-fluid" alt={{model.title}}>
-        <div class="card-body">
-            <h5 *ngIf="isMobile" class="card-title">{{model.title}}</h5>
-            <h3 *ngIf="!isMobile" class="card-title">{{model.title}}</h3>
-            <p class="card-text">{{model.description}}</p>
-            <app-blog-content 
-                *ngIf="isActivated"
-                [page]="model.component"
-                >
+            <img src={{model.image}} class="card-img-top img-fluid" alt={{model.title}}>
+            <div class="card-body">
+                <h5 *ngIf="isMobile" class="card-title">{{model.title}}</h5>
+                <h4 *ngIf="!isMobile" class="card-title">{{model.title}}</h4>
+                <!-- <p class="card-text">{{model.description}}</p>
+                <app-blog-content 
+                    *ngIf="isActivated"
+                    [page]="model.component"
+                    >
 
-            </app-blog-content>
+                </app-blog-content> -->
+            </div>
         </div>
     </div>
-</div>
-<div class="row blog-item-spacer"></div>
+</a>

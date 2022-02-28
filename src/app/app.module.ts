@@ -16,8 +16,7 @@ import { NavBarComponent } from './components/nav-bar-component/nav-bar.componen
 import { NavImageComponent } from './components/nav-image/nav-image.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProjectsComponent } from './components/projects/projects.component';
-import { BlogContentComponent } from './components/blog/blog-content/blog-content.component';
-
+import { BlogCovidComponent } from './components/blog/blogs/covid/blog-covid.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,7 @@ import { BlogContentComponent } from './components/blog/blog-content/blog-conten
     NavImageComponent,
     BlogViewComponent,
     BlogItemComponent,
-    BlogContentComponent
+    BlogCovidComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class BlogViewComponent implements OnInit {
       description: "Still Alive - Just an update with Covid from 2019-2022.",
       date: new Date(2022, 0, 9),
       tags: ["covid", "life"],
-      component: "covid 2022 - 1"
+      routerLink: "covid-2022"
     }
   ]
 

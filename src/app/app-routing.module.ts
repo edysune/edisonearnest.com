@@ -7,7 +7,7 @@ import { ChessComponent } from './components/games/chess/chess.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProjectsComponent } from './components/projects/projects.component';
-
+import { BlogCovidComponent } from './components/blog/blogs/covid/blog-covid.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'checkers', component: CheckersComponent },
   { path: 'chess', component: ChessComponent },
+  { path: 'blogs/covid-2022', component: BlogCovidComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];

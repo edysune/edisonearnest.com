@@ -8,5 +8,5 @@ export interface blog {
     description: string;
     date: Date;
     tags: string[];
-    component: string;
+    routerLink: string;
 }

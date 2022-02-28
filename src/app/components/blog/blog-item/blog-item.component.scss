@@ -6,16 +6,17 @@ $blog-item-spacer-length: 80px;
     margin-right: auto;
     margin-top: 100px;
     margin-bottom: $blog-item-spacer-length;
+    background-color: #F8F8F8;
 }
 
 .desktop-card {
-    width: 70%;
-    padding: 1em;
+    width: 30%;
+    padding: .5em;
 }
 
 .mobile-card {
-    width: 80%;
-    padding: 1em;
+    width: 30%;
+    padding: .5em;
 }
 
 .card-content {
@@ -24,12 +25,16 @@ $blog-item-spacer-length: 80px;
     margin-right: auto;
 }
 
+.card-body {
+    padding: .5em 0px 0px 0px;
+}
+
 .card:hover {
     cursor: pointer;
 }
 
 .card:hover:not(.activated) {
-    background-color: #F8F8F8
+    background-color: #DCDCDC
 }
 
 .activated {
@@ -54,4 +59,9 @@ $blog-item-spacer-length: 80px;
 .badge:hover{
     // color: black;
     background-color: black !important;
+}
+
+a.blog-router{
+    text-decoration: none !important;
+    color: black !important;
 }
