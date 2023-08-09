@@ -25,28 +25,31 @@ on:
         - error
 
 env:
-  REF_TO_BUILD: ${{ inputs.refBuildOverride != '' && inputs.refBuildOverride || github.ref_name }}
+  REF_TO_BUILD: ${{ inputs.refBuildOverride != '' && inputs.refBuildOverride || github.sha }}
   IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # - name: DEBUG echo github
+      #   run: echo ${{ github.ref_name }}
+
+      # - name: DEBUG echo refToBuild
+      #   run: echo ${{ inputs.refToBuild }}
+
+      - name: DEBUG Get Github Variables
+        run: |
+          echo "${{toJSON(github)}}"
+
+      - name: DEBUG echo REF_TO_BUILD
+        run: echo ${{ env.REF_TO_BUILD }}
+
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
         with:
           submodules: recursive
-          # ref: ${{ inputs.refToBuild }}
-          ref: 'master'
-
-      - name: DEBUG echo github
-        run: echo ${{ github.ref_name }}
-
-      - name: DEBUG echo refToBuild
-        run: echo ${{ inputs.refToBuild }}
-
-      - name: DEBUG echo REF_TO_BUILD
-        run: echo ${{ env.REF_TO_BUILD }}
+          ref: ${{ env.REF_TO_BUILD }}
 
       - name: Setup node 14
         uses: actions/setup-node@v2
@@ -57,8 +60,8 @@ jobs:
 
       - run: npm run build
 
-      - name: Copy Build to Prod
-        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' }}
+      - name: Deploy Website to Prod
+        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && inputs.forceDeploy == 'true' }}
         uses: garygrossgarten/github-action-scp@release
         with:
           local: dist/edison-earnest-site
