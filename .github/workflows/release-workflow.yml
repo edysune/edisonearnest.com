@@ -1,4 +1,4 @@
-name: Workflow - Release Pipeline for edisongearnest.com
+name: Website Release Pipeline
 
 on: 
   push:
@@ -7,14 +7,14 @@ on:
     branches: [ master ]
   workflow_dispatch:
     inputs:
-      refToBuild:
+      refBuildOverride:
         type: string
         description: 'Branch, tag or commit SHA1 to build'
         default: ''
       forceDeploy:
         type: boolean
         description: 'Force Deploy'
-        default: false
+        default: true
       logLevel:
         type: choice
         description: 'Log Level'
@@ -23,6 +23,9 @@ on:
         - info
         - warning
         - error
+
+env:
+  REF_TO_BUILD: ${{ input.refBuildOverride != '' && input.refBuildOverride || github.ref_name }}
 
 jobs:
   build:
@@ -40,6 +43,9 @@ jobs:
 
       - name: DEBUG echo refToBuild
         run: echo ${{ inputs.refToBuild }}
+
+      - name: DEBUG echo REF_TO_BUILD
+        run: echo ${{ env.REF_TO_BUILD }}
 
       - name: Setup node 14
         uses: actions/setup-node@v2
