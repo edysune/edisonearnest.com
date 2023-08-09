@@ -5,20 +5,20 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
-inputs:
-  refToBuild:
-    type: string
-    description: 'Branch, tag or commit SHA1 to build'
-    default: 'master'
-  forceDeploy:
-    type: boolean
-    description: 'Force Deploy'
-    default: false
-  logLevel:
-    type: string
-    description: 'Log Level'
-    default: 'error'
+  workflow_call:
+    inputs:
+      refToBuild:
+        type: string
+        description: 'Branch, tag or commit SHA1 to build'
+        default: 'master'
+      forceDeploy:
+        type: boolean
+        description: 'Force Deploy'
+        default: false
+      logLevel:
+        type: string
+        description: 'Log Level'
+        default: 'error'
 
 jobs:
   build:
