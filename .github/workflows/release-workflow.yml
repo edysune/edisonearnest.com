@@ -2,9 +2,9 @@ name: Website Release Pipeline
 
 on: 
   push:
-    branches: [ master ]
+    branches: [ master, release-angular ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, release-angular ]
   workflow_dispatch:
     inputs:
       refBuildOverride:
