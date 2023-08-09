@@ -25,7 +25,8 @@ on:
         - error
 
 env:
-  REF_TO_BUILD: ${{ input.refBuildOverride != '' && input.refBuildOverride || github.ref_name }}
+  REF_TO_BUILD: ${{ input.refBuildOverride != '' && inputs.refBuildOverride || github.ref_name }}
+  IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
 
 jobs:
   build:
@@ -57,6 +58,7 @@ jobs:
       - run: npm run build
 
       - name: Copy Build to Prod
+        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' }}
         uses: garygrossgarten/github-action-scp@release
         with:
           local: dist/edison-earnest-site
