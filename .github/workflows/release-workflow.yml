@@ -22,9 +22,11 @@ on:
 
 jobs:
   buildAndDeploy:
-    uses: ../actions/release-workflow.yml
-    with:
-      refToBuild: ${{ inputs.refToBuild }}
-      forceDeploy: ${{ inputs.forceDeploy }}
-      logLevel: ${{ inputs.logLevel }}
-    secrets: inherit
+    steps:
+      - name: Build, Test, and Deploy
+        uses: ../actions/release-workflow.yml
+        with:
+          refToBuild: ${{ inputs.refToBuild }}
+          forceDeploy: ${{ inputs.forceDeploy }}
+          logLevel: ${{ inputs.logLevel }}
+        secrets: inherit
