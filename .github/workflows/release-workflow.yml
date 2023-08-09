@@ -27,7 +27,8 @@ on:
 env:
   REF_TO_BUILD: ${{ inputs.refBuildOverride != '' && inputs.refBuildOverride || github.sha }}
   IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
-  DEPLOY: ${{ inputs.deploy }}
+  DEPLOY: ${{ inputs.deploy != '' && inputs.deploy || 'true' }}
+  LOG_LEVEL: ${{ inputs.logLevel != '' && inputs.logLevel || 'error' }}
 
 jobs:
   build:
@@ -39,12 +40,6 @@ jobs:
 
       - name: DEBUG echo github.sha
         run: echo ${{ github.sha }}
-
-      - name: DEBUG echo inputs.refBuildOverride
-        run: echo ${{ inputs.refBuildOverride }}
-
-      - name: DEBUG echo inputs.deploy
-        run: echo ${{ inputs.deploy }}
 
       - name: DEBUG echo env.DEPLOY
         run: echo ${{ env.DEPLOY }}
