@@ -11,10 +11,10 @@ on:
         type: string
         description: 'Branch, tag or commit SHA1 to build'
         default: ''
-      forceDeploy:
+      deploy:
         type: boolean
         description: 'Force Deploy'
-        default: true
+        default: 'true'
       logLevel:
         type: choice
         description: 'Log Level'
@@ -35,16 +35,15 @@ jobs:
       # - name: DEBUG Get Github Variables
       #   run: |
       #     echo "${{toJSON(github)}}"
-        
-      - name: DEBUG Get inputs Variables
-        run: |
-          echo "${{toJSON(inputs)}}"
 
       - name: DEBUG echo github.sha
         run: echo ${{ github.sha }}
 
       - name: DEBUG echo inputs.refBuildOverride
         run: echo ${{ inputs.refBuildOverride }}
+
+      - name: DEBUG echo inputs.deploy
+        run: echo ${{ inputs.deploy }}
 
       - name: DEBUG echo env.REF_TO_BUILD
         run: echo ${{ env.REF_TO_BUILD }}
@@ -68,7 +67,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy Website to Prod
-        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && inputs.forceDeploy == true }}
+        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && inputs.deploy == 'true' }}
         uses: garygrossgarten/github-action-scp@release
         with:
           local: dist/edison-earnest-site
