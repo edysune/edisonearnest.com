@@ -1,45 +1,54 @@
-# name: WORKFLOW - Release Pipeline for edisongearnest.com
+name: Workflow - Release Pipeline for edisongearnest.com
 
-# on: 
-#   push:
-#     branches: [ master ]
-#   pull_request:
-#     branches: [ master ]
-#   workflow_dispatch:
-#     inputs:
-#       refToBuild:
-#         type: string
-#         description: 'Branch, tag or commit SHA1 to build'
-#         default: 'master'
-#       forceDeploy:
-#         type: boolean
-#         description: 'Force Deploy'
-#         default: false
-#       logLevel:
-#         type: choice
-#         description: 'Log Level'
-#         default: 'error'
-#         options:
-#         - info
-#         - warning
-#         - error
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      refToBuild:
+        type: string
+        description: 'Branch, tag or commit SHA1 to build'
+        default: ''
+      forceDeploy:
+        type: boolean
+        description: 'Force Deploy'
+        default: false
+      logLevel:
+        type: choice
+        description: 'Log Level'
+        default: 'error'
+        options:
+        - info
+        - warning
+        - error
 
-# jobs:
-#   website-deployment:
-#     name: Website Deployment
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2.3.4 # Necessary to access local action
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          # ref: ${{ inputs.refToBuild }}
+          ref: 'master'
 
-#       - name: Build And Deploy
-#         id: build-and-deploy
-#         uses: ./.github/actions/release-action.yml
-#         with:
-#           refToBuild: ${{ inputs.refToBuild }}
-#           forceDeploy: ${{ inputs.forceDeploy }}
-#           logLevel: ${{ inputs.logLevel }}
-#           host: ${{ secrets.HOST }}
-#           username: ${{ secrets.SSH_USER }}
-#           password: ${{ secrets.PASSWORD }}
-#       # - name: Output Output
-#       #   run: echo "${{ steps.build-and-deploy.outputs.test }}"
+      - name: Setup node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - run: npm install
+
+      - run: npm run build
+
+      - name: Copy Build to Prod
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: dist/edison-earnest-site
+          remote: /var/www/html
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.PASSWORD }}
