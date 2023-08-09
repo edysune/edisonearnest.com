@@ -25,7 +25,7 @@ on:
         - error
 
 env:
-  REF_TO_BUILD: ${{ input.refBuildOverride != '' && inputs.refBuildOverride || github.ref_name }}
+  REF_TO_BUILD: ${{ inputs.refBuildOverride != '' && inputs.refBuildOverride || github.ref_name }}
   IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
 
 jobs:
