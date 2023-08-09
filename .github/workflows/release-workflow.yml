@@ -60,7 +60,7 @@ jobs:
 
       - run: npm run build
 
-      - name: Copy Build to Prod
+      - name: Deploy Website to Prod
         if: ${{ env.IS_PR_GITHUB_EVENT == 'false' }}
         uses: garygrossgarten/github-action-scp@release
         with:
