@@ -32,21 +32,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # - name: DEBUG echo github
+      #   run: echo ${{ github.ref_name }}
+
+      # - name: DEBUG echo refToBuild
+      #   run: echo ${{ inputs.refToBuild }}
+
+      # - name: DEBUG echo REF_TO_BUILD
+      #   run: echo ${{ env.REF_TO_BUILD }}
+
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
         with:
           submodules: recursive
-          # ref: ${{ inputs.refToBuild }}
-          ref: 'master'
-
-      - name: DEBUG echo github
-        run: echo ${{ github.ref_name }}
-
-      - name: DEBUG echo refToBuild
-        run: echo ${{ inputs.refToBuild }}
-
-      - name: DEBUG echo REF_TO_BUILD
-        run: echo ${{ env.REF_TO_BUILD }}
+          ref: ${{ env.REF_TO_BUILD }}
 
       - name: Setup node 14
         uses: actions/setup-node@v2
