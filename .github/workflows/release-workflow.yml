@@ -35,6 +35,10 @@ jobs:
       # - name: DEBUG Get Github Variables
       #   run: |
       #     echo "${{toJSON(github)}}"
+        
+      - name: DEBUG Get inputs Variables
+        run: |
+          echo "${{toJSON(inputs)}}"
 
       - name: DEBUG echo github.sha
         run: echo ${{ github.sha }}
@@ -47,9 +51,6 @@ jobs:
 
       - name: DEBUG echo env.IS_PR_GITHUB_EVENT
         run: echo ${{ env.IS_PR_GITHUB_EVENT }}
-        
-      - name: DEBUG echo inputs.forceDeploy
-        run: echo ${{ inputs.forceDeploy }}
 
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
