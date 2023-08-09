@@ -32,15 +32,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # - name: DEBUG echo github
-      #   run: echo ${{ github.ref_name }}
+      # - name: DEBUG Get Github Variables
+      #   run: |
+      #     echo "${{toJSON(github)}}"
 
-      # - name: DEBUG echo refToBuild
-      #   run: echo ${{ inputs.refToBuild }}
+      - name: DEBUG echo github.sha
+        run: echo ${{ github.sha }}
 
-      - name: DEBUG Get Github Variables
-        run: |
-          echo "${{toJSON(github)}}"
+      - name: DEBUG echo inputs.refBuildOverride
+        run: echo ${{ inputs.refBuildOverride }}
 
       - name: DEBUG echo REF_TO_BUILD
         run: echo ${{ env.REF_TO_BUILD }}
