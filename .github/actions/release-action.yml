@@ -1,10 +1,6 @@
 name: ACTION - Release Pipeline for edisongearnest.com
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
   workflow_call:
     inputs:
       refToBuild:
@@ -19,6 +15,13 @@ on:
         type: string
         description: 'Log Level'
         default: 'error'
+    secrets:
+      host:
+        required: false
+      username:
+        required: false
+      password:
+        required: false
 
 jobs:
   build:
@@ -44,6 +47,6 @@ jobs:
         with:
           local: dist/edison-earnest-site
           remote: /var/www/html
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.PASSWORD }}
+          host: ${{ secrets.host }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}

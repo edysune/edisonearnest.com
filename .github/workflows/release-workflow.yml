@@ -1,6 +1,10 @@
 name: WORKFLOW - Release Pipeline for edisongearnest.com
 
 on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
   workflow_dispatch:
     inputs:
       refToBuild:
@@ -21,11 +25,22 @@ on:
         - error
 
 jobs:
-  deployment:
-    name: Build And Deploy
-    uses: ./.github/actions/release-action.yml
-    with:
-      refToBuild: ${{ inputs.refToBuild }}
-      forceDeploy: ${{ inputs.forceDeploy }}
-      logLevel: ${{ inputs.logLevel }}
-    secrets: inherit
+  website-deployment:
+    name: Website Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4 # Necessary to access local action
+
+      - name: Build And Deploy
+        id: build-and-deploy
+        uses: ./.github/actions/release-action.yml
+        with:
+          refToBuild: ${{ inputs.refToBuild }}
+          forceDeploy: ${{ inputs.forceDeploy }}
+          logLevel: ${{ inputs.logLevel }}
+        secrets:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.PASSWORD }}
+      # - name: Output Output
+      #   run: echo "${{ steps.build-and-deploy.outputs.test }}"
