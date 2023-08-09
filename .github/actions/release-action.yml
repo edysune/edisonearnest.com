@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Release Pipeline for edisongearnest.com
+name: ACTION - Release Pipeline for edisongearnest.com
 
 on:
   push:
@@ -8,21 +6,38 @@ on:
   pull_request:
     branches: [ master ]
 
+inputs:
+  refToBuild:
+    type: string
+    description: 'Branch, tag or commit SHA1 to build'
+    default: 'master'
+  forceDeploy:
+    type: boolean
+    description: 'Force Deploy'
+    default: false
+  logLevel:
+    type: string
+    description: 'Log Level'
+    default: 'error'
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    # runs-on: self-hosted
 
     steps:
       - name: Checkout repository and submodules
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: recursive
+          ref: ${{ inputs.refToBuild }}
+
       - name: Setup node 14
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
+
       - run: npm install
+
       - run: npm run build
 
       - name: Copy Build to Prod

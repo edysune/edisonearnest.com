@@ -1,0 +1,30 @@
+name: WORKFLOW - Release Pipeline for edisongearnest.com
+
+on: 
+  workflow_dispatch:
+    inputs:
+      refToBuild:
+        type: string
+        description: 'Branch, tag or commit SHA1 to build'
+        default: 'master'
+      forceDeploy:
+        type: boolean
+        description: 'Force Deploy'
+        default: false
+      logLevel:
+        type: choice
+        description: 'Log Level'
+        default: 'error'
+        options:
+        - info
+        - warning
+        - error
+
+jobs:
+  buildAndDeploy:
+    uses: ../actions/release-workflow.yml
+    with:
+      refToBuild: ${{ inputs.refToBuild }}
+      forceDeploy: ${{ inputs.forceDeploy }}
+      logLevel: ${{ inputs.logLevel }}
+    secrets: inherit
