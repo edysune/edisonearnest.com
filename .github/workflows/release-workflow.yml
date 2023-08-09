@@ -61,7 +61,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy Website to Prod
-        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && forceDeploy == 'true' }}
+        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && inputs.forceDeploy == 'true' }}
         uses: garygrossgarten/github-action-scp@release
         with:
           local: dist/edison-earnest-site
