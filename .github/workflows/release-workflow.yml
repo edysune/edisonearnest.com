@@ -38,7 +38,6 @@ jobs:
           refToBuild: ${{ inputs.refToBuild }}
           forceDeploy: ${{ inputs.forceDeploy }}
           logLevel: ${{ inputs.logLevel }}
-        secrets:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.PASSWORD }}
