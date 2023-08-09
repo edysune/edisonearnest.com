@@ -42,8 +42,14 @@ jobs:
       - name: DEBUG echo inputs.refBuildOverride
         run: echo ${{ inputs.refBuildOverride }}
 
-      - name: DEBUG echo REF_TO_BUILD
+      - name: DEBUG echo env.REF_TO_BUILD
         run: echo ${{ env.REF_TO_BUILD }}
+
+      - name: DEBUG echo env.IS_PR_GITHUB_EVENT
+        run: echo ${{ env.IS_PR_GITHUB_EVENT }}
+        
+      - name: DEBUG echo inputs.forceDeploy
+        run: echo ${{ inputs.forceDeploy }}
 
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
@@ -61,7 +67,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy Website to Prod
-        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && inputs.forceDeploy == 'true' }}
+        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && inputs.forceDeploy == true }}
         uses: garygrossgarten/github-action-scp@release
         with:
           local: dist/edison-earnest-site
