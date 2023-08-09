@@ -35,6 +35,9 @@ jobs:
           # ref: ${{ inputs.refToBuild }}
           ref: 'master'
 
+      - name: [DEBUG] echo github
+        run: echo ${{ github.ref_name }}
+
       - name: Setup node 14
         uses: actions/setup-node@v2
         with:
