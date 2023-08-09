@@ -11,10 +11,10 @@ on:
         type: string
         description: 'Branch, tag or commit SHA1 to build'
         default: ''
-      forceDeploy:
+      deploy:
         type: boolean
-        description: 'Force Deploy'
-        default: true
+        description: 'Deploy To Website'
+        default: 'true'
       logLevel:
         type: choice
         description: 'Log Level'
@@ -27,6 +27,8 @@ on:
 env:
   REF_TO_BUILD: ${{ inputs.refBuildOverride != '' && inputs.refBuildOverride || github.sha }}
   IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+  DEPLOY: ${{ inputs.deploy != '' && inputs.deploy || 'true' }}
+  LOG_LEVEL: ${{ inputs.logLevel != '' && inputs.logLevel || 'error' }}
 
 jobs:
   build:
@@ -39,11 +41,14 @@ jobs:
       - name: DEBUG echo github.sha
         run: echo ${{ github.sha }}
 
-      - name: DEBUG echo inputs.refBuildOverride
-        run: echo ${{ inputs.refBuildOverride }}
+      - name: DEBUG echo env.DEPLOY
+        run: echo ${{ env.DEPLOY }}
 
-      - name: DEBUG echo REF_TO_BUILD
+      - name: DEBUG echo env.REF_TO_BUILD
         run: echo ${{ env.REF_TO_BUILD }}
+
+      - name: DEBUG echo env.IS_PR_GITHUB_EVENT
+        run: echo ${{ env.IS_PR_GITHUB_EVENT }}
 
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
@@ -61,7 +66,7 @@ jobs:
       - run: npm run build
 
       - name: Deploy Website to Prod
-        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && inputs.forceDeploy == 'true' }}
+        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && inputs.deploy == 'true' }}
         uses: garygrossgarten/github-action-scp@release
         with:
           local: dist/edison-earnest-site
