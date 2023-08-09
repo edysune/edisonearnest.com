@@ -23,7 +23,7 @@ on:
 jobs:
   deployment:
     name: Build And Deploy
-    uses: ./.github/actions/release-workflow.yml
+    uses: ./.github/actions/release-action.yml
     with:
       refToBuild: ${{ inputs.refToBuild }}
       forceDeploy: ${{ inputs.forceDeploy }}
