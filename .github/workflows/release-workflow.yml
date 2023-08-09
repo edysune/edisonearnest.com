@@ -21,7 +21,8 @@ on:
         - error
 
 jobs:
-  buildAndDeploy:
+  deployment:
+    runs-on: ubuntu-latest
     steps:
       - name: Build, Test, and Deploy
         uses: ../actions/release-workflow.yml

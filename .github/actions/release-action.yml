@@ -23,7 +23,6 @@ inputs:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
