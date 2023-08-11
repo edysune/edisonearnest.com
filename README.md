@@ -111,3 +111,78 @@ git pull
 # this updates the submodule to the latest
 # commit in master as set in the last example
 git submodule update
+
+# Managing Site Certificates
+Certificate management for site is done through [letsencrypt.org](https://letsencrypt.org/).
+
+1. Install snapd
+2. Uninstall certbot from default OS package manager if installed
+```
+sudo apt-get remove certbot
+sudo dnf remove certbot
+sudo yum remove certbot.
+```
+3. [Install Certbot](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal) with snapd
+```
+sudo snap install --classic certbot
+```
+4. Prepare the Certbot command 
+```
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+5. Either get and install your certificates or, just get a certificate
+
+```
+sudo certbot --nginx
+sudo certbot certonly --nginx
+```
+6. Test automatic renewal
+  - The Certbot packages on your system come with a cron job or systemd timer that will renew your certificates automatically before they expire. You will not need to run Certbot again, unless you change your configuration. You can test automatic renewal for your certificates by running this command:
+```
+sudo certbot renew --dry-run
+
+// The command to renew certbot is installed in one of the following locations:
+// /etc/crontab/
+// /etc/cron.*/*
+// systemctl list-timers
+```
+
+
+## Installing snapd on Ubuntu
+See [Guide on Installing Snap on Ubuntu](https://snapcraft.io/docs/installing-snap-on-ubuntu):
+
+```
+sudo apt update
+sudo apt install snapd
+sudo snap install hello-world
+```
+
+## Ubuntu server unable to update in DigitalOcean droplets
+if [ubuntu server is unable to update](https://www.digitalocean.com/community/questions/unable-to-apt-update-my-ubuntu-19-04), specifically with DigitalOcean see following fix:
+
+```
+// The repositories for older releases that are not supported (like 11.04, 11.10 and 13.04) get moved to an archive server. There are repositories available at http://old-releases.ubuntu.com.
+
+sudo sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+sudo apt-get update && sudo apt-get dist-upgrade
+```
+
+You may need to update `/etc/apt/sources.list` in case the previous sed script above didn't change everything out automatically:
+```
+// EXAMPLE #1
+FROM:  deb http://ports.ubuntu.com/ubuntu-ports/ impish main restricted
+TO:    deb http://old-releases.ubuntu.com/ubuntu/ impish main restricted
+
+// EXAMPLE #2
+FROM:  deb-src http://mirrors.digitalocean.com/ubuntu/ hirsute-updates universe
+TO:    deb http://old-releases.ubuntu.com/ubuntu/ hirsute-updates universe
+```
+
+Other solutions:
+```
+sudo dpkg --configure -a
+sudo apt-get remove droplet-agent
+sudo rm /etc/apt/sources.list.d/droplet-agent.list
+sudo apt-get update
+wget -qO- https://repos-droplet.digitalocean.com/install.sh | sudo bash
+```
