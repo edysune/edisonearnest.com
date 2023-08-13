@@ -2,9 +2,9 @@ name: Website Release Pipeline
 
 on: 
   push:
-    branches: [ master ]
+    branches: [ master, release-react ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, release-react ]
   workflow_dispatch:
     inputs:
       refBuildOverride:
@@ -67,12 +67,12 @@ jobs:
 
       - run: npm run test
 
-      # - name: Deploy Website to Prod
-      #   if: ${{ env.IS_PR_GITHUB_EVENT == false && env.DEPLOY == true }}
-      #   uses: garygrossgarten/github-action-scp@release
-      #   with:
-      #     local: dist/edison-earnest-site
-      #     remote: /var/www/html
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.SSH_USER }}
-      #     password: ${{ secrets.PASSWORD }}
+      - name: Deploy Website to Prod
+        if: ${{ env.IS_PR_GITHUB_EVENT == false && env.DEPLOY == true }}
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: dist/edison-earnest-site
+          remote: /var/www/html
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.PASSWORD }}
