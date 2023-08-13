@@ -26,8 +26,8 @@ on:
 
 env:
   REF_TO_BUILD: ${{ inputs.refBuildOverride != '' && inputs.refBuildOverride || github.sha }}
-  IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && true || false }}
-  DEPLOY: ${{ inputs.deploy != '' && inputs.deploy || true }}
+  IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+  DEPLOY: ${{ inputs.deploy != '' && inputs.deploy || 'true' }}
   LOG_LEVEL: ${{ inputs.logLevel != '' && inputs.logLevel || 'error' }}
 
 jobs:
@@ -68,7 +68,7 @@ jobs:
       - run: npm run test
 
       - name: Deploy Website to Prod
-        if: ${{ env.IS_PR_GITHUB_EVENT == false && env.DEPLOY == true }}
+        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && env.DEPLOY == 'true' }}
         uses: garygrossgarten/github-action-scp@release
         with:
           local: build
