@@ -14,7 +14,7 @@ on:
       deploy:
         type: boolean
         description: 'Deploy To Website'
-        default: 'true'
+        default: true
       logLevel:
         type: choice
         description: 'Log Level'
@@ -26,8 +26,8 @@ on:
 
 env:
   REF_TO_BUILD: ${{ inputs.refBuildOverride != '' && inputs.refBuildOverride || github.sha }}
-  IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
-  DEPLOY: ${{ inputs.deploy != '' && inputs.deploy || 'true' }}
+  IS_PR_GITHUB_EVENT: ${{ github.event_name == 'pull_request' && true || false }}
+  DEPLOY: ${{ inputs.deploy != '' && inputs.deploy || true }}
   LOG_LEVEL: ${{ inputs.logLevel != '' && inputs.logLevel || 'error' }}
 
 jobs:
@@ -53,24 +53,26 @@ jobs:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
         with:
-          submodules: recursive
+          # submodules: recursive
           ref: ${{ env.REF_TO_BUILD }}
 
-      - name: Setup node 14
+      - name: Setup node 20.5.X
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 20.5.X
 
       - run: npm install
 
       - run: npm run build
 
-      - name: Deploy Website to Prod
-        if: ${{ env.IS_PR_GITHUB_EVENT == 'false' && env.DEPLOY == 'true' }}
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: dist/edison-earnest-site
-          remote: /var/www/html
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.PASSWORD }}
+      - run: npm run test
+
+      # - name: Deploy Website to Prod
+      #   if: ${{ env.IS_PR_GITHUB_EVENT == false && env.DEPLOY == true }}
+      #   uses: garygrossgarten/github-action-scp@release
+      #   with:
+      #     local: dist/edison-earnest-site
+      #     remote: /var/www/html
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.SSH_USER }}
+      #     password: ${{ secrets.PASSWORD }}
