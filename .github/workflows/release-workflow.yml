@@ -71,7 +71,7 @@ jobs:
         if: ${{ env.IS_PR_GITHUB_EVENT == false && env.DEPLOY == true }}
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: dist/edison-earnest-site
+          local: build
           remote: /var/www/html
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
