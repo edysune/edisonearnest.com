@@ -68,7 +68,7 @@ const ActionButton = styled(PrimaryButtonBase)`
 
 const WhiteBackgroundOverlay = tw.div`absolute inset-x-0 bottom-0 h-1/6 lg:h-1/3 bg-white z-0`;
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "",
   heading = "Affordable Pricing",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

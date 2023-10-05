@@ -59,7 +59,7 @@ const PrimaryButton = styled(PrimaryButtonBase)(props => [
   props.buttonRounded && tw`rounded-full`
 ]);
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "Our Expertise",
   heading = (
     <>

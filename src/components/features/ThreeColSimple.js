@@ -50,7 +50,7 @@ const DecoratorBlob = styled(SvgDecoratorBlob3)`
   ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-40`}
 `;
 
-export default ({
+export default ({ //eslint-disable-line
   cards = [
     {
       imageSrc: ShieldIconImage,

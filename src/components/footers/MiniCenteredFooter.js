@@ -29,7 +29,7 @@ const SocialLink = styled.a`
 `;
 
 const CopyrightText = tw.p`text-center mt-10 font-medium tracking-wide text-sm text-gray-600`
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <Container>
       <Content>

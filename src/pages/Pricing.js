@@ -6,7 +6,7 @@ import Testimonial from "components/testimonials/ThreeColumnWithProfileImage.js"
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import FAQ from "components/faqs/SingleCol.js";
 
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <AnimationRevealPage>
       <Header />

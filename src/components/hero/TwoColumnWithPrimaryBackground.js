@@ -30,7 +30,7 @@ const Description = tw(SectionDescription)`mt-4 max-w-2xl text-gray-100 lg:text-
 const PrimaryButton = tw(PrimaryButtonBase)`mt-8 text-sm sm:text-base px-6 py-5 sm:px-10 sm:py-5 bg-primary-400 inline-block hocus:bg-primary-500`;
 const Image = tw.img`w-144 ml-auto`
 
-export default ({
+export default ({ //eslint-disable-line
   heading = "High Performant Servers tailored to your needs",
   description = "Our cloud provisions the best servers, with fast SSD, powerful Xeon Processors, whenever you need it. Oh, and we have 99.9% SLA",
   primaryButtonText = "Start Your 15 Day Free Trial",

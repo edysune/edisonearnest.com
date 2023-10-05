@@ -68,7 +68,7 @@ const ControlButton = styled.button`
   }
 `;
 
-export default ({
+export default ({ //eslint-disable-line
   imageSrc = loveIllustrationImageSrc,
   imageRounded = true,
   imageBorder = false,

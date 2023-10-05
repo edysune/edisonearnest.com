@@ -45,7 +45,7 @@ const FeatureDescription = tw.div`mt-1 text-sm`;
 
 const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block mx-auto md:mx-0`;
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "Our Expertise",
   heading = (
     <>

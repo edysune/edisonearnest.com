@@ -505,7 +505,7 @@ export const components = {
   }
 }
 
-export default () => {
+export default () => { //eslint-disable-line
   const { type, subtype, name } = useParams()
 
   try {

@@ -46,7 +46,7 @@ const Description = tw.div``;
 const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
-export default ({
+export default ({ //eslint-disable-line
   headingText = "Blog Posts",
   posts = [
     {
@@ -81,7 +81,7 @@ export default ({
   ]
 }) => {
   const [visible, setVisible] = useState(7);
-  const onLoadMoreClick = () => {
+  const onLoadMoreClick = () => { //eslint-disable-line
     setVisible(v => v + 6);
   };
   return (
@@ -119,7 +119,7 @@ export default ({
   );
 };
 
-const getPlaceholderPost = () => ({
+const getPlaceholderPost = () => ({ //eslint-disable-line
   imageSrc:
     "https://images.unsplash.com/photo-1418854982207-12f710b74003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
   category: "Travel Guide",

@@ -39,7 +39,7 @@ const DecoratorBlob = styled(SvgDotPattern)(props => [
   tw`w-20 h-20 absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2 fill-current text-primary-500 -z-10`
 ]);
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "Our Track Record",
   heading = (
     <>

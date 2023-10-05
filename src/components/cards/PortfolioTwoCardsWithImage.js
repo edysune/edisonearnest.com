@@ -56,7 +56,7 @@ const CardMetaFeature = styled.div`
 `;
 const CardAction = tw(PrimaryButtonBase)`w-full mt-6`;
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "Our Portfolio",
   headingHtmlComponent = (
     <>

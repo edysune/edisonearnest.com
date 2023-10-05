@@ -87,7 +87,7 @@ const ResizableBox = styled(Rnd)`
 `;
 const ResizeHandleButton = tw.button`cursor-col-resize focus:outline-none w-4 border-l bg-gray-100 absolute right-0 inset-y-0`;
 
-export default ({
+export default ({ //eslint-disable-line
   features = null,
   primaryButtonUrl = "#landingPageDemos",
   primaryButtonText = "Explore Demos",

@@ -40,7 +40,7 @@ const CopyrightNotice = tw.div``
 const CompanyInfo = tw.div``
 
 const Divider = tw.div`my-8 border-b-2 border-gray-800`
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <Container>
       <Content>

@@ -41,7 +41,7 @@ const Actions = styled.div`
   }
 `;
 
-export default ({
+export default ({ //eslint-disable-line
   navLinks = [
     <NavLinks key={1}>
       <NavLink href="#">About</NavLink>

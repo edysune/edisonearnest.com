@@ -52,7 +52,7 @@ const Card = styled.div`
   }
 `;
 
-export default ({
+export default ({ //eslint-disable-line
   cards = null,
   heading = "Amazing Features",
   subheading = "",

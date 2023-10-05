@@ -47,7 +47,7 @@ const DecoratorBlob2 = tw(
   SvgDecoratorBlob1
 )`absolute bottom-0 right-0 w-80 h-80 transform  translate-x-32 translate-y-48 text-primary-700 opacity-50`;
 
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <Container>
       <Content>

@@ -7,7 +7,7 @@ import Testimonial from "components/testimonials/TwoColumnWithImage.js";
 import ContactUsForm from "components/forms/SimpleContactUs.js";
 import Footer from "components/footers/SimpleFiveColumn.js";
 
-export default () => (
+export default () => ( //eslint-disable-line
   <AnimationRevealPage>
     <Hero />
     <Features />

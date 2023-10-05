@@ -55,7 +55,7 @@ const CardMetaFeature = styled.div`
 `;
 const CardAction = tw(PrimaryButtonBase)`w-full mt-8`;
 
-export default () => {
+export default () => { //eslint-disable-line
   const cards = [
     {
       imageSrc:

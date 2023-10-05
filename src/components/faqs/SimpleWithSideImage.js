@@ -37,7 +37,7 @@ const QuestionToggleIcon = styled.span`
 `;
 const Answer = motion(tw.dd`pointer-events-none text-sm sm:text-base leading-relaxed`);
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "",
   heading = "Questions",
   description = "Here are some frequently asked questions about our hotels from our loving customers. Should you have any other questions, feel free to reach out via the contact form below.",

@@ -35,7 +35,7 @@ const Text = styled.div`
   }
 `;
 
-export default ({ headingText = "Terms And Condition" }) => {
+export default ({ headingText = "Terms And Condition" }) => { //eslint-disable-line
   return (
     <AnimationRevealPage>
       <Header />

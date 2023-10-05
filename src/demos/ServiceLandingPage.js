@@ -17,7 +17,7 @@ import Footer from "components/footers/FiveColumnWithInputForm.js";
 
 const HighlightedText = tw.span`text-primary-500`
 
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <AnimationRevealPage>
       <Hero />

@@ -11,7 +11,7 @@ import serverRedundancyIllustrationImageSrc from "images/server-redundancy-illus
 import serverSecureIllustrationImageSrc from "images/server-secure-illustration.svg"
 
 
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <AnimationRevealPage>
       <Hero />

@@ -15,7 +15,7 @@ import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import customerSupportIllustrationSrc from "images/customer-support-illustration.svg";
 
-export default () => (
+export default () => ( //eslint-disable-line
   <AnimationRevealPage>
     <Hero />
     <MainFeature />

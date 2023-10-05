@@ -40,7 +40,7 @@ const PrimaryButton = styled(PrimaryButtonBase)(props => [
 ]);
 
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "Our Expertise",
   heading = (
     <>

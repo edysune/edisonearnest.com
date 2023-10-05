@@ -44,7 +44,7 @@ const RecentPostsContainer = styled.div`
 `;
 const PostTextContainer = tw.div``
 
-export default () => {
+export default () => { //eslint-disable-line
   // This setting is for animating the post background image on hover
   const postBackgroundSizeAnimation = {
     rest: {

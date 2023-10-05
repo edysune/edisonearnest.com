@@ -34,7 +34,7 @@ const Text = styled.div`
     }
   }
 `;
-export default ({ headingText = "Privacy Policy" }) => {
+export default ({ headingText = "Privacy Policy" }) => { //eslint-disable-line
   return (
     <AnimationRevealPage>
       <Header />

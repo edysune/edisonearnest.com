@@ -23,7 +23,7 @@ const Input = tw.input`w-full sm:w-auto block sm:inline-block px-6 py-4 rounded 
 const Button = tw(PrimaryButton)`w-full sm:w-auto mt-6 sm:mt-0 sm:rounded-l-none py-4 bg-green-500 text-gray-100 hocus:bg-green-700 hocus:text-gray-300 border border-green-500 hocus:border-green-700`
 
 
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <Container>
       <Content>

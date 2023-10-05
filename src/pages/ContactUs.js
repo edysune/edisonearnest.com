@@ -12,7 +12,7 @@ const AddressLine = tw.span`block`;
 const Email = tw.span`text-sm mt-6 block text-gray-500`;
 const Phone = tw.span`text-sm mt-0 block text-gray-500`;
 
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <AnimationRevealPage>
       <Header />

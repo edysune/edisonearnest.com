@@ -45,7 +45,7 @@ const CustomersLogoStrip = styled.div`
   }
 `;
 
-export default ({ roundedHeaderButton }) => {
+export default ({ roundedHeaderButton }) => { //eslint-disable-line
   return (
     <>
       <Header roundedHeaderButton={roundedHeaderButton} />

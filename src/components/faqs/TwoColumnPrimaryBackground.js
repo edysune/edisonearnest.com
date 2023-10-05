@@ -27,7 +27,7 @@ const QuestionToggleIcon = styled(motion.span)`
 `;
 const Answer = tw(motion.div)`hidden text-sm font-normal mt-4 text-gray-300`;
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "",
   heading = "Frequently Asked Questions",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

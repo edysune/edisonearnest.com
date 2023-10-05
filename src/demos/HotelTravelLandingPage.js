@@ -11,7 +11,7 @@ import FAQ from "components/faqs/SimpleWithSideImage.js";
 import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 
-export default () => (
+export default () => ( //eslint-disable-line
   <AnimationRevealPage>
     <Hero />
     <Features />

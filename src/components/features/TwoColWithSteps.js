@@ -39,7 +39,7 @@ const StepText = tw.div`mt-3 md:mt-0 md:ml-6`;
 const StepHeading = tw.h6`leading-none text-xl font-semibold`;
 const StepDescription = tw.p`mt-3 max-w-xs leading-loose text-sm text-gray-600 font-medium`;
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "Our Expertise",
   heading = (
     <>

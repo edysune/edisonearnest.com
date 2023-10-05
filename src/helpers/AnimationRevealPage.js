@@ -51,7 +51,7 @@ function AnimatedSlideInComponent({ direction = "left", offset = 30, children })
   );
 }
 
-export default props => (
+export default props => ( //eslint-disable-line
   <StyledDiv className="App">
     <AnimationReveal {...props} />
   </StyledDiv>

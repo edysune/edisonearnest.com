@@ -55,7 +55,7 @@ const StyledResponsiveVideoEmbed = styled(ResponsiveVideoEmbed)`
   }
 `;
 
-export default () => {
+export default () => { //eslint-disable-line
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="#">

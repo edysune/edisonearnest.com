@@ -82,7 +82,7 @@ const DecoratorBlob = styled(SvgDecoratorBlob)`
 `;
 
 
-export default ({
+export default ({ //eslint-disable-line
   subheading = "Pricing",
   heading = "Flexible Plans.",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

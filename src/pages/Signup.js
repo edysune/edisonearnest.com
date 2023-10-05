@@ -53,7 +53,7 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
 
-export default ({
+export default ({ //eslint-disable-line
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
   headingText = "Sign Up For Treact",

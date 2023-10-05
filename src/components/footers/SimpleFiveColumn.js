@@ -34,7 +34,7 @@ const SocialLink = styled.a`
   }
 `;
 
-export default () => {
+export default () => { //eslint-disable-line
   return (
     <Container>
       <FiveColumns>
