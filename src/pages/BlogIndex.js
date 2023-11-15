@@ -9,6 +9,14 @@ import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 
+import Rolly1 from "images/blogs/rolly_1.jpeg";
+import Rolly2 from "images/blogs/rolly_2.jpeg";
+
+import Consciousness1 from "images/blogs/consciousness_1.jpg";
+import Consciousness2 from "images/blogs/consciousness_2.jpg";
+import Consciousness3 from "images/blogs/consciousness_3.jpg";
+import Consciousness4 from "images/blogs/consciousness_4.jpg";
+
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
@@ -48,37 +56,7 @@ const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
 export default ({ //eslint-disable-line
   headingText = "Blog Posts",
-  posts = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-      category: "Travel Tips",
-      date: "April 21, 2020",
-      title: "Safely Travel in Foreign Countries",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com",
-      featured: true
-    },
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost()
-  ]
+  posts = getBlogs()
 }) => {
   const [visible, setVisible] = useState(7);
   const onLoadMoreClick = () => { //eslint-disable-line
@@ -117,6 +95,30 @@ export default ({ //eslint-disable-line
       <Footer />
     </AnimationRevealPage>
   );
+};
+
+const getBlogs = () => {
+  return [
+    {
+      imageSrc: Rolly1,
+      category: "Animals | Pets",
+      date: "November 12, 2023",
+      title: "Meet Rolly!",
+      description:
+        "This is Rolly! That's pronounced like 'roll-ie'. We were told when we adopted him, that his name was supposed to match his brother 'Polly'.",
+      url: "https://timerse.com",
+      featured: true
+    },
+    {
+      imageSrc: Consciousness1,
+      category: "AI | AI Image Generation | Dalle | Microsoft",
+      date: "November 12, 2023",
+      title: "AI Journey - Part 1 - Image Generation",
+      description:
+        "What is going on with AI Image Generation in 2023? Too much for me to cover, so instead I'll give a brief intro into using Microsoft's AI, which is powered by Dalle.",
+      url: "https://reddit.com"
+    }
+  ]
 };
 
 const getPlaceholderPost = () => ({ //eslint-disable-line

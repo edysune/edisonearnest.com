@@ -9,6 +9,7 @@ import SaaSProductLandingPage from "demos/SaaSProductLandingPage.js";
 import RestaurantLandingPage from "demos/RestaurantLandingPage.js";
 import ServiceLandingPage from "demos/ServiceLandingPage.js";
 import HostingCloudLandingPage from "demos/HostingCloudLandingPage.js";
+import SimpleLandingPage from "demos/SimpleLandingPage.js";
 
 import EventLandingPageImageSrc from "images/demo/EventLandingPage.jpeg";
 import HotelTravelLandingPageImageSrc from "images/demo/HotelTravelLandingPage.jpeg";
@@ -23,8 +24,10 @@ import LoginPage from "pages/Login.js";
 import SignupPage from "pages/Signup.js";
 import PricingPage from "pages/Pricing.js";
 import AboutUsPage from "pages/AboutUs.js";
+import AboutPage from "pages/About.js";
 import ContactUsPage from "pages/ContactUs.js";
 import BlogIndexPage from "pages/BlogIndex.js";
+import RecipeIndexPage from "pages/RecipeIndex.js";
 import TermsOfServicePage from "pages/TermsOfService.js";
 import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 
@@ -137,6 +140,11 @@ export const components = {
       imageSrc: HostingCloudLandingPageImageSrc,
       url: "/components/landingPages/HostingCloudLandingPage",
     },
+    SimpleLandingPage: {
+      component: SimpleLandingPage,
+      imageSrc: SaaSProductLandingPageImageSrc,
+      url: "/components/landingPages/SimpleLandingPage",
+    },
   },
 
   innerPages: {
@@ -162,6 +170,11 @@ export const components = {
       url: `/components/innerPages/AboutUsPage`,
       imageSrc: AboutUsPageImageSrc,
     },
+    AboutPage: {
+      component: AboutPage,
+      url: `/components/innerPages/AboutPage`,
+      imageSrc: AboutUsPageImageSrc,
+    },
     ContactUsPage: {
       component: ContactUsPage,
       url: `/components/innerPages/ContactUsPage`,
@@ -170,6 +183,11 @@ export const components = {
     BlogIndexPage: {
       component: BlogIndexPage,
       url: `/components/innerPages/BlogIndexPage`,
+      imageSrc: BlogIndexPageImageSrc,
+    },
+    RecipeIndexPage: {
+      component: RecipeIndexPage,
+      url: `/components/innerPages/RecipeIndexPage`,
       imageSrc: BlogIndexPageImageSrc,
     },
     TermsOfServicePage: {

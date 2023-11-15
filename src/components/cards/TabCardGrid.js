@@ -59,7 +59,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 `;
 
 export default ({ //eslint-disable-line
-  heading = "Checkout the Menu",
+  heading = "Checkout the recipes!",
   tabs = {
     Starters: [
       {

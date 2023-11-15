@@ -19,7 +19,8 @@ import { ReactComponent as HandleIcon } from "images/handle-icon.svg";
 import { ReactComponent as ArrowRightIcon } from "images/arrow-right-3-icon.svg";
 
 import heroScreenshotImageSrc from "images/demo/MainLandingPageHero.png";
-import logo from "images/logo.svg";
+import logo from "images/ee-icon.png";
+// import logo from "images/ee-icon.png";
 import useInView from "helpers/useInView";
 
 /* Hero */
@@ -139,7 +140,7 @@ export default ({ //eslint-disable-line
           <NavRow>
             <LogoLink href="/">
               <img src={logo} alt="" />
-              Treact
+              EdisonEarnest.com
             </LogoLink>
             <div tw="flex flex-wrap justify-center lg:justify-end items-center -mr-12">
               <NavLink target="_blank" href="https://owaiskhan.me/post/free-tailwindcss-react-ui-kit">
@@ -163,7 +164,7 @@ export default ({ //eslint-disable-line
           <HeroRow>
             <UpdateNotice>
               <UpdateNoticeIcon />
-              Last updated on 10th September, 2022 - Added support for React v18 and TailwindCSS v3!
+                Check out my source code: https://github.com/edysune/edisonearnest.com
             </UpdateNotice>
             <TextColumn>
               <Heading as="h1">{heading}</Heading>

@@ -1,6 +1,9 @@
 # EdisonEarnest.com SourceCode
 This is the source-code to my website. I keep this in case anyone cares, but I mostly do this all for fun.
 
+# Logo URL
+app.logomakr.com/7cmnnG
+
 # Local Environment Configurations 
 
 ## Recommended Node/NPM versions for running project locally

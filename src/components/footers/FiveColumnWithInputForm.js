@@ -4,10 +4,9 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 
-import LogoImage from "images/logo.svg";
-import { ReactComponent as FacebookIcon } from "images/facebook-icon.svg";
-import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
-import { ReactComponent as YoutubeIcon } from "images/youtube-icon.svg";
+import LogoImage from "images/ee-icon.png";
+import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
+import { ReactComponent as GithubIcon } from "images/github-icon.svg";
 
 const Container = tw.div`relative bg-gray-200 text-gray-700 -mb-8 -mx-8 px-8 py-20 lg:py-24`;
 const Content = tw.div`max-w-screen-xl mx-auto relative z-10`;
@@ -55,57 +54,25 @@ export default () => { //eslint-disable-line
             <ColumnHeading>Main</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Blog</Link>
+                <Link href="/blog">Blog</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">FAQs</Link>
+                <Link href="/recipes">Recipes</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Support</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">About Us</Link>
+                <Link href="/about">About</Link>
               </LinkListItem>
             </LinkList>
           </Column>
           <Column>
-            <ColumnHeading>Product</ColumnHeading>
+            <ColumnHeading>Github Projects</ColumnHeading>
             <LinkList>
-              <LinkListItem>
-                <Link href="#">Log In</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Personal</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Business</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Team</Link>
-              </LinkListItem>
-            </LinkList>
-          </Column>
-          <Column>
-            <ColumnHeading>Press</ColumnHeading>
-            <LinkList>
-              <LinkListItem>
-                <Link href="#">Logos</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Events</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Stories</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Office</Link>
-              </LinkListItem>
             </LinkList>
           </Column>
           <Column>
             <ColumnHeading>Legal</ColumnHeading>
             <LinkList>
-              <LinkListItem>
+              {/* <LinkListItem>
                 <Link href="#">GDPR</Link>
               </LinkListItem>
               <LinkListItem>
@@ -116,38 +83,28 @@ export default () => { //eslint-disable-line
               </LinkListItem>
               <LinkListItem>
                 <Link href="#">Disclaimer</Link>
-              </LinkListItem>
+              </LinkListItem> */}
             </LinkList>
           </Column>
-          <SubscribeNewsletterColumn>
-            <SubscribeNewsletterContainer>
-              <ColumnHeading>Subscribe to our Newsletter</ColumnHeading>
-              <SubscribeText>
-                We deliver high quality blog posts written by professionals weekly. And we promise no spam.
-              </SubscribeText>
-              <SubscribeForm method="get" action="#">
-                <Input type="email" placeholder="Your Email Address" />
-                <SubscribeButton type="submit">Subscribe</SubscribeButton>
-              </SubscribeForm>
-            </SubscribeNewsletterContainer>
-          </SubscribeNewsletterColumn>
+          <Column>
+            <ColumnHeading>Contact</ColumnHeading>
+            <LinkList>
+            </LinkList>
+          </Column>
         </SixColumns>
         <Divider />
         <ThreeColRow>
           <LogoContainer>
             <LogoImg src={LogoImage} />
-            <LogoText>Treact Inc.</LogoText>
+            <LogoText>EdisonEarnest.com</LogoText>
           </LogoContainer>
-          <CopywrightNotice>&copy; 2018 Treact Inc. All Rights Reserved.</CopywrightNotice>
+          <CopywrightNotice>&copy; 2023 EdisonEarnest.com All Rights Reserved.</CopywrightNotice>
           <SocialLinksContainer>
-            <SocialLink href="https://facebook.com">
-              <FacebookIcon />
+            <SocialLink href="https://github.com/edysune">
+              <GithubIcon />
             </SocialLink>
-            <SocialLink href="https://twitter.com">
-              <TwitterIcon />
-            </SocialLink>
-            <SocialLink href="https://youtube.com">
-              <YoutubeIcon />
+            <SocialLink href="https://www.linkedin.com/in/edison-earnest-3275501b6/">
+              <LinkedinIcon />
             </SocialLink>
           </SocialLinksContainer>
         </ThreeColRow>
