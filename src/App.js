@@ -19,8 +19,8 @@ export default function App() {
       <GlobalStyles />
       <Router>
         <Routes>
-          <Route path="/components/:type/:subtype/:name" element={<ComponentRenderer />} />
-          <Route path="/components/:type/:name" element={<ComponentRenderer />} />
+          {/* <Route path="/components/:type/:subtype/:name" element={<ComponentRenderer />} />
+          <Route path="/components/:type/:name" element={<ComponentRenderer />} /> */}
           <Route path="/blog/ai-journey-part-1" element={<AI01 />} />
           <Route path="/blog/meet-rolly" element={<MeetRolly />} />
           <Route path="/recipe/best-chip-dip" element={<BestChipDip />} />
