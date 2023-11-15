@@ -10,12 +10,12 @@ import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 
 import Rolly1 from "images/blogs/rolly_1.jpeg";
-import Rolly2 from "images/blogs/rolly_2.jpeg";
+// import Rolly2 from "images/blogs/rolly_2.jpeg";
 
 import Consciousness1 from "images/blogs/consciousness_1.jpg";
-import Consciousness2 from "images/blogs/consciousness_2.jpg";
-import Consciousness3 from "images/blogs/consciousness_3.jpg";
-import Consciousness4 from "images/blogs/consciousness_4.jpg";
+// import Consciousness2 from "images/blogs/consciousness_2.jpg";
+// import Consciousness3 from "images/blogs/consciousness_3.jpg";
+// import Consciousness4 from "images/blogs/consciousness_4.jpg";
 
 const HeadingRow = tw.div`flex`;
 const Heading = tw(SectionHeading)`text-gray-900`;
@@ -121,13 +121,13 @@ const getBlogs = () => {
   ]
 };
 
-const getPlaceholderPost = () => ({ //eslint-disable-line
-  imageSrc:
-    "https://images.unsplash.com/photo-1418854982207-12f710b74003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-  category: "Travel Guide",
-  date: "April 19, 2020",
-  title: "Visit the beautiful Alps in Switzerland",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  url: "https://reddit.com"
-});
+// const getPlaceholderPost = () => ({ //eslint-disable-line
+//   imageSrc:
+//     "https://images.unsplash.com/photo-1418854982207-12f710b74003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
+//   category: "Travel Guide",
+//   date: "April 19, 2020",
+//   title: "Visit the beautiful Alps in Switzerland",
+//   description:
+//     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+//   url: "https://reddit.com"
+// });

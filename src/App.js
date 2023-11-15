@@ -1,7 +1,5 @@
 import React from "react";
 import GlobalStyles from 'styles/GlobalStyles';
-import ComponentRenderer from "ComponentRenderer.js";
-import MainLandingPage from "MainLandingPage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BlogIndex from "pages/BlogIndex";
 import RecipeIndex from "pages/RecipeIndex";
@@ -19,8 +17,6 @@ export default function App() {
       <GlobalStyles />
       <Router>
         <Routes>
-          {/* <Route path="/components/:type/:subtype/:name" element={<ComponentRenderer />} />
-          <Route path="/components/:type/:name" element={<ComponentRenderer />} /> */}
           <Route path="/blog/ai-journey-part-1" element={<AI01 />} />
           <Route path="/blog/meet-rolly" element={<MeetRolly />} />
           <Route path="/recipe/best-chip-dip" element={<BestChipDip />} />
