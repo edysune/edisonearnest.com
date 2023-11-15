@@ -19,8 +19,8 @@ import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefc
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sign.svg";
 
 export default () => { //eslint-disable-line
-  const Subheading = tw.span`uppercase tracking-widest font-bold text-primary-500`;
-  const HighlightedText = tw.span`text-primary-500`;
+  const Subheading = tw.span`uppercase tracking-widest font-bold text-[#013a6a]`;
+  const HighlightedText = tw.span`text-[#013a6a]`;
 
   return (
     <AnimationRevealPage>

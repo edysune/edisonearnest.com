@@ -47,7 +47,7 @@ const DecoratorBlob2 = tw(
 
 export default ({ //eslint-disable-line
   subheading = "Blog",
-  heading = <>We Love <span tw="text-primary-500">Writing.</span></>,
+  heading = <>We Love <span tw="text-[#013a6a]">Writing.</span></>,
   description = "Some amazing blog posts that are written by even more amazing people.",
 
 }) => {

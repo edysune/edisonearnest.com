@@ -47,9 +47,9 @@ const Image = styled.div`
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
 `;
 const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
-const Category = tw.div`uppercase text-primary-500 text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-primary-500 after:w-8`;
+const Category = tw.div`uppercase text-[#013a6a] text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-[#013a6a] after:w-8`;
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
-const Title = tw.div`mt-1 font-black text-2xl text-gray-900 group-hover:text-primary-500 transition duration-300`;
+const Title = tw.div`mt-1 font-black text-2xl text-gray-900 group-hover:text-[#013a6a] transition duration-300`;
 const Description = tw.div``;
 
 const ButtonContainer = tw.div`flex justify-center`;
@@ -107,7 +107,6 @@ const getPlaceholderPost = () => ({ //eslint-disable-line
   url: "https://reddit.com"
 });
 
-
 const getRecipes = () => {
   return [
     {
@@ -116,20 +115,20 @@ const getRecipes = () => {
       title: "Famous Earnest Chip Dip",
       description:
         "Perfect for Thanksgiving, Christmas, and Summer BBQ! My family almost always makes this dip, and leave out Lays/Ruffels chips along with a variety of vegetables.",
-      url: "https://timerse.com",
+      url: "/recipe/best-chip-dip",
       featured: true
     },
     {
       imageSrc: getRandomImage([CabbageBeefStew1, CabbageBeefStew2]),
       tags: ["stew"],
       title: "Cream Of Chicken Cabbage Beef Stew",
-      url: "https://reddit.com"
+      url: "/recipe/cabbage-beef-stew"
     },
     {
       imageSrc: getRandomImage([BroccoliChickenCheese1, BroccoliChickenCheese2]),
       tags: ["bread"],
       title: "Breaded Broccoli, Chicken and Cheese",
-      url: "https://reddit.com"
+      url: "/recipe/breaded-broccoli-chicken-cheese"
     }
   ]
 };

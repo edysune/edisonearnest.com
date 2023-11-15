@@ -2,6 +2,7 @@ import React from "react";
 import tw from "twin.macro";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/PlainNavLinkHeader";
+import LoadingComponent from "components/features/LoadingSpinner.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { ReactComponent as RadioIcon } from "feather-icons/dist/icons/radio.svg";
 
@@ -18,9 +19,10 @@ export default () => { //eslint-disable-line
       <HeroRow>
         <UpdateNotice>
           <UpdateNoticeIcon />
-            Check out my source code: https://github.com/edysune/edisonearnest.com
+            Welcome to my site! I'm working and updating this website as I go - Pardon my dust!
         </UpdateNotice>
       </HeroRow>
+      <LoadingComponent></LoadingComponent>
       <Footer />
     </AnimationRevealPage>
   );

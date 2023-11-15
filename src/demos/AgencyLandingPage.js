@@ -26,7 +26,7 @@ export default () => ( //eslint-disable-line
       subheading="Testimonials"
       heading={
         <>
-          Our Clients <span tw="text-primary-500">Love Us.</span>
+          Our Clients <span tw="text-[#013a6a]">Love Us.</span>
         </>
       }
       description="Here are what some of our amazing customers are saying about our marketing professionals. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -61,7 +61,7 @@ export default () => ( //eslint-disable-line
       subheading="FAQs"
       heading={
         <>
-          Do you have <span tw="text-primary-500">Questions ?</span>
+          Do you have <span tw="text-[#013a6a]">Questions ?</span>
         </>
       }
     />

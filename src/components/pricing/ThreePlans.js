@@ -29,7 +29,7 @@ background: rgb(85,60,154);
 background: linear-gradient(135deg, rgba(85,60,154,1) 0%, rgba(128,90,213,1) 100%);
 background: rgb(76,81,191);
 background: linear-gradient(135deg, rgba(76,81,191,1) 0%, rgba(102,126,234,1) 100%);
-      ${tw`bg-primary-500 text-gray-100`}
+      ${tw`bg-[#013a6a] text-gray-100`}
       .planHighlight {
         ${tw`hidden`}
       }
@@ -43,7 +43,7 @@ background: linear-gradient(135deg, rgba(76,81,191,1) 0%, rgba(102,126,234,1) 10
         ${tw`text-gray-300!`}
       }
       ${BuyNowButton} {
-        ${tw`bg-gray-100 text-primary-500 hocus:bg-gray-300 hocus:text-primary-800`}
+        ${tw`bg-gray-100 text-[#013a6a] hocus:bg-gray-300 hocus:text-primary-800`}
     `}
 `;
 

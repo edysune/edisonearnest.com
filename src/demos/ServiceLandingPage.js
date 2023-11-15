@@ -15,7 +15,7 @@ import FAQ from "components/faqs/SingleCol.js";
 import GetStarted from "components/cta/GetStartedLight.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 
-const HighlightedText = tw.span`text-primary-500`
+const HighlightedText = tw.span`text-[#013a6a]`
 
 export default () => { //eslint-disable-line
   return (

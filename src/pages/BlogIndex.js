@@ -46,9 +46,9 @@ const Image = styled.div`
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
 `;
 const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
-const Category = tw.div`uppercase text-primary-500 text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-primary-500 after:w-8`;
+const Category = tw.div`uppercase text-[#013a6a] text-xs font-bold tracking-widest leading-loose after:content after:block after:border-b-2 after:border-[#013a6a] after:w-8`;
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
-const Title = tw.div`mt-1 font-black text-2xl text-gray-900 group-hover:text-primary-500 transition duration-300`;
+const Title = tw.div`mt-1 font-black text-2xl text-gray-900 group-hover:text-[#013a6a] transition duration-300`;
 const Description = tw.div``;
 
 const ButtonContainer = tw.div`flex justify-center`;
@@ -106,7 +106,7 @@ const getBlogs = () => {
       title: "Meet Rolly!",
       description:
         "This is Rolly! That's pronounced like 'roll-ie'. We were told when we adopted him, that his name was supposed to match his brother 'Polly'.",
-      url: "https://timerse.com",
+      url: "/blog/meet-rolly",
       featured: true
     },
     {
@@ -116,7 +116,7 @@ const getBlogs = () => {
       title: "AI Journey - Part 1 - Image Generation",
       description:
         "What is going on with AI Image Generation in 2023? Too much for me to cover, so instead I'll give a brief intro into using Microsoft's AI, which is powered by Dalle.",
-      url: "https://reddit.com"
+      url: "/blog/ai-journey-part-1"
     }
   ]
 };
