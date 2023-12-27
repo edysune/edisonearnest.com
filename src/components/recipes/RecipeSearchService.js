@@ -11,7 +11,7 @@ import BroccoliChickenCheeseImage1 from "images/recipes/breaded_broccoli_chicken
 import BroccoliChickenCheeseImage2 from "images/recipes/breaded_broccoli_chicken_cheese_2.jpg";
 
 export const IRecipes = {
-  Unkown: 'Unkown',
+  Unknown: 'Unknown',
   BestChipDip: 'BestChipDip',
   CabbageBeefStew: 'CabbageBeefStew',
   BroccoliChickenCheese: 'BroccoliChickenCheese',
@@ -149,10 +149,15 @@ const recipeList = {
   },
 }
 
-const unkownRecipe = {
-  type: IRecipes.Unkown,
+const UnknownRecipe = {
+  type: IRecipes.Unknown,
   title: "404 - Unknown Recipie :(",
   url: "/recipe/error",
+  tags: ["404"],
+  overviewInfo: [],
+  ingredients: [],
+  nutrition: [],
+  instructions: []
 }
 
 function getRecipeList() {
@@ -174,13 +179,13 @@ export function getAllRecipes() {
 
 export function searchForRecipe(recipe) {
   const recipesResult = getRecipeList();
-  return !!recipesResult[recipe] ? recipesResult[recipe] : unkownRecipe;
+  return !!recipesResult[recipe] ? recipesResult[recipe] : UnknownRecipe;
 }
 
 export function getRecipeFromUrl(url) {
   const recipesResult = getRecipeList();
   console.log(recipesResult)
-  let recipe = unkownRecipe;
+  let recipe = UnknownRecipe;
   Object.keys(recipesResult).forEach(key => {
     if (!!recipesResult[key]?.url  && recipesResult[key].url === url) {
       recipe = recipesResult[key];
@@ -197,7 +202,7 @@ export function searchForRecipeImage(recipe) {
   let resultImage;
 
   switch (recipe.type) {
-    case IRecipes.Unkown:
+    case IRecipes.Unknown:
       resultImage = getRandomItemFromList([missing404Image1, missing404Image2]);
       break;
     case IRecipes.BestChipDip:

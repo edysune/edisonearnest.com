@@ -5,9 +5,8 @@ import BlogIndex from "pages/BlogIndex";
 import RecipeIndex from "pages/RecipeIndex";
 import About from "pages/About";
 import SimpleLandingPage from "demos/SimpleLandingPage";
-import AI01 from "components/blogs/BlogPages/AI01";
-import MeetRolly from "components/blogs/BlogPages/MeetRolly";
 import RenderRecipeTemplate from "components/recipes/RenderRecipeTemplate"
+import RenderBlogTemplate from "components/blogs/RenderBlogTemplate"
 
 export default function App() {
   return (
@@ -15,8 +14,7 @@ export default function App() {
       <GlobalStyles />
       <Router>
         <Routes>
-          <Route path="/blog/ai-journey-part-1" element={<AI01 />} />
-          <Route path="/blog/meet-rolly" element={<MeetRolly />} />
+          <Route path="/blog/:url" element={<RenderBlogTemplate />} />
           <Route path="/recipe/:url" element={<RenderRecipeTemplate />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<BlogIndex />} />
