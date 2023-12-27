@@ -7,9 +7,7 @@ import About from "pages/About";
 import SimpleLandingPage from "demos/SimpleLandingPage";
 import AI01 from "components/blogs/BlogPages/AI01";
 import MeetRolly from "components/blogs/BlogPages/MeetRolly";
-import BestChipDip from "components/recipes/BestChipDip";
-import CabbageBeefStew from "components/recipes/CabbageBeefStew";
-import BreadedBroccoliChickenCheese from "components/recipes/BreadedBroccoliChickenCheese";
+import RenderRecipeTemplate from "components/recipes/RenderRecipeTemplate"
 
 export default function App() {
   return (
@@ -19,9 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/blog/ai-journey-part-1" element={<AI01 />} />
           <Route path="/blog/meet-rolly" element={<MeetRolly />} />
-          <Route path="/recipe/best-chip-dip" element={<BestChipDip />} />
-          <Route path="/recipe/cabbage-beef-stew" element={<CabbageBeefStew />} />
-          <Route path="/recipe/breaded-broccoli-chicken-cheese" element={<BreadedBroccoliChickenCheese />} />
+          <Route path="/recipe/:url" element={<RenderRecipeTemplate />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blogs" element={<BlogIndex />} />
