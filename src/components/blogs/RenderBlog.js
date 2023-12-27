@@ -4,8 +4,8 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import React from "react";
 import { searchForBlogImage } from "components/blogs/BlogSearchService.js";
 import { Stack, Divider, Chip } from '@mui/material';
-import Paper from '@mui/material/Paper';
-import { styled as materialStyled } from '@mui/material/styles';
+// import Paper from '@mui/material/Paper';
+// import { styled as materialStyled } from '@mui/material/styles';
 
 const Container = tw.div`relative`;
 // const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-10`;
