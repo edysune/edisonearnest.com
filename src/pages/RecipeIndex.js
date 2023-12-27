@@ -8,7 +8,7 @@ import Header from "components/headers/light.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
-import { IRecipes, getAllRecipes, searchForRecipe, searchForRecipeImage } from "components/recipes/RecipeSearchService.js";
+import { getAllRecipes } from "components/recipes/RecipeSearchService.js";
 import { Stack, Chip } from '@mui/material';
 
 const HeadingRow = tw.div`flex`;
