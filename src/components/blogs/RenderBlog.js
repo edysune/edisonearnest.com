@@ -6,6 +6,7 @@ import { searchForBlogImage } from "components/blogs/BlogSearchService.js";
 import { Stack, Divider, Chip } from '@mui/material';
 // import Paper from '@mui/material/Paper';
 // import { styled as materialStyled } from '@mui/material/styles';
+import BlogContent from 'components/blogs/BlogContent.js';
 
 const Container = tw.div`relative`;
 // const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-10`;
@@ -100,6 +101,9 @@ const RenderBlog = ({ //eslint-disable-line
         <Divider></Divider>
       </TextColumn>
     </TwoColumn>
+    {blogMatch?.blogs.map((b) => (
+      <BlogContent blog={b}></BlogContent>
+    ))}
     {/* <SingleColumn>
       <Stack 
         direction="row"

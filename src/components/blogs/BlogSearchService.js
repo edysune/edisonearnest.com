@@ -2,10 +2,10 @@ import missing404Image1 from "images/codes/missing404_1.jpg";
 import missing404Image2 from "images/codes/missing404_2.jpg";
 
 import Rolly1 from "images/blogs/rolly_1.jpeg";
-// import Rolly2 from "images/blogs/rolly_2.jpeg";
+import Rolly2 from "images/blogs/rolly_2.jpeg";
 
 import Consciousness1 from "images/blogs/consciousness_1.jpg";
-// import Consciousness2 from "images/blogs/consciousness_2.jpg";
+import Consciousness2 from "images/blogs/consciousness_2.jpg";
 // import Consciousness3 from "images/blogs/consciousness_3.jpg";
 // import Consciousness4 from "images/blogs/consciousness_4.jpg";
 
@@ -26,10 +26,27 @@ const blogList = {
     author: "Edison Earnest",
     date: "12/27/2023",
     source: "N/A",
-    overviewInfo: [
-    ],
-    blog: [
-
+    overviewInfo: [],
+    blogs: [
+      {
+        type: "text",
+        text: "Paragraph 1"
+      },
+      {
+        type: "left-picture",
+        pictures: ["rolly1"],
+        text: "Paragraph 2"
+      },
+      {
+        type: "right-picture",
+        pictures: ["rolly2"],
+        text: "Paragraph 3"
+      },
+      {
+        type: "pictures",
+        pictures: ["rolly1", "rolly2"],
+        text: "Paragraph 1",
+      }
     ]
   },
   AIDemo01: {
@@ -41,10 +58,27 @@ const blogList = {
     author: "Edison Earnest",
     date: "12/27/2023",
     source: "N/A",
-    overviewInfo: [
-    ],
-    blog: [
-
+    overviewInfo: [],
+    blogs: [
+      {
+        type: "text",
+        text: "Paragraph 1"
+      },
+      {
+        type: "left-picture",
+        pictures: ["ai1"],
+        text: "Paragraph 2"
+      },
+      {
+        type: "right-picture",
+        pictures: ["ai2"],
+        text: "Paragraph 3"
+      },
+      {
+        type: "pictures",
+        pictures: ["ai1", "ai2"],
+        text: "Paragraph 1",
+      }
     ]
   }
 }
@@ -88,6 +122,44 @@ export function getBlogFromUrl(url) {
     }
   });
   return blog;
+}
+
+export function getRandomBlogImage(blog) {
+  let resultImages = searchForAllBlogImages(blog);
+  return getRandomItemFromList(resultImages);
+}
+
+export function searchForAllBlogImages(blog) {
+  if (!blog?.pictures || blog.pictures.length === 0) {
+    return [ missing404Image1 ];
+  }
+
+  let resultImages = [];
+
+  blog.pictures.forEach(picture => {
+    resultImages.push(searchForImageFromImageName(picture));
+  });
+
+  return resultImages;
+}
+
+export function searchForImageFromImageName(blogImageName) {
+  if (!blogImageName) {
+    return missing404Image1;
+  }
+
+  switch (blogImageName) {
+    case "ai1":
+      return Consciousness1;
+    case "ai2":
+      return Consciousness2;
+    case "rolly1":
+      return Rolly1;
+    case "rolly2":
+      return Rolly2;
+    default:
+      return missing404Image1;
+    }
 }
 
 export function searchForBlogImage(blog) {
