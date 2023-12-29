@@ -15,7 +15,8 @@ export const IRecipes = {
   BestChipDip: 'BestChipDip',
   CabbageBeefStew: 'CabbageBeefStew',
   BroccoliChickenCheese: 'BroccoliChickenCheese',
-  WorldsBestBeefStew: 'WorldsBestBeefStew'
+  WorldsBestBeefStew: 'WorldsBestBeefStew',
+  FrenchBread: 'FrenchBread'
 };
 
 const recipeList = {
@@ -33,16 +34,16 @@ const recipeList = {
       { type: "prepTime", text: "Prep Time:", value: "10", units: "Minutes"},
       { type: "cookTime", text: "Cook Time:", value: "N/A", units: "Minutes"},
       { type: "pressureCookTime", text: "Pressure Cook Time:", value: "N/A", units: "Minutes"},
-      { type: "servings", text: "Servings:", value: "1"},
+      { type: "servings", text: "Servings:", value: "16"},
     ],
     ingredients: [
-      "4 Blocks of Cream Cheese",
-      "1 Packet (8 Tsp) Hidden Valley Ranch Dip Seasoning Powder Mix",
-      "~1/4 - 1/2 cups of Milk (as needed for desired consistency)"
+      "2 8 oz Blocks of Cream Cheese",
+      "1 Packet (1 oz/8 Tsp) Hidden Valley Ranch Seasoning Powder Mix",
+      "1/2 cups of Milk (as needed for desired consistency)"
     ],
     instructions: [
       "Thaw Cream Cheese so it's easier to mix.",
-      "Add Cream Cheese to mixing bowl with a small amount of milk. Keep adding milk until desired consistency. Dip should be thick and not runny.",
+      "Add Cream Cheese to mixing bowl with a small amount of milk. Start mixing with an electric hand mixer or stad mixer. Keep adding milk until desired consistency. Dip should be thick and not runny.",
       "Add ranch dressing packet, mix until the dip is consistent.",
     ],
     nutrition: [{
@@ -64,7 +65,7 @@ const recipeList = {
     type: IRecipes.CabbageBeefStew,
     url: "/recipe/cabbage-beef-stew",
     title: "Cream Of Chicken Cabbage Beef Stew",
-    description: "todo: CabbageBeefStew description",
+    description: "A quick and easy stew to make that's a little different than your typical stew, as it uses ground beef instead of steak. It's quick, easy and is an Earnest family favorite!",
     tags: ["stew"],
     author: "Edison Earnest",
     date: "12/25/2023",
@@ -72,14 +73,24 @@ const recipeList = {
     overviewInfo: [
       { type: "prepTime", text: "Prep Time:", value: "0", units: "Minutes"},
       { type: "cookTime", text: "Cook Time:", value: "N/A", units: "Minutes"},
-      { type: "pressureCookTime", text: "Pressure Cook Time:", value: "N/A", units: "Minutes"},
+      { type: "pressureCookTime", text: "Pressure Cook Time:", value: "30", units: "Minutes"},
       { type: "servings", text: "Servings:", value: "1"},
     ],
     ingredients: [
-      "todo: ingrediants list"
+      "1 1/2 pounds ground beef",
+      "2 large potatoes",
+      "1/2 medium head of cabbage, chopped",
+      "1 lb bag of baby carrots",
+      "1 medium onion, diced",
+      "2 cans (10 1/2 ounces) of cream of chicken soup",
+      "(optional) shredded cheese to add as a topping",
     ],
     instructions: [
-      "todo: cooking instructions"
+      "1 .",
+      ".",
+      ".",
+      ".",
+      ".",
     ],
     nutrition: [{
       servingSize: "0 grams",
@@ -92,23 +103,38 @@ const recipeList = {
   BroccoliChickenCheese: {
     type: IRecipes.BroccoliChickenCheese,
     url: "/recipe/breaded-broccoli-chicken-cheese",
-    title: "Breaded Broccoli, Chicken and Cheese",
-    description: "todo: BroccoliChickenCheese description",
+    title: "Broccoli Chicken Cheese Bread Ring",
+    description: "A great recipie that everyone in the family can enjoy! Though this recipie might take a bit longer to make due to needing to also make the French Bread, it can be substituted out with store-bought Crescent rolls to save time.",
     tags: ["bread"],
     author: "Edison Earnest",
     date: "12/25/2023",
     source: "N/A",
     overviewInfo: [
-      { type: "prepTime", text: "Prep Time:", value: "0", units: "Minutes"},
-      { type: "cookTime", text: "Cook Time:", value: "N/A", units: "Minutes"},
+      { type: "prepTime", text: "Prep Time:", value: "80", units: "Minutes"},
+      { type: "cookTime", text: "Cook Time:", value: "30", units: "Minutes"},
       { type: "pressureCookTime", text: "Pressure Cook Time:", value: "N/A", units: "Minutes"},
-      { type: "servings", text: "Servings:", value: "1"},
+      { type: "servings", text: "Servings:", value: "12"},
     ],
     ingredients: [
-      "todo: ingrediants list"
+      "1 full dough recipe or 4 Pillsbury Crescent Rolls package",
+      "3 cups of Broccoli",
+      "4 cups of cooked Chicken (4-5 breasts)",
+      "16 oz of shredded sharp cheddar cheese",
+      "2 10 oz cans of Cream of Chicken",
+      "3 cloves of garlic minced",
+      "1/2 teaspoons of salt",
     ],
     instructions: [
-      "todo: cooking instructions"
+      "Start on making the bread by either following the recipe for french bread, or by substituting with 4 Pillsbury Crescent Roll packages. If using the french bread recipie, follow recipie until after step 5.",
+      "While waiting for the dough to rise from the french bread recipe, start working on the filling. Steam broccoli until bright green but still crunchy.",
+      "In a large bowl, transfer the broccoli to cool, and combine with chicken breast, garlic, cheese, cream of chicken, and salt. Mix together gently.",
+      "Going back to the bread after letting it rise, instead of making 2 loafs and baking, split dough into 2 round mounds and pinch a hole in the middle, and start stretching dough into a big doughnut shape where the width is around 5 inches wide.",
+      "Start spooning the filling onto the inner center of the bread, keeping about 1 inch away from the outer edges.",
+      "Using your fingers, pull outer parts of the doughnut and wrap it over the filling, carefully stretching the outer dough to the inner ring.",
+      "Pinch the 2 edges together to reform the bread seams back together.",
+      "Cover the rings and let it sit and rise for another 30 minutes.",
+      "Preheat oven to 400 F. Bake on center rack for 25-30 minutes.",
+      "While still warm, rub/brush butter on the top to soften the bread.",
     ],
     nutrition: [{
       servingSize: "0 grams",
@@ -147,6 +173,49 @@ const recipeList = {
       protein: 0,
     }]
   },
+  FrenchBread: {
+  type: IRecipes.FrenchBread,
+  url: "/recipe/french-bread",
+  title: "French Bread",
+  description: "A french bread recipie that my mother used primarily when growing up. The recipie is fairly simple, and goes great with pretty much anything, and is often used in other recipies!",
+  tags: ["bread"],
+  author: "Edison Earnest",
+  date: "12/28/2023",
+  source: "N/A",
+  overviewInfo: [
+    { type: "prepTime", text: "Prep Time:", value: "60", units: "Minutes"},
+    { type: "cookTime", text: "Cook Time:", value: "30", units: "Minutes"},
+    { type: "pressureCookTime", text: "Pressure Cook Time:", value: "N/A", units: "Minutes"},
+    { type: "servings", text: "Servings:", value: "1"},
+  ],
+  ingredients: [
+    "2 pkg. of dry bread yeast",
+    "1/4 cups warm water",
+    "2 cups hot water",
+    "3 tablespoons sugar",
+    "1 tablespoons salt",
+    "5 tablespoons oil",
+    "6 cups flour",
+  ],
+  instructions: [
+    "Dissolve yeast in warm water for 10 minutes.",
+    "Combine hot water, sugar, salt, oil, and 1/2 the flour.",
+    "Combine previous step with the yeast water, and the remainder of the flour. Mix until consistent.",
+    "Leave spoon in mixer paddle in batter, rest for 10 minutes, and the restir mixture. Repeat 3 times.",
+    "Put on floured board and knead once or twice to coat with flour.",
+    "Divide in half into 2+ mounds. Carefully stretch the dough into a loaf shape and place onto a baking sheet that has been lined with parchment paper.",
+    "Wait 30 more minutes to let the dough rise more, preferrably in a warmer environment.",
+    "Preheat oven to 400 F, place baking sheet with dough onto the center wrack and bake for 25-30 minutes (or until golden-brown).",
+    "While still warm after baking, rub/brush butter on the top to soften the bread.",
+  ],
+  nutrition: [{
+    servingSize: "0 grams",
+    calories: 0,
+    fat: 0,
+    carbs: 0,
+    protein: 0,
+  }]
+}
 }
 
 const UnknownRecipe = {
