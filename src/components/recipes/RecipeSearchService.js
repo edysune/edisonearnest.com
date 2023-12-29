@@ -71,8 +71,8 @@ const recipeList = {
     date: "12/25/2023",
     source: "N/A",
     overviewInfo: [
-      { type: "prepTime", text: "Prep Time:", value: "0", units: "Minutes"},
-      { type: "cookTime", text: "Cook Time:", value: "N/A", units: "Minutes"},
+      { type: "prepTime", text: "Prep Time:", value: "20", units: "Minutes"},
+      { type: "cookTime", text: "Cook Time:", value: "40", units: "Minutes"},
       { type: "pressureCookTime", text: "Pressure Cook Time:", value: "30", units: "Minutes"},
       { type: "servings", text: "Servings:", value: "1"},
     ],
@@ -88,7 +88,7 @@ const recipeList = {
     instructions: [
       "Place 1 pound of the ground beef onto a large skillet, reserving the remaining 1/2 pounds.",
       "Layer carrots first, then onions and cabbage onto the ground beef in seperate layers.",
-      ".Finally, add the remainder of the ground beef and the 2 cans of cream of chicken soup.",
+      "Finally, add the remainder of the ground beef and the 2 cans of cream of chicken soup.",
       "Cover and cook over medium heat for about 10 minutes. Reduce heat to low and cook for another 30 minutes.",
       "Top with cheese and enjoy!.",
     ],
@@ -145,6 +145,7 @@ const recipeList = {
     }]
   },
     WorldsBestBeefStew: {
+    hidden: true,
     type: IRecipes.WorldsBestBeefStew,
     url: "/recipe/worlds-best-beef-stew",
     title: "Worlds Best Beef Stew",
@@ -238,9 +239,11 @@ export function getAllRecipes() {
   let recipesResult = [];
 
   Object.keys(allRecipes).forEach(recipeKey => {
-    const recipeItem = JSON.parse(JSON.stringify(allRecipes[recipeKey]));
-    recipeItem["imageSrc"] = searchForRecipeImage(recipeItem);
-    recipesResult.push(recipeItem);
+    if (!allRecipes[recipeKey]?.hidden) {
+      const recipeItem = JSON.parse(JSON.stringify(allRecipes[recipeKey]));
+      recipeItem["imageSrc"] = searchForRecipeImage(recipeItem);
+      recipesResult.push(recipeItem);
+    }
   });
 
   return recipesResult;
@@ -253,7 +256,6 @@ export function searchForRecipe(recipe) {
 
 export function getRecipeFromUrl(url) {
   const recipesResult = getRecipeList();
-  console.log(recipesResult)
   let recipe = UnknownRecipe;
   Object.keys(recipesResult).forEach(key => {
     if (!!recipesResult[key]?.url  && recipesResult[key].url === url) {

@@ -9,11 +9,7 @@ import { getBlogFromUrl } from "components/blogs/BlogSearchService.js";
 export default () => { //eslint-disable-line
   let { url } = useParams()
   let urlBase = '/blog/'
-
   let blogMatch = getBlogFromUrl(`${urlBase}${url}`);
-  // console.log("RECIPE MATCH:" + url);
-  // console.log(recipeMatch);
-
   return (
     <AnimationRevealPage>
       <Header />

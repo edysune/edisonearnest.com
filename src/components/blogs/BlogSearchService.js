@@ -18,6 +18,7 @@ export const IBlogs = {
 const blogList = {
   MeetRolly: {
     featured: true,
+    hidden: true,
     type: IBlogs.MeetRolly,
     url: "/blog/meet-rolly",
     title: "Meet Rolly!",
@@ -50,6 +51,7 @@ const blogList = {
     ]
   },
   AIDemo01: {
+    hidden: true,
     type: IBlogs.AIDemo01,
     url: "/blog/ai-demo-01",
     title: "AI Demo - Part 1 - Image Generation",
@@ -70,6 +72,8 @@ const blogList = {
         text: "Paragraph 2"
       },
       {
+        title: "some title example",
+        subheading: "some subheading example",
         type: "right-picture",
         pictures: ["ai2"],
         text: "Paragraph 3"
@@ -114,7 +118,6 @@ export function searchForBlog(blog) {
 
 export function getBlogFromUrl(url) {
   const blogsResult = getBlogList();
-  console.log(blogsResult)
   let blog = UnknownBlog;
   Object.keys(blogsResult).forEach(key => {
     if (!!blogsResult[key]?.url  && blogsResult[key].url === url) {

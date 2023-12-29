@@ -1,24 +1,16 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import tw from "twin.macro";
 import { searchForAllBlogImages, getRandomBlogImage } from "components/blogs/BlogSearchService.js";
-import MainFeature1 from "components/features/TwoColWithButton.js";
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import styled from "styled-components"; //eslint-disable-line
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
 import ImageCarousel from 'components/blogs/ImageCarousel.js';
 
 export default function BlogContent({ //eslint-disable-line
     blog = null
 }) {
-    const IconContainer = tw.div`text-center`;
-
-    const Container = tw.div`relative`;
+    // const IconContainer = tw.div`text-center`;
+    // const Container = tw.div`relative`;
     const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-10`;
     const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto items-center pt-10`;
     const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
@@ -43,96 +35,18 @@ export default function BlogContent({ //eslint-disable-line
         tw`sm:h-96 sm:min-h-full sm:w-1/2 lg:w-2/3 sm:rounded-t-none sm:rounded-l-lg`
     ]);
     
-    function StandardImageList(textOnLeft, blog, title, subheading, description) {
-        
-        // const itemData = [
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-        //       title: 'Breakfast',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-        //       title: 'Burger',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-        //       title: 'Camera',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-        //       title: 'Coffee',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-        //       title: 'Hats',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-        //       title: 'Honey',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-        //       title: 'Basketball',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-        //       title: 'Fern',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-        //       title: 'Mushrooms',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
-        //       title: 'Tomato basil',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-        //       title: 'Sea star',
-        //     },
-        //     {
-        //       img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-        //       title: 'Bike',
-        //     },
-        //   ];
-    
+    function StandardImageList(textOnLeft, blog, title, subheading, description) {    
       return (
         <div>
         <SingleColumn>
             <TextColumn textOnLeft={textOnLeft}>
-            <TextContent>
-                <Heading>{title}</Heading>
-                <Subheading>{subheading}</Subheading>
-                <TextContent>{description}</TextContent>
-            </TextContent>
-        </TextColumn>
+                {GenerateText(title, subheading, description)}
+            </TextColumn>
         </SingleColumn>
                 <ImageCarousel images={searchForAllBlogImages(blog)}></ImageCarousel>
                 </div>
       );
     }
-
-    // blog: [
-    //     {
-    //       type: "text",
-    //       text: "Paragraph 1"
-    //     },
-    //     {
-    //       type: "left-picture",
-    //       picture: ["ai1"],
-    //       text: "Paragraph 2"
-    //     },
-    //     {
-    //       type: "right-picture",
-    //       picture: ["ai2"],
-    //       text: "Paragraph 3"
-    //     },
-    //     {
-    //       type: "pictures",
-    //       picture: ["ai1", "ai2"],
-    //       text: "Paragraph 1",
-    //     }
-    //   ]
 
     function Generate2ColumnComponent(textOnLeft, imgSource, title, subheading, description) {
         
@@ -142,13 +56,40 @@ export default function BlogContent({ //eslint-disable-line
                     <Image src={imgSource}/>
                 </ImageColumn>
                 <TextColumn textOnLeft={textOnLeft}>
-                    <TextContent>
-                        <Heading>{title}</Heading>
-                        <Subheading>{subheading}</Subheading>
-                        <TextContent>{description}</TextContent>
-                    </TextContent>
+                    {GenerateText(title, subheading, description)}
                 </TextColumn>
             </TwoColumn>
+        );
+    }
+
+    function GenerateText(title, subheading, description) {
+        const genTitle = (title) => {
+            if (!title) {
+                return;
+            }
+            return <Heading>{title}</Heading>;
+        }
+
+        const genSubheading = (subheading) => {
+            if (!subheading) {
+                return;
+            }
+            return <Subheading>{subheading}</Subheading>;
+        }
+
+        const genDescription = (description) => {
+            if (!description) {
+                return;
+            }
+            return <TextContent>{description}</TextContent>;
+        }
+
+        return (
+            <TextContent>
+                {genTitle(title)}
+                {genSubheading(subheading)}
+                {genDescription(description)}
+            </TextContent>
         );
     }
 
@@ -158,33 +99,27 @@ export default function BlogContent({ //eslint-disable-line
             <SingleColumn>
                 {/* <Divider></Divider> */}
                 <TextColumn textOnLeft={textOnLeft}>
-                    <TextContent>
-                        <Heading>{title}</Heading>
-                        <Subheading>{subheading}</Subheading>
-                        <TextContent>{description}</TextContent>
-                    </TextContent>
+                    {GenerateText(title, subheading, description)}
                 </TextColumn>
             </SingleColumn>
         );
     }
 
     function GetBlogFromType(blog) {
-        console.log(blog, blog?.type);
         const fs = 70;            
         switch (blog?.type) {
             case 'text':
-                return Generate1ColumnComponent(true, blog?.type, blog?.type, blog?.text);
+                return Generate1ColumnComponent(true, blog?.title, blog?.subheading, blog?.text);
             case 'left-picture':
-                return Generate2ColumnComponent(false, getRandomBlogImage(blog), blog?.type, blog?.type, blog?.text);
+                return Generate2ColumnComponent(false, getRandomBlogImage(blog), blog?.title, blog?.subheading, blog?.text);
             case 'right-picture':
-                return Generate2ColumnComponent(true, getRandomBlogImage(blog), blog?.type, blog?.type, blog?.text);
+                return Generate2ColumnComponent(true, getRandomBlogImage(blog), blog?.title, blog?.subheading, blog?.text);
             case 'pictures':
-                return StandardImageList(true, blog, blog?.type, blog?.type, blog?.text);
+                return StandardImageList(true, blog, blog?.title, blog?.subheading, blog?.text);
             default:
                 return <QuestionMarkIcon sx={{ fontSize: fs }} />;
         }
     }
-    // return;
     if (!blog) {
         return;
     } else {

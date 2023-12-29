@@ -9,11 +9,7 @@ import { getRecipeFromUrl } from "components/recipes/RecipeSearchService.js";
 export default () => { //eslint-disable-line
   let { url } = useParams()
   let urlBase = '/recipe/'
-
   let recipeMatch = getRecipeFromUrl(`${urlBase}${url}`);
-  // console.log("RECIPE MATCH:" + url);
-  // console.log(recipeMatch);
-
   return (
     <AnimationRevealPage>
       <Header />

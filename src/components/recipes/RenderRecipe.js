@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import { SectionHeadingLeftWithBottomSpacing, SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import React from "react";
 import { searchForRecipeImage } from "components/recipes/RecipeSearchService.js";
-import { Stack, Divider, Chip } from '@mui/material';
+import { Box, Stack, Divider, Chip } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -108,28 +108,36 @@ const RenderRecipe = ({ //eslint-disable-line
       </TextColumn>
     </TwoColumn>
     <SingleColumn>
-      <Stack 
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={4}
-      >
-        {recipeMatch?.overviewInfo.map((info) => (
-          <RecipeOverviewCard info={info}></RecipeOverviewCard>
-        ))}
-      </Stack>
-      <HeadingInfoContainerLeft>
-        <SectionHeadingLeftWithBottomSpacing>Ingredients</SectionHeadingLeftWithBottomSpacing>
+      <Box sx={{ width: "60%" }}>
         <Stack 
           direction="row"
           justifyContent="flex-start"
           alignItems="center"
           spacing={4}
+          useFlexGap
+          flexWrap="wrap"
         >
-          {recipeMatch?.ingredients.map((ingredient) => (
-           <Item sx={{ backgroundColor: 'rgb(209, 213, 219)', padding: '15px', margin: '30px', fontWeight: 'bold' }}>{ingredient}</Item>
+          {recipeMatch?.overviewInfo.map((info) => (
+            <RecipeOverviewCard info={info}></RecipeOverviewCard>
           ))}
         </Stack>
+      </Box>
+      <HeadingInfoContainerLeft>
+        <SectionHeadingLeftWithBottomSpacing>Ingredients</SectionHeadingLeftWithBottomSpacing>
+        <Box sx={{ width: "60%", margin: '30px' }}>
+          <Stack 
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="center"
+            spacing={4}
+            useFlexGap
+            flexWrap="wrap"
+          >
+            {recipeMatch?.ingredients.map((ingredient) => (
+            <Item sx={{ backgroundColor: 'rgb(209, 213, 219)', padding: '15px', fontWeight: 'bold' }}>{ingredient}</Item>
+            ))}
+          </Stack>
+        </Box>
       </HeadingInfoContainerLeft>
     </SingleColumn>
     <SingleColumn>
