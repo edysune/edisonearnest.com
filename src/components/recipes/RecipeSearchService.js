@@ -77,7 +77,7 @@ const recipeList = {
       { type: "servings", text: "Servings:", value: "1"},
     ],
     ingredients: [
-      "1 1/2 pounds ground beef",
+      "1 1/2 lbs ground beef",
       "2 large potatoes",
       "1/2 medium head of cabbage, chopped",
       "1 lb bag of baby carrots",
@@ -86,11 +86,11 @@ const recipeList = {
       "(optional) shredded cheese to add as a topping",
     ],
     instructions: [
-      "1 .",
-      ".",
-      ".",
-      ".",
-      ".",
+      "Place 1 pound of the ground beef onto a large skillet, reserving the remaining 1/2 pounds.",
+      "Layer carrots first, then onions and cabbage onto the ground beef in seperate layers.",
+      ".Finally, add the remainder of the ground beef and the 2 cans of cream of chicken soup.",
+      "Cover and cook over medium heat for about 10 minutes. Reduce heat to low and cook for another 30 minutes.",
+      "Top with cheese and enjoy!.",
     ],
     nutrition: [{
       servingSize: "0 grams",
