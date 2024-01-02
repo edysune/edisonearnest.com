@@ -1,8 +1,17 @@
 import missing404Image1 from "images/codes/missing404_1.jpg";
 import missing404Image2 from "images/codes/missing404_2.jpg";
 
-import Rolly1 from "images/blogs/rolly_1.jpeg";
-import Rolly2 from "images/blogs/rolly_2.jpeg";
+import Rolly1 from "images/blogs/rolly_01.jpeg";
+import Rolly2 from "images/blogs/rolly_02.jpeg";
+import Rolly3 from "images/blogs/rolly_03.jpg";
+import Rolly4 from "images/blogs/rolly_04.jpg";
+import Rolly5 from "images/blogs/rolly_05.jpg";
+import RollyCats1 from "images/blogs/rolly_cat_01.jpg";
+import RollySnow1 from "images/blogs/rolly_snow_01.jpg";
+import RollySnow2 from "images/blogs/rolly_snow_02.jpg";
+import RollyStanding1 from "images/blogs/rolly_standing_01.jpg";
+import RollyStanding2 from "images/blogs/rolly_standing_02.jpg";
+
 
 import Consciousness1 from "images/blogs/consciousness_1.jpg";
 import Consciousness2 from "images/blogs/consciousness_2.jpg";
@@ -15,39 +24,64 @@ export const IBlogs = {
   MeetRolly: 'MeetRolly'
 };
 
+// . His love is unconditional, his loyalty unwavering.
+
 const blogList = {
   MeetRolly: {
     featured: true,
-    hidden: true,
+    hidden: false,
     type: IBlogs.MeetRolly,
     url: "/blog/meet-rolly",
     title: "Meet Rolly!",
     description: "This is Rolly! That's pronounced like 'roll-ie'. We were told that when we adopted him, that his name was supposed to match his brother 'Polly'.",
     tags: ["pets", "rolly"],
     author: "Edison Earnest",
-    date: "12/27/2023",
+    date: "01/01/2024",
     source: "N/A",
     overviewInfo: [],
     blogs: [
       {
         type: "text",
-        text: "Paragraph 1"
-      },
-      {
-        type: "left-picture",
-        pictures: ["rolly1"],
-        text: "Paragraph 2"
+        text: "Meet Rolly, a Labradoodle with a heart as golden as his hair. Rolly is not just any dog; he's a bundle of joy, energy, and love, wrapped in a straightend coat of gold." + 
+        " Born on April 21st 2021, he's currently about 2.5 years old as of this post. He loves meeting new people and has been super friendly and fun since we first met (July of 2022). We instantly fell in love with him and his excited and curious nature." + 
+        " From the moment he set his paws in our home, he's filled it with happiness and laughter."
       },
       {
         type: "right-picture",
-        pictures: ["rolly2"],
-        text: "Paragraph 3"
+        title: "Unconditional Love",
+        pictures: ["rolly3"],
+        text: "Rolly has an uncanny ability to sense emotions. He's there with a wagging tail when you're happy, and he's there with a comforting nuzzle when you're down." + 
+        " His love is unconditional, and I find myself becoming more and more attatched to this cute fuzzball. " + 
+        " While life may be boring with my daily remote work, at least we have each other."
       },
       {
-        type: "pictures",
-        pictures: ["rolly1", "rolly2"],
-        text: "Paragraph 1",
-      }
+        type: "left-picture",
+        title: "Energy Unlimited",
+        pictures: ["rolly2"],
+        text: "Labradoodles are known for their energy, and Rolly is no exception! We go on at least 4 walks per day, mostly so we search for more kitties." + 
+        " He loves his walks, but also loves his toys. That doesn't stop him from ripping his favorites into tiny pieces though!." +
+        " The one things Rolly is really passionate about though, is rolling. It doesn't matter if it's snow, grass mud puddles, or dirt mounds... he just loves to roll in it!"
+      },
+      {
+        type: "right-picture",
+        title: "The Dog Park",
+        pictures: ["rollysnow1", "rollysnow2"],
+        text: "Rolly's favorite place is certainly the dog park. It's a place to meet friends, but more importantly.. to make enemies. While Rolly would never hurt anyone, that doesn't stop Rolly from 'vocalizing' his concerns to other dogs about personal boundaries." +
+        " Some dogs just get too close and personal for Rolly's liking, but that doesn't stop him from enjoying the rest of the park!"
+      },
+      {
+        type: "left-picture",
+        title: "A New Life",
+        pictures: ["rollystanding1", "rollystanding2"],
+        text: "Life with Rolly has taught me lots of valuable lessons, whether it's finding joy in the simple things, to live in the moment, or to love unconditionally. He's not just a pet; he's family." +
+        " In the end, Rolly, our golden Labradoodle, with his boundless energy and unconditional love, has a heart of gold. " +
+        " Thanks for joining us on this blog post, we'll see you again!"
+      },
+      // {
+      //   type: "pictures",
+      //   pictures: ["rolly1", "rolly2"],
+      //   text: "Paragraph 1",
+      // }
     ]
   },
   AIDemo01: {
@@ -160,9 +194,25 @@ export function searchForImageFromImageName(blogImageName) {
       return Rolly1;
     case "rolly2":
       return Rolly2;
+    case "rolly3":
+      return Rolly3;
+    case "rolly4":
+      return Rolly4;
+    case "rolly5":
+      return Rolly5;
+    case "rollycat1":
+      return RollyCats1;
+    case "rollysnow1":
+      return RollySnow1;
+    case "rollysnow2":
+      return RollySnow2;
+    case "rollystanding1":
+      return RollyStanding1;
+    case "rollystanding2":
+      return RollyStanding2;
     default:
       return missing404Image1;
-    }
+  }
 }
 
 export function searchForBlogImage(blog) {

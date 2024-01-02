@@ -6,7 +6,7 @@ import { searchForBlogImage } from "components/blogs/BlogSearchService.js";
 import { Stack, Divider, Chip } from '@mui/material';
 import BlogContent from 'components/blogs/BlogContent.js';
 
-const Container = tw.div`relative`;
+const Container = tw.div`relative pb-20`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto items-center pt-10`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 relative`;
