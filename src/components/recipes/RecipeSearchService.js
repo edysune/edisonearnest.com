@@ -10,6 +10,9 @@ import CabbageBeefStewImage2 from "images/recipes/coc_cabbage_beef_stew_2.jpg";
 import BroccoliChickenCheeseImage1 from "images/recipes/breaded_broccoli_chicken_cheese_1.jpg";
 import BroccoliChickenCheeseImage2 from "images/recipes/breaded_broccoli_chicken_cheese_2.jpg";
 
+import FrenchBreadImage1 from "images/recipes/french_bread_1.jpg";
+import FrenchBreadImage2 from "images/recipes/french_bread_2.jpg";
+
 export const IRecipes = {
   Unknown: 'Unknown',
   BestChipDip: 'BestChipDip',
@@ -284,6 +287,9 @@ export function searchForRecipeImage(recipe) {
       break;
     case IRecipes.BroccoliChickenCheese:
       resultImage = getRandomItemFromList([BroccoliChickenCheeseImage1, BroccoliChickenCheeseImage2]);
+      break;
+    case IRecipes.FrenchBread:
+      resultImage = getRandomItemFromList([FrenchBreadImage1, FrenchBreadImage2]);
       break;
     default:
       resultImage = missing404Image1

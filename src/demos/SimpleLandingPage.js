@@ -19,7 +19,7 @@ export default () => { //eslint-disable-line
       <HeroRow>
         <UpdateNotice>
           <UpdateNoticeIcon />
-            Last Updated 12/29/2023 - Welcome to my site and Pardon My Dust! Currently working on Blog features. Main front page will be updated last.
+            Last Updated 01/01/2024 - Welcome to my site and Pardon My Dust! Currently working on writing a few blog entries. Main front page will be updated last.
         </UpdateNotice>
       </HeroRow>
       <LoadingComponent></LoadingComponent>
