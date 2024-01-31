@@ -5,6 +5,7 @@ import React from "react";
 import { searchForBlogImage } from "components/blogs/BlogSearchService.js";
 import { Stack, Divider, Chip } from '@mui/material';
 import BlogContent from 'components/blogs/BlogContent.js';
+import BlogRTEContent from 'components/blogs/BlogRTEContent.js';
 
 const Container = tw.div`relative pb-20`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto items-center pt-10`;
@@ -40,11 +41,12 @@ const RenderBlog = ({ //eslint-disable-line
     // height:'1000px', 
   }; 
 
-  const genBlogContent = (blogMatch, nextBlog) => {
-    if (!!blogMatch?.hidden) {
-      return;
-    }
-    return <BlogContent blog={nextBlog}></BlogContent>
+  const genBlogContent = (blogMatch) => {
+    return <BlogRTEContent blog={blogMatch}></BlogRTEContent>;
+    // if (!!blogMatch?.hidden) {
+    //   return;
+    // }
+    // return <BlogContent blog={nextBlog}></BlogContent>
   }
 
   return (
@@ -77,9 +79,10 @@ const RenderBlog = ({ //eslint-disable-line
         <Divider></Divider>
       </TextColumn>
     </TwoColumn>
-    {blogMatch?.blogs.map((b) => 
+    {genBlogContent(blogMatch)}
+    {/* {blogMatch?.blogs.map((b) => 
       genBlogContent(blogMatch, b)
-    )}
+    )} */}
   </Container>
   );
 };

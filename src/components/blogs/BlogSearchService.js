@@ -18,6 +18,10 @@ import Consciousness2 from "images/blogs/consciousness_2.jpg";
 // import Consciousness3 from "images/blogs/consciousness_3.jpg";
 // import Consciousness4 from "images/blogs/consciousness_4.jpg";
 
+import MeetRollyBlogContent from "components/blogs/blogPages/meet-rolly.txt";
+import AIContent1 from "components/blogs/blogPages/ai-demo-1.txt";
+
+
 export const IBlogs = {
   Unknown: 'Unknown',
   AIDemo01: 'AIDemo01',
@@ -30,6 +34,7 @@ const blogList = {
   MeetRolly: {
     featured: true,
     hidden: false,
+    readonly: false,
     type: IBlogs.MeetRolly,
     url: "/blog/meet-rolly",
     title: "Meet Rolly!",
@@ -39,6 +44,7 @@ const blogList = {
     date: "01/01/2024",
     source: "N/A",
     overviewInfo: [],
+    blogContent: MeetRollyBlogContent,
     blogs: [
       {
         type: "text",
@@ -86,6 +92,7 @@ const blogList = {
   },
   AIDemo01: {
     hidden: true,
+    readonly: false,
     type: IBlogs.AIDemo01,
     url: "/blog/ai-demo-01",
     title: "AI Demo - Part 1 - Image Generation",
@@ -95,6 +102,7 @@ const blogList = {
     date: "12/27/2023",
     source: "N/A",
     overviewInfo: [],
+    blogContent: AIContent1,
     blogs: [
       {
         type: "text",
@@ -159,6 +167,13 @@ export function getBlogFromUrl(url) {
     }
   });
   return blog;
+}
+
+export function fetchBlogContent(blog) {
+  // temporary - just grabs the related html file as long as it's declared above in the blogPages section
+  console.log(`FETCHING ${blog['blogContent']}`);
+  return fetch(blog['blogContent'])
+    .then(r => r.text());
 }
 
 export function getRandomBlogImage(blog) {

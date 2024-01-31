@@ -1,0 +1,8 @@
+.hide-toolbar .ql-toolbar {
+    display: none;
+    border-style: none;
+}
+
+.hide-toolbar .ql-container {
+    border-style: none;
+}
