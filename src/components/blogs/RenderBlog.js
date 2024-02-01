@@ -4,7 +4,7 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import React from "react";
 import { searchForBlogImage } from "components/blogs/BlogSearchService.js";
 import { Stack, Divider, Chip } from '@mui/material';
-import BlogContent from 'components/blogs/BlogContent.js';
+// import BlogContent from 'components/blogs/BlogContent.js';
 import BlogRTEContent from 'components/blogs/BlogRTEContent.js';
 
 const Container = tw.div`relative pb-20`;
