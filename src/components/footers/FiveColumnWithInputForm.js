@@ -98,7 +98,7 @@ export default () => { //eslint-disable-line
             <LogoImg src={LogoImage} />
             <LogoText>EdisonEarnest.com</LogoText>
           </LogoContainer>
-          <CopywrightNotice>&copy; 2023 EdisonEarnest.com All Rights Reserved.</CopywrightNotice>
+          <CopywrightNotice>&copy; 2024 EdisonEarnest.com All Rights Reserved.</CopywrightNotice>
           <SocialLinksContainer>
             <SocialLink href="https://github.com/edysune">
               <GithubIcon />

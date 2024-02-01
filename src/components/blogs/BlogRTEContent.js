@@ -1,20 +1,29 @@
 import React, { useState } from "react";
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import tw from "twin.macro";
-import { searchForAllBlogImages, getRandomBlogImage } from "components/blogs/BlogSearchService.js";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import styled from "styled-components"; //eslint-disable-line
-import ImageCarousel from 'components/blogs/ImageCarousel.js';
-import ReactQuill from 'react-quill';
+import ReactQuill, { Quill } from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import './BlogRTEContent.css';
 import { fetchBlogContent } from "components/blogs/BlogSearchService.js";
+import ImageResize from 'quill-image-resize-module-react';
+import { saveAs } from 'file-saver';
+
+
+// QUILL SETTINGS
+const Font = Quill.import("formats/font");
+Font.whitelist = ["Arial","times"];
+Quill.register(Font, true);
+
+Quill.register('modules/imageResize', ImageResize);
 
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-10`;
 
 const modules = {
+    imageResize: {
+        parchment: Quill.import('parchment'),
+        modules: [ 'Resize', 'DisplaySize' ]
+    },
     toolbar: [
-        [{ font: [] }],
+        [{ font: ['Arial','times','Raleway', 'interSystemUi']}],
         [{ header: [1, 2, 3, 4, 5, 6, false] }],
         ["bold", "italic", "underline", "strike"],
         [{ color: [] }, { background: [] }],
@@ -27,26 +36,30 @@ const modules = {
     ],
 };
 
+// HELPER FUNCTION FOR CREATING CONTENT
+function WriteFile(data, blog) {
+    const file = new Blob([data], { type: 'text/plain;charset=utf-8' });
+    saveAs(file, blog.type + '.txt');
+}
+
+// GENERATE CONTENT
 const BlogRTEContent = (blog = null) => {
-
-    // console.log(blog);
-    // console.log(blog.blog?.blogContent);
-    // console.log(blog.blog?.readonly);
-
     let blogContent = !!blog.blog?.blogContent ? blog.blog.blogContent : "";
     let isReadonly = !!blog.blog?.readonly ? blog.blog.readonly : "";
 
     const [value, setValue] = useState("");
 
     if (blogContent !== '') {
+        // search for blog content
         fetchBlogContent(blog.blog).then(blogText => {
             setValue(blogText);
+            blogContent = blogText;
         })
     }
 
     function printButtonEventHandler() {
-        console.log(value);
-        alert(value);
+        console.log(blogContent);
+        WriteFile(blogContent, blog.blog);
     }
 
     function printQuillContent() {
@@ -71,7 +84,12 @@ const BlogRTEContent = (blog = null) => {
                     modules={modules}
                     theme= {"snow"}
                     value={value}
-                    onChange={setValue}
+                    id="editor"
+                    onChange={(newValue, delta, source) => {
+                        if (source === 'user') {
+                            blogContent = newValue;
+                        }
+                    }}
                     // placeholder="Content goes here..."
                 />
             </SingleColumn>);
