@@ -24,7 +24,16 @@ const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(
   SectionHeading
 )`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-lg lg:text-3xl font-medium leading-relaxed text-secondary-100`;
+
+const InstructionText = styled.p(props => [
+  tw`lg:py-0 text-left md:text-left leading-relaxed text-secondary-100`
+]);
+
+const InstructionPrefix = styled.p`
+  font-size: 40px;
+  font-weight: 400;
+`;
+
 const HeadingInfoContainerLeft = tw.div`flex flex-col`;
 
 const TextColumn = styled(Column)(props => [
@@ -67,7 +76,7 @@ const RenderRecipe = ({ //eslint-disable-line
     let index = 0;
     cookingInstructions = recipeMatch.instructions.map(instruction => {
       index = index + 1;
-      return { prefix: `[Step ${index}]`, instruction: `${instruction}`};
+      return { prefix: `${index}`, instruction: `${instruction}`};
     });
     return cookingInstructions;
   }
@@ -145,7 +154,17 @@ const RenderRecipe = ({ //eslint-disable-line
       <HeadingInfoContainerLeft>
         <SectionHeadingLeftWithBottomSpacing>Cooking Instructions</SectionHeadingLeftWithBottomSpacing>
         {instructionRows.map((instruction) => (
-          <Description><span style={{color: 'rgb(1, 58, 106)'}}>{instruction.prefix}</span> {instruction.instruction}</Description>
+          <div>
+            <div style={{ float: 'left', width: '30px' }}>
+              <InstructionPrefix style={{ color: 'rgb(1, 58, 106)' }}>{instruction.prefix}</InstructionPrefix>
+            </div>
+            <div>
+              <InstructionText style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+                {instruction.instruction}
+              </InstructionText>
+            </div>
+ 
+          </div>
         ))}
       </HeadingInfoContainerLeft>
     </SingleColumn>
