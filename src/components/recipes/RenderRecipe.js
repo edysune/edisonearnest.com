@@ -1,18 +1,13 @@
 import styled from "styled-components"; //eslint-disable-line
 import tw from "twin.macro";
-import { SectionHeadingLeftWithBottomSpacing, SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import React from "react";
 import { searchForRecipeImage } from "components/recipes/RecipeSearchService.js";
-import { Box, Stack, Divider, Chip } from '@mui/material';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { styled as materialStyled } from '@mui/material/styles';
-import RecipeOverviewCard from 'components/recipes/RecipeOverviewCard';
+import { Stack, Divider, Chip } from '@mui/material';
+import RenderIngredientSection from 'components/recipes/RenderIngredientSection'
+import RenderInstructionSection from 'components/recipes/RenderInstructionSection'
+import RenderInfoSection from 'components/recipes/RenderInfoSection'
+import './RenderRecipe.css';
 
 const Container = tw.div`relative`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-10`;
@@ -25,28 +20,12 @@ const Heading = tw(
   SectionHeading
 )`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
 
-const InstructionText = styled.p(props => [
-  tw`lg:py-0 text-left md:text-left leading-relaxed text-secondary-100`
-]);
-
-const InstructionPrefix = styled.p`
-  font-size: 40px;
-  font-weight: 400;
-`;
-
 const HeadingInfoContainerLeft = tw.div`flex flex-col`;
 
 const TextColumn = styled(Column)(props => [
   tw`md:w-6/12 mt-16 md:mt-0`,
   props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
 ]);
-
-const Item = materialStyled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  color: theme.palette.text.secondary,
-}));
 
 const Image = styled.img(props => [
   props.imageRounded && tw`rounded`,
@@ -65,26 +44,7 @@ const RenderRecipe = ({ //eslint-disable-line
   const myStyle={
     // width:'1000px', 
     // height:'1000px', 
-  }; 
-
-  function createNutritionData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
-
-  function createInstructionsData(recipeMatch) {
-    let cookingInstructions = [];
-    let index = 0;
-    cookingInstructions = recipeMatch.instructions.map(instruction => {
-      index = index + 1;
-      return { prefix: `${index}`, instruction: `${instruction}`};
-    });
-    return cookingInstructions;
-  }
-
-  const nutritionRows = recipeMatch.nutrition.map(nutrition => 
-    createNutritionData(nutrition.servingSize, nutrition.calories, nutrition.fat, nutrition.carbs, nutrition.protein));
-
-  const instructionRows = createInstructionsData(recipeMatch);
+  };
 
   return (
   <Container>
@@ -117,58 +77,18 @@ const RenderRecipe = ({ //eslint-disable-line
       </TextColumn>
     </TwoColumn>
     <SingleColumn>
-      <Box sx={{ width: "60%" }}>
-        <Stack 
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
-          spacing={4}
-          useFlexGap
-          flexWrap="wrap"
-        >
-          {recipeMatch?.overviewInfo.map((info) => (
-            <RecipeOverviewCard info={info}></RecipeOverviewCard>
-          ))}
-        </Stack>
-      </Box>
+      <RenderInfoSection recipeMatch={recipeMatch} ></RenderInfoSection>
       <HeadingInfoContainerLeft>
-        <SectionHeadingLeftWithBottomSpacing>Ingredients</SectionHeadingLeftWithBottomSpacing>
-        <Box sx={{ width: "60%", margin: '30px' }}>
-          <Stack 
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            spacing={4}
-            useFlexGap
-            flexWrap="wrap"
-          >
-            {recipeMatch?.ingredients.map((ingredient) => (
-            <Item sx={{ backgroundColor: 'rgb(209, 213, 219)', padding: '15px', fontWeight: 'bold' }}>{ingredient}</Item>
-            ))}
-          </Stack>
-        </Box>
+        <RenderIngredientSection recipeMatch={recipeMatch} ></RenderIngredientSection>
       </HeadingInfoContainerLeft>
     </SingleColumn>
     <SingleColumn>
       <Divider></Divider>
       <HeadingInfoContainerLeft>
-        <SectionHeadingLeftWithBottomSpacing>Cooking Instructions</SectionHeadingLeftWithBottomSpacing>
-        {instructionRows.map((instruction) => (
-          <div>
-            <div style={{ float: 'left', width: '30px' }}>
-              <InstructionPrefix style={{ color: 'rgb(1, 58, 106)' }}>{instruction.prefix}</InstructionPrefix>
-            </div>
-            <div>
-              <InstructionText style={{ paddingTop: '10px', paddingBottom: '10px' }}>
-                {instruction.instruction}
-              </InstructionText>
-            </div>
- 
-          </div>
-        ))}
+        <RenderInstructionSection recipeMatch={recipeMatch} ></RenderInstructionSection>
       </HeadingInfoContainerLeft>
     </SingleColumn>
-    <SingleColumn>
+    {/* <SingleColumn>
       <Divider></Divider>
         <HeadingInfoContainerLeft>
           <SectionHeadingLeftWithBottomSpacing>Nutrition Facts</SectionHeadingLeftWithBottomSpacing>
@@ -202,7 +122,7 @@ const RenderRecipe = ({ //eslint-disable-line
           </TableBody>
         </Table>
       </TableContainer>
-    </SingleColumn>
+    </SingleColumn> */}
   </Container>
   );
 };

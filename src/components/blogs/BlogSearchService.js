@@ -41,7 +41,7 @@ const blogList = {
     description: "This is Rolly! That's pronounced like 'roll-ie'. We were told that when we adopted him, that his name was supposed to match his brother 'Polly'.",
     tags: ["pets", "rolly"],
     author: "Edison Earnest",
-    date: "01/31/2024",
+    date: "02/21/2024",
     source: "N/A",
     overviewInfo: [],
     blogContent: MeetRollyBlogContent,
