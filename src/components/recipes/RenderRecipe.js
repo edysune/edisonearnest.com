@@ -10,7 +10,7 @@ import RenderInfoSection from 'components/recipes/RenderInfoSection'
 import './RenderRecipe.css';
 
 const Container = tw.div`relative`;
-const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-10`;
+const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-6`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto items-center pt-10`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 relative`;
