@@ -1,18 +1,6 @@
-import styled from "styled-components"; //eslint-disable-line
-import tw from "twin.macro";
 import { SectionHeadingLeftWithBottomSpacing } from "components/misc/Headings.js";
 import React from "react";
-import Paper from '@mui/material/Paper';
-import { styled as materialStyled } from '@mui/material/styles';
-import Checkbox from '@mui/material/Checkbox';
 import './RenderRecipe.css';
-
-const Item = materialStyled(Paper)(({ theme }) => ({
-  width: '50%',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  color: theme.palette.text.secondary,
-}));
 
 function checkboxEventHandler(event) {
   console.log("HELLO WORLD")
