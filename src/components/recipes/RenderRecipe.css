@@ -3,14 +3,12 @@
 }
 
 .ingrediant-item {
-  width: 50%;
   padding: 5px 5px 5px 20px;
-  margin: 4px;
+  margin: 7px;
   border-radius: 10px;
 }
 
 .checked-ingrediant {
-  /* background-color: white; */
   text-decoration: line-through;
   color: green;
   background: repeating-linear-gradient(
