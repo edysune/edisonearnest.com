@@ -33,12 +33,11 @@ const recipeList = {
     author: "Edison Earnest",
     date: "12/24/2023",
     source: "N/A",
-    overviewInfo: [
-      { type: "prepTime", text: "Prep Time:", value: "10", units: "Minutes"},
-      { type: "cookTime", text: "Cook Time:", value: "N/A", units: "Minutes"},
-      { type: "pressureCookTime", text: "Pressure Cook Time:", value: "N/A", units: "Minutes"},
-      { type: "servings", text: "Servings:", value: "16"},
-    ],
+    overviewInfo: {
+      level: "Easy",
+      cookTime: { prepTime: 0, cookTime: 10, pressureCookTime: 0, units: "Minutes"},
+      servings: { totalServings: 16, units: "N/A"}
+    },
     ingredients: [
       "2 8 oz Blocks of Cream Cheese",
       "1 Packet (1 oz/8 Tsp) Hidden Valley Ranch Seasoning Powder Mix",
@@ -73,12 +72,11 @@ const recipeList = {
     author: "Edison Earnest",
     date: "12/25/2023",
     source: "N/A",
-    overviewInfo: [
-      { type: "prepTime", text: "Prep Time:", value: "20", units: "Minutes"},
-      { type: "cookTime", text: "Cook Time:", value: "40", units: "Minutes"},
-      { type: "pressureCookTime", text: "Pressure Cook Time:", value: "30", units: "Minutes"},
-      { type: "servings", text: "Servings:", value: "1"},
-    ],
+    overviewInfo: {
+      level: "Easy",
+      cookTime: { prepTime: 20, cookTime: 40, pressureCookTime: 30, units: "Minutes"},
+      servings: { totalServings: 1, units: "N/A"}
+    },
     ingredients: [
       "1 1/2 lbs ground beef",
       "2 large potatoes",
@@ -112,12 +110,11 @@ const recipeList = {
     author: "Edison Earnest",
     date: "12/25/2023",
     source: "N/A",
-    overviewInfo: [
-      { type: "prepTime", text: "Prep Time:", value: "80", units: "Minutes"},
-      { type: "cookTime", text: "Cook Time:", value: "30", units: "Minutes"},
-      { type: "pressureCookTime", text: "Pressure Cook Time:", value: "N/A", units: "Minutes"},
-      { type: "servings", text: "Servings:", value: "12"},
-    ],
+    overviewInfo: {
+      level: "Medium",
+      cookTime: { prepTime: 80, cookTime: 30, pressureCookTime: 0, units: "Minutes"},
+      servings: { totalServings: 12, units: "N/A"}
+    },
     ingredients: [
       "1 full dough recipe or 4 Pillsbury Crescent Rolls package",
       "3 cups of Broccoli",
@@ -157,12 +154,11 @@ const recipeList = {
     author: "Edison Earnest",
     date: "12/25/2023",
     source: "N/A",
-    overviewInfo: [
-      { type: "prepTime", text: "Prep Time:", value: "0", units: "Minutes"},
-      { type: "cookTime", text: "Cook Time:", value: "N/A", units: "Minutes"},
-      { type: "pressureCookTime", text: "Pressure Cook Time:", value: "N/A", units: "Minutes"},
-      { type: "servings", text: "Servings:", value: "1"},
-    ],
+    overviewInfo: {
+      level: "Medium",
+      cookTime: { prepTime: 0, cookTime: 0, pressureCookTime: 0, units: "Minutes"},
+      servings: { totalServings: 1, units: "N/A"}
+    },
     ingredients: [
       "todo: ingrediants list"
     ],
@@ -186,12 +182,11 @@ const recipeList = {
   author: "Edison Earnest",
   date: "12/28/2023",
   source: "N/A",
-  overviewInfo: [
-    { type: "prepTime", text: "Prep Time:", value: "60", units: "Minutes"},
-    { type: "cookTime", text: "Cook Time:", value: "30", units: "Minutes"},
-    { type: "pressureCookTime", text: "Pressure Cook Time:", value: "N/A", units: "Minutes"},
-    { type: "servings", text: "Servings:", value: "1"},
-  ],
+  overviewInfo: {
+    level: "Medium",
+    cookTime: { prepTime: 60, cookTime: 30, pressureCookTime: 0, units: "Minutes"},
+    servings: { totalServings: 1, units: "N/A"}
+  },
   ingredients: [
     "2 pkg. of dry bread yeast",
     "1/4 cups warm water",

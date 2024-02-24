@@ -8,20 +8,7 @@ const RenderInfoSection = ({ //eslint-disable-line
 }) => {
   return (
   <div>
-    <Box sx={{ width: "60%" }}>
-      <Stack 
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={4}
-        useFlexGap
-        flexWrap="wrap"
-      >
-        {recipeMatch?.overviewInfo.map((info) => (
-          <RecipeOverviewCard info={info}></RecipeOverviewCard>
-        ))}
-      </Stack>
-    </Box>
+    <RecipeOverviewCard info={recipeMatch?.overviewInfo}></RecipeOverviewCard>
   </div>
   );
 };
