@@ -1,5 +1,4 @@
 import React from "react";
-import { Box, Stack} from '@mui/material';
 import RecipeOverviewCard from 'components/recipes/RecipeOverviewCard';
 import './RenderRecipe.css';
 
