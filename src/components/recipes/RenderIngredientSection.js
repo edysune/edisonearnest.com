@@ -3,7 +3,7 @@ import { SectionHeadingLeftWithBottomSpacing } from "components/misc/Headings.js
 import React from "react";
 import './RenderRecipe.css';
 
-const Item = tw.div`lg:w-1/2 sm:w-5/6`;
+const Item = tw.div`lg:w-1/2 sm:w-5/6 cursor-pointer`;
 
 function checkboxEventHandler(event) {
   event.currentTarget.classList.toggle('checked-ingrediant');
@@ -23,7 +23,7 @@ const RenderIngredientSection = ({ //eslint-disable-line
         className="unchecked-ingrediant ingrediant-item"
         sx={{ margin: '10px', fontWeight: 'bold' }}
       >
-        {ingredient}
+        {ingredient.quantity} {ingredient.units} {!ingredient.units && !ingredient.quantity ? '' : '  |  ' }<b>{ingredient.type}</b>{ingredient.description}
       </Item>
     ))}
   </div>

@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import React from "react";
 import { searchForBlogImage } from "components/blogs/BlogSearchService.js";
-import { Stack, Divider, Chip } from '@mui/material';
+import { Stack, Chip } from '@mui/material';
 // import BlogContent from 'components/blogs/BlogContent.js';
 import BlogRTEContent from 'components/blogs/BlogRTEContent.js';
 
@@ -12,6 +12,7 @@ const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 relative`;
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
+const BlogDescription = tw.div`pt-10 pb-12 text-center md:text-left`;
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(
   SectionHeading
@@ -74,9 +75,8 @@ const RenderBlog = ({ //eslint-disable-line
           {/* <Description>Author: {blogMatch?.author}</Description> */}
           <Subheading>Last Updated: {blogMatch?.date}</Subheading>
           {/* <Subheading>Blog Source: {blogMatch?.source}</Subheading> */}
-          <TextContent>{blogMatch?.description}</TextContent>
+          <BlogDescription>{blogMatch?.description}</BlogDescription>
         </TextContent>
-        <Divider></Divider>
       </TextColumn>
     </TwoColumn>
     {genBlogContent(blogMatch)}

@@ -3,19 +3,21 @@ import tw from "twin.macro";
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import React from "react";
 import { searchForRecipeImage } from "components/recipes/RecipeSearchService.js";
-import { Stack, Divider, Chip } from '@mui/material';
+import { Stack, Chip } from '@mui/material';
 import RenderIngredientSection from 'components/recipes/RenderIngredientSection'
 import RenderInstructionSection from 'components/recipes/RenderInstructionSection'
 import RenderInfoSection from 'components/recipes/RenderInfoSection'
 import './RenderRecipe.css';
 
-const Container = tw.div`relative`;
+const Container = tw.div`relative pb-10`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-6`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto items-center pt-10`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 relative`;
-const TextContent = tw.div`lg:py-8 text-center md:text-left`;
+const TextContent = tw.div`lg:py-8 text-center md:text-left pb-5`;
+const RecipeDescription = tw.div`lg:py-8 text-center md:text-left`;
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
+const Divider = tw.hr`mb-5`;
 const Heading = tw(
   SectionHeading
 )`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
@@ -71,12 +73,12 @@ const RenderRecipe = ({ //eslint-disable-line
           {/* <Description>Author: {recipeMatch?.author}</Description> */}
           <Subheading>Last Updated: {recipeMatch?.date}</Subheading>
           <Subheading>Recipe Source: {recipeMatch?.source}</Subheading>
-          <TextContent>{recipeMatch?.description}</TextContent>
+          <RecipeDescription>{recipeMatch?.description}</RecipeDescription>
         </TextContent>
-        <Divider></Divider>
       </TextColumn>
     </TwoColumn>
     <SingleColumn>
+      <Divider></Divider>
       <RenderInfoSection recipeMatch={recipeMatch} ></RenderInfoSection>
       <HeadingInfoContainerLeft>
         <RenderIngredientSection recipeMatch={recipeMatch} ></RenderIngredientSection>

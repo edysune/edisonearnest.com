@@ -7,7 +7,6 @@ import { fetchBlogContent } from "components/blogs/BlogSearchService.js";
 import ImageResize from 'quill-image-resize-module-react';
 import { saveAs } from 'file-saver';
 
-
 // QUILL SETTINGS
 const Font = Quill.import("formats/font");
 Font.whitelist = ["Arial","times"];
@@ -16,6 +15,7 @@ Quill.register(Font, true);
 Quill.register('modules/imageResize', ImageResize);
 
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-5 lg:py-10`;
+const Divider = tw.hr`mb-6`;
 
 const modules = {
     imageResize: {
@@ -77,6 +77,7 @@ const BlogRTEContent = (blog = null) => {
             </SingleColumn>);
         } else {
             return (<SingleColumn>
+                <Divider></Divider>
                 {printQuillContent()}
                 <ReactQuill
                     className={`${isReadonly ? 'hide-toolbar' : 'show-toolbar'}`}

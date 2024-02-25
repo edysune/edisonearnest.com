@@ -35,13 +35,13 @@ const recipeList = {
     source: "N/A",
     overviewInfo: {
       level: "Easy",
-      cookTime: { prepTime: 0, cookTime: 10, pressureCookTime: 0, units: "Minutes"},
+      cookTime: { prepTime: 0, cookTime: 10, pressureCookTime: 0, units: "min."},
       servings: { totalServings: 16, units: "N/A"}
     },
     ingredients: [
-      "2 8 oz Blocks of Cream Cheese",
-      "1 Packet (1 oz/8 Tsp) Hidden Valley Ranch Seasoning Powder Mix",
-      "1/2 cups of Milk (as needed for desired consistency)"
+      { quantity: 2, units: "8-oz blocks", type: "Cream Cheese"},
+      { quantity: 1, units: "packet (1-oz/8-Tsp)", type: "Hidden Valley Ranch Seasoning Powder Mix"},
+      { quantity: .5, units: "cups", type: "Milk", description: " (as needed for desired consistency)"},
     ],
     instructions: [
       "Thaw Cream Cheese so it's easier to mix.",
@@ -74,17 +74,17 @@ const recipeList = {
     source: "N/A",
     overviewInfo: {
       level: "Easy",
-      cookTime: { prepTime: 20, cookTime: 40, pressureCookTime: 30, units: "Minutes"},
+      cookTime: { prepTime: 20, cookTime: 40, pressureCookTime: 30, units: "min."},
       servings: { totalServings: 1, units: "N/A"}
     },
     ingredients: [
-      "1 1/2 lbs ground beef",
-      "2 large potatoes",
-      "1/2 medium head of cabbage, chopped",
-      "1 lb bag of baby carrots",
-      "1 medium onion, diced",
-      "2 cans (10 1/2 ounces) of cream of chicken soup",
-      "(optional) shredded cheese to add as a topping",
+      { quantity: .5, units: "pounds", type: "Ground Beef"},
+      { quantity: 2, units: "whole", type: "Large potatoes"},
+      { quantity: .5, units: "whole", type: "Heads of Cabbage", description: ", chopped"},
+      { quantity: 1, units: "pounds", type: "Baby Carrots"},
+      { quantity: 1, units: "whole", type: "Medium Onion", description: ", diced"},
+      { quantity: 2, units: "cans (10.5 ounces)", type: "Cream Of Chicken Soup"},
+      { type: "(optional) Shredded Cheese", description: " to add as a topping"},
     ],
     instructions: [
       "Place 1 pound of the ground beef onto a large skillet, reserving the remaining 1/2 pounds.",
@@ -112,17 +112,18 @@ const recipeList = {
     source: "N/A",
     overviewInfo: {
       level: "Medium",
-      cookTime: { prepTime: 80, cookTime: 30, pressureCookTime: 0, units: "Minutes"},
+      cookTime: { prepTime: 80, cookTime: 30, pressureCookTime: 0, units: "min."},
       servings: { totalServings: 12, units: "N/A"}
     },
     ingredients: [
-      "1 full dough recipe or 4 Pillsbury Crescent Rolls package",
-      "3 cups of Broccoli",
-      "4 cups of cooked Chicken (4-5 breasts)",
-      "16 oz of shredded sharp cheddar cheese",
-      "2 10 oz cans of Cream of Chicken",
-      "3 cloves of garlic minced",
-      "1/2 teaspoons of salt",
+      { quantity: 1, type: "French Bread Dough recipe", description: " (see my recipes for details - substitute with 4 Pillsbury Crescent Roll Packages)"},
+      // { quantity: 4, units: "packages", description: "Pillsbury Crescent Rolls package (optional substitute)"},
+      { quantity: 3, units: "cups", type: "Broccoli", description: ", chopped"},
+      { quantity: 4, units: "cups", type: "Chicken", description: ", chopped and cooked"},
+      { quantity: 16, units: "oz", type: "Sharp Cheddar Cheese", description: ", shredded"},
+      { quantity: 2, units: "cans (10.5 ounces)", type: "Cream Of Chicken soup"},
+      { quantity: 3, units: "cloves", type: "Garlic", description: ", minced"},
+      { quantity: .5, units: "teaspoons", type: "Salt"},
     ],
     instructions: [
       "Start on making the bread by either following the recipe for french bread, or by substituting with 4 Pillsbury Crescent Roll packages. If using the french bread recipie, follow recipie until after step 5.",
@@ -156,7 +157,7 @@ const recipeList = {
     source: "N/A",
     overviewInfo: {
       level: "Medium",
-      cookTime: { prepTime: 0, cookTime: 0, pressureCookTime: 0, units: "Minutes"},
+      cookTime: { prepTime: 0, cookTime: 0, pressureCookTime: 0, units: "min."},
       servings: { totalServings: 1, units: "N/A"}
     },
     ingredients: [
@@ -184,17 +185,17 @@ const recipeList = {
   source: "N/A",
   overviewInfo: {
     level: "Medium",
-    cookTime: { prepTime: 60, cookTime: 30, pressureCookTime: 0, units: "Minutes"},
+    cookTime: { prepTime: 60, cookTime: 30, pressureCookTime: 0, units: "min."},
     servings: { totalServings: 1, units: "N/A"}
   },
   ingredients: [
-    "2 pkg. of dry bread yeast",
-    "1/4 cups warm water",
-    "2 cups hot water",
-    "3 tablespoons sugar",
-    "1 tablespoons salt",
-    "5 tablespoons oil",
-    "6 cups flour",
+    { quantity: 2, units: "packages", type: "Dry Bread Yeast"},
+    { quantity: .25, units: "cups", type: "Water", description: ", warm"},
+    { quantity: 2, units: "cups", type: "Water", description: ", hot"},
+    { quantity: 3, units: "tablespoons", type: "Sugar"},
+    { quantity: 1, units: "tablespoons", type: "Salt"},
+    { quantity: 5, units: "tablespoons", type: "Oil"},
+    { quantity: 6, units: "cups", type: "Flour"},
   ],
   instructions: [
     "Dissolve yeast in warm water for 10 minutes.",

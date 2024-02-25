@@ -8,6 +8,8 @@ const InstructionText = styled.p(props => [
   tw`lg:py-0 text-left md:text-left leading-relaxed text-secondary-100`
 ]);
 
+const InstructionItem = tw.div`cursor-pointer`;
+
 const InstructionPrefix = styled.p`
   font-size: 40px;
   font-weight: 400;
@@ -36,7 +38,7 @@ const RenderInstructionSection = ({ //eslint-disable-line
   <div>
     <SectionHeadingLeftWithBottomSpacing>Cooking Instructions</SectionHeadingLeftWithBottomSpacing>
     {instructionRows.map((instruction) => (
-      <div style={{ display: 'flex' }} onClick={highlightInstruction}>
+      <InstructionItem style={{ display: 'flex' }} onClick={highlightInstruction}>
         <div style={{ float: 'left', width: 'auto', paddingLeft: '5px', paddingRight: '5px' }}>
           <InstructionPrefix style={{ color: 'rgb(1, 58, 106)' }}>{instruction.prefix}</InstructionPrefix>
         </div>
@@ -45,7 +47,7 @@ const RenderInstructionSection = ({ //eslint-disable-line
             {instruction.instruction}
           </InstructionText>
         </div>
-      </div>
+      </InstructionItem>
     ))}
   </div>
   );
