@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BlogIndex from "pages/BlogIndex";
 import RecipeIndex from "pages/RecipeIndex";
 import About from "pages/About";
-import SimpleLandingPage from "demos/SimpleLandingPage";
+import SimpleLandingPage from "SimpleLandingPage";
 import RenderRecipeTemplate from "components/recipes/RenderRecipeTemplate"
 import RenderBlogTemplate from "components/blogs/RenderBlogTemplate"
 

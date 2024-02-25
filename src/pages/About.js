@@ -5,7 +5,6 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import Header from "components/headers/light.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import MainFeature1 from "components/features/TwoColWithButton.js";
-
 import Selfie4 from "images/about/selfie_4.jpg";
 import Ufo1 from "images/about/ufo_1.jpg";
 import Ufo2 from "images/about/ufo_2.jpg";
