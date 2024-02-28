@@ -21,6 +21,7 @@ import Consciousness2 from "images/blogs/consciousness_2.jpg";
 import MeetRollyBlogContent from "components/blogs/blogPages/meet-rolly.txt";
 import AIContent1 from "components/blogs/blogPages/ai-demo-1.txt";
 
+export const isReadonly = true;
 
 export const IBlogs = {
   Unknown: 'Unknown',
@@ -34,7 +35,6 @@ const blogList = {
   MeetRolly: {
     featured: true,
     hidden: false,
-    readonly: true,
     type: IBlogs.MeetRolly,
     url: "/blog/meet-rolly",
     title: "Meet Rolly!",
@@ -92,10 +92,9 @@ const blogList = {
   },
   AIDemo01: {
     hidden: true,
-    readonly: true,
     type: IBlogs.AIDemo01,
     url: "/blog/ai-demo-01",
-    title: "AI Demo - Part 1 - Image Generation",
+    title: "AI Demo - Part 1 - Image Generation with DALLE-3",
     description: "This is the first entry in my tech blog series that goes over AI software. This entry covers Microsoft Copilot and DALLE-3 image generation, and how to create your own images.",
     tags: ["tech", "ai", "DALLE-3", "ChatGPT"],
     author: "Edison Earnest",

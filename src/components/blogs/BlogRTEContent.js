@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import ReactQuill, { Quill } from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import './BlogRTEContent.css';
-import { fetchBlogContent } from "components/blogs/BlogSearchService.js";
+import { fetchBlogContent, isReadonly } from "components/blogs/BlogSearchService.js";
 import ImageResize from 'quill-image-resize-module-react';
 import { saveAs } from 'file-saver';
 
@@ -11,6 +11,11 @@ import { saveAs } from 'file-saver';
 const Font = Quill.import("formats/font");
 Font.whitelist = ["Arial","times"];
 Quill.register(Font, true);
+
+const Size = Quill.import('attributors/style/size');
+Size.whitelist = ['8pt', '12pt', '14pt', '16pt', '18pt', '20pt', '32pt'];
+Quill.register(Size, true);
+
 
 Quill.register('modules/imageResize', ImageResize);
 
@@ -25,14 +30,15 @@ const modules = {
     toolbar: [
         [{ font: ['Arial','times','Raleway', 'interSystemUi']}],
         [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        ["bold", "italic", "underline", "strike"],
+        [{ 'size': ['8pt', false, '12pt', '14pt', '16pt', '18pt', '20pt', '32pt'] }],
+        [ 'bold', "italic", "underline", "strike" ],
         [{ color: [] }, { background: [] }],
         [{ script:  "sub" }, { script:  "super" }],
-        ["blockquote", "code-block"],
+        [ 'blockquote', 'code-block' ],
         [{ list:  "ordered" }, { list:  "bullet" }],
         [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
-        ["link", "image", "video"],
-        ["clean"],
+        [ 'link', "image", "video" ],
+        [ 'clean' ],
     ],
 };
 
@@ -45,7 +51,7 @@ function WriteFile(data, blog) {
 // GENERATE CONTENT
 const BlogRTEContent = (blog = null) => {
     let blogContent = !!blog.blog?.blogContent ? blog.blog.blogContent : "";
-    let isReadonly = !!blog.blog?.readonly ? blog.blog.readonly : "";
+    let isBlogContentReadonly = isReadonly;
 
     const [value, setValue] = useState("");
 
