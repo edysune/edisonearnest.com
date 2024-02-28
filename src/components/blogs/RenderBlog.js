@@ -58,7 +58,7 @@ const RenderBlog = ({ //eslint-disable-line
       </ImageColumn>
       <TextColumn textOnLeft={textOnLeft}>
         <TextContent>
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
             {blogMatch?.tags.map((tag, index) => (
               <Chip
                 sx={{

@@ -69,7 +69,7 @@ export default ({ //eslint-disable-line
                 <Post className="group" as="a" href={post.url}>
                   <Image imageSrc={post.imageSrc} />
                   <Info>
-                    <Stack direction="row" spacing={1}>
+                    <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
                       {post?.tags?.map((tag, index) => (
                         <Chip
                           sx={{

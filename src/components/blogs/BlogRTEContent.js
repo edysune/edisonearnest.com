@@ -6,6 +6,7 @@ import './BlogRTEContent.css';
 import { fetchBlogContent, isReadonly } from "components/blogs/BlogSearchService.js";
 import ImageResize from 'quill-image-resize-module-react';
 import { saveAs } from 'file-saver';
+import LoadingComponent from "components/features/LoadingSpinner.js";
 
 // QUILL SETTINGS
 const Font = Quill.import("formats/font");
@@ -51,7 +52,6 @@ function WriteFile(data, blog) {
 // GENERATE CONTENT
 const BlogRTEContent = (blog = null) => {
     let blogContent = !!blog.blog?.blogContent ? blog.blog.blogContent : "";
-    let isBlogContentReadonly = isReadonly;
 
     const [value, setValue] = useState("");
 
@@ -71,16 +71,14 @@ const BlogRTEContent = (blog = null) => {
     function printQuillContent() {
         if (!isReadonly)
         {
-            return <button onClick={printButtonEventHandler}>Press Me!</button>;
+            return <button onClick={printButtonEventHandler}>SAVE OFTEN!</button>;
         }
         return;
     }
 
     function GenerateBlog() {
         if (value === "") {
-            return (<SingleColumn>
-                <p>Still loading...</p>
-            </SingleColumn>);
+            return (<LoadingComponent></LoadingComponent>);
         } else {
             return (<SingleColumn>
                 <Divider></Divider>
@@ -97,7 +95,6 @@ const BlogRTEContent = (blog = null) => {
                             blogContent = newValue;
                         }
                     }}
-                    // placeholder="Content goes here..."
                 />
             </SingleColumn>);
         }
