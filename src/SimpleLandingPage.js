@@ -1,7 +1,8 @@
 import React from "react";
 import tw from "twin.macro";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import Hero from "components/hero/PlainNavLinkHeader";
+import PlainHero from "components/hero/PlainNavLinkHeader.js";
+import ConsoleHero from "components/hero/ConsoleHeader.js";
 import LoadingComponent from "components/features/LoadingSpinner.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { ReactComponent as RadioIcon } from "feather-icons/dist/icons/radio.svg";
@@ -15,7 +16,8 @@ const UpdateNoticeIcon = tw(RadioIcon)`w-0 sm:w-5 sm:mr-3`;
 export default () => { //eslint-disable-line
   return (
     <AnimationRevealPage>
-      <Hero />
+      {/* <PlainHero /> */}
+      <ConsoleHero></ConsoleHero>
       <HeroRow>
         <UpdateNotice>
           <UpdateNoticeIcon />
