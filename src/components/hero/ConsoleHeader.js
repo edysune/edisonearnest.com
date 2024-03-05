@@ -1,95 +1,42 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import tw from "twin.macro";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import HeaderBase, { NavLinks, NavLink } from "components/headers/light.js";
 import './ConsoleHeader.css';
+import {generateNextFrame} from './DrawService.js';
 
-const Header = tw(HeaderBase)`max-w-none`;
 const Console = tw.div`bg-[#1e293b] w-full m-0 p-0 rounded-lg overflow-hidden`;
-const ConsoleRow = tw.div`font-mono text-[#60a5fa] opacity-25 whitespace-nowrap`;
+const ConsoleRow = tw.p`font-mono text-xl text-[#60a5fa] opacity-25 whitespace-pre`;
 
 export default ({ //eslint-disable-line
 }) => {
-  let imageModel = [];
-  let isInitialized = false;
-  const cols = 300;
-  const rows = 50;
-  const hideCharPercent = .3;
+  const refreshRate = 1000;
+  const firstModel = generateNextFrame([]);
+  const [model, setModel] = useState(firstModel);
 
-  function replaceAt(str,index,chr) {
-    if(index > str.length-1) return str;
-    return str.substring(0,index) + chr + str.substring(index+1);
-  }
+  const onIntervalChange = () => {
+    let nextFrame = generateNextFrame(model);
+    setModel(nextFrame);
+  };
 
-  function generateChar() {
-    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  useEffect(() => {
+    const myInterval = setInterval(() => {
+      // console.log('interval hit!');
+      onIntervalChange();
+    }, refreshRate);
+    return () => clearInterval(myInterval);
+  }, []);//eslint-disable-line
 
-    if(Math.random() < hideCharPercent) {
-      return ' ';
-    }
-    return chars[Math.floor(Math.random() * chars.length)]
-  }
-
-  function generateRow(length = cols) {
-    let randomString = "";
-    for (let i = 0; i < length; i++) {
-      randomString += generateChar();
-    }
-    return randomString;
-  }
-
-  // function applyFilter() {
-  //   for(let i = 0; i < imageModel.length; i++) {
-  //     let row = imageModel[i];
-  //     for(let j = 0; j < row.length; j++) {
-  //       if(Math.random() < hideCharPercent) {
-  //         // imageModel[i][j] = ' ';
-  //         console.log(row);
-  //         console.log(imageModel[i][j]);
-  //         // imageModel[i][j] = ' ';
-  //         replaceAt(imageModel[i][j], j, ' ')
-  //       }
-  //     }
-  //   }
-  // }
-
-  function generateImage() {
-    if (!isInitialized) {
-      imageModel = [];
-      for(let i = 0; i < rows; i++) {
-        imageModel.push(generateRow())
-      }
-      isInitialized = true;
-    }
-    else {
-
-    }
-  }
 
   function ConsoleContent() {
-    generateImage();
-    return imageModel.map(row => {
-      return <ConsoleRow>{row}</ConsoleRow>;
+    return model.map(row => {
+      return <ConsoleRow style={{fontSize: '2vh', height: '2vh', lineHeight: '2vh'}}>{row}</ConsoleRow>;
     });
   }
-
-  let content = ConsoleContent();
-
-  const interval = setInterval(() => {
-    // todo: figure out what this does: react re-render component
-    console.log(`Hello world!`)
-    content = ConsoleContent();
-  }, 1000);
-
-  // let mainLoopId = setInterval(function(){
-  //   content = ConsoleContent();
-  //   console.log("HELLO!");
-  // }, 40000);
 
   return (
     <>
       <Console style={{ height: '70vh' }}>
-        {content}
+        {ConsoleContent(model)}
       </Console>
       {/* <Header links={navLinks} /> */}
     </>
