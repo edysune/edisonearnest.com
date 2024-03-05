@@ -1,7 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import PlainHero from "components/hero/PlainNavLinkHeader.js";
+// import PlainHero from "components/hero/PlainNavLinkHeader.js";
 import ConsoleHero from "components/hero/ConsoleHeader.js";
 import LoadingComponent from "components/features/LoadingSpinner.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
