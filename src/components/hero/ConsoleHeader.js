@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+// import React, { useRef } from "react";
+import React from "react";
 import { useEffect, useState } from "react";
 import tw from "twin.macro";
 import './ConsoleHeader.css';
@@ -21,7 +22,7 @@ export default ({ //eslint-disable-line
   const name2 = 'Earnest';
   const [currentName1, setName1] = useState(name1);
   const [currentName2, setName2] = useState(name2);
-  const ref = useRef(null);
+  // const ref = useRef(null);
 
   const rateToChange = ".1"
   const rateToChangeBack = ".02"
@@ -34,11 +35,6 @@ export default ({ //eslint-disable-line
   };
 
   const onFrontIntervalChange = () => {
-    //todo: figure out ratios, or maybe I need to figure out if I can stretch out text or something? Width doesn't work because zooming in/out doesn't 
-    // console.log('width', ref.current ? ref.current.offsetWidth : 0);
-    // let nextFrame = generateNextFrame(model);
-    // setModel(nextFrame);
-    console.log('YES')
     setName1(modifyName(currentName1, name1));
     setName2(modifyName(currentName2, name2));
   };
@@ -80,6 +76,7 @@ export default ({ //eslint-disable-line
   }
 
   function getMappedChar(char){
+    //todo: move this stuff out of here!
     switch(char.toLowerCase()) {
       case 'e':
         return '3';
