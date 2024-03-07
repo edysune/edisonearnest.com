@@ -5,11 +5,13 @@ import tw from "twin.macro";
 import './ConsoleHeader.css';
 import {generateNextFrame} from './DrawService.js';
 
-const TopConsole = tw.div`w-full m-0 p-0 rounded-lg absolute overflow-hidden`;
+const Console = tw.div`z-0 bg-black relative overflow-hidden`;
+
+const TopConsole = tw.div`z-20 absolute w-full overflow-hidden`;
 const TopLeftConsoleRow = tw.p`font-mono text-white opacity-50`;
 const TopRightConsoleRow = tw.p`font-mono text-white opacity-50`;
 
-const BottomConsole = tw.div`bg-[#1e293b] w-full m-0 p-0 rounded-lg overflow-hidden whitespace-nowrap`;
+const BottomConsole = tw.div`z-1 absolute w-full bg-[#1e293b] overflow-hidden whitespace-nowrap`;
 const BottomConsoleRow = tw.p`font-mono text-xl text-[#60a5fa] opacity-25 overflow-hidden whitespace-pre`;
 
 export default ({ //eslint-disable-line
@@ -75,36 +77,39 @@ export default ({ //eslint-disable-line
     return newName;
   }
 
-  function getMappedChar(char){
+  function getMappedChar(char) {
+    const getRandom = (items) => {
+      return items[Math.floor(Math.random()*items.length)];
+    };
     //todo: move this stuff out of here!
     switch(char.toLowerCase()) {
       case 'e':
-        return '3';
+        return getRandom(['e','3']);
       case 'a':
-        return '@';
+        return getRandom(['A','@']);
       case 'r':
-        return 'R';
+        return getRandom(['R','4']);
       case 'n':
-        return 'N';
+        return getRandom(['N']);
       case 's':
-        return 'S';
+        return getRandom(['S']);
       case 't':
-        return 'T';
+        return getRandom(['T']);
       case 'd':
-        return 'D';
+        return getRandom(['D']);
       case 'i':
-        return '1';
+        return getRandom(['1', 'I', '|']);
       case 'o':
-        return '0';
+        return getRandom(['O', '0', '*']);
       default:
         return char;
-    } 
+    }
   }
 
   function TopConsoleContent() {
     return <div className="vertical-center center">
-      <TopLeftConsoleRow style={{fontSize: '13vw', lineHeight: '8vw'}}>{currentName1}</TopLeftConsoleRow>;
-      <TopRightConsoleRow style={{fontSize: '13vw', lineHeight: '8vw'}}>{currentName2}</TopRightConsoleRow>;
+      <TopLeftConsoleRow style={{fontSize: '15vw', lineHeight: '11vw'}}>{currentName1}</TopLeftConsoleRow>;
+      <TopRightConsoleRow style={{fontSize: '15vw', lineHeight: '11vw'}}>{currentName2}</TopRightConsoleRow>;
     </div>
   }
 
@@ -116,12 +121,14 @@ export default ({ //eslint-disable-line
 
   return (
     <>
-      <TopConsole style={{ height: '70vh'}}>
-        {TopConsoleContent()}
-      </TopConsole>
-      <BottomConsole style={{ height: '70vh' }}>
-        {BottomConsoleContent()}
-      </BottomConsole>
+      <Console className="container" style={{ height: '70vh'}}>
+        <TopConsole className="center" style={{ height: '70vh'}}>
+          {TopConsoleContent()}
+        </TopConsole>
+        <BottomConsole className="center" style={{ height: '70vh' }}>
+          {BottomConsoleContent()}
+        </BottomConsole>
+      </Console>
       {/* <Header links={navLinks} /> */}
     </>
   );

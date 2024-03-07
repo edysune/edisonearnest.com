@@ -1,29 +1,16 @@
-/* 
-.console-font {
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-} */
-
 .vertical-center {
   margin: 0;
-  /* display: flex; */
   position: relative;
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  margin-left: -32px !important;
-  /* max-width: calc(100% - 32x) !important; */
 }
 
 .center {
   text-align: center;
   justify-content: center;
 }
-/* 
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+
+.container {
+  margin: -2rem !important;
 }
-style={{position: 'relative', display: 'flex', textAlign: 'center', justifyContent: 'center', maxWidth: '100vw'} */
