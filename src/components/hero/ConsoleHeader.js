@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import tw from "twin.macro";
 import './ConsoleHeader.css';
-import {generateNextFrame} from './DrawService.js';
+import {generateNextFrame, generateNextName} from './DrawService.js';
 
 const Console = tw.div`z-0 bg-black relative overflow-hidden`;
 
@@ -26,9 +26,6 @@ export default ({ //eslint-disable-line
   const [currentName2, setName2] = useState(name2);
   // const ref = useRef(null);
 
-  const rateToChange = ".1"
-  const rateToChangeBack = ".02"
-
   const onBackIntervalChange = () => {
     //todo: figure out ratios, or maybe I need to figure out if I can stretch out text or something? Width doesn't work because zooming in/out doesn't 
     // console.log('width', ref.current ? ref.current.offsetWidth : 0);
@@ -37,8 +34,10 @@ export default ({ //eslint-disable-line
   };
 
   const onFrontIntervalChange = () => {
-    setName1(modifyName(currentName1, name1));
-    setName2(modifyName(currentName2, name2));
+    let nextName1 = generateNextName(currentName1, name1);
+    let nextName2 = generateNextName(currentName2, name2);
+    setName1(nextName1);
+    setName2(nextName2);
   };
 
   useEffect(() => {
@@ -58,58 +57,12 @@ export default ({ //eslint-disable-line
     }
   }, []);//eslint-disable-line
 
-  function modifyName(modifiedName, originalName){
-    let newName = "";
-    for(let i = 0; i < modifiedName.length; i++) {
-      if (modifiedName[i] !== originalName[i]) {
-        if(Math.random() < rateToChangeBack) {
-          newName = newName + originalName[i];
-        } else {
-          newName = newName + modifiedName[i];
-        }
-      } else if(Math.random() < rateToChange) {
-        newName = newName + getMappedChar(originalName[i]);
-      } else {
-        newName = newName + originalName[i];
-      }
-    }
 
-    return newName;
-  }
-
-  function getMappedChar(char) {
-    const getRandom = (items) => {
-      return items[Math.floor(Math.random()*items.length)];
-    };
-    //todo: move this stuff out of here!
-    switch(char.toLowerCase()) {
-      case 'e':
-        return getRandom(['e','3']);
-      case 'a':
-        return getRandom(['A','@']);
-      case 'r':
-        return getRandom(['R','4']);
-      case 'n':
-        return getRandom(['N']);
-      case 's':
-        return getRandom(['S']);
-      case 't':
-        return getRandom(['T']);
-      case 'd':
-        return getRandom(['D']);
-      case 'i':
-        return getRandom(['1', 'I', '|']);
-      case 'o':
-        return getRandom(['O', '0', '*']);
-      default:
-        return char;
-    }
-  }
 
   function TopConsoleContent() {
     return <div className="vertical-center center">
-      <TopLeftConsoleRow style={{fontSize: '15vw', lineHeight: '11vw'}}>{currentName1}</TopLeftConsoleRow>;
-      <TopRightConsoleRow style={{fontSize: '15vw', lineHeight: '11vw'}}>{currentName2}</TopRightConsoleRow>;
+      <TopLeftConsoleRow style={{fontSize: '15vw', lineHeight: '11vw'}}>{currentName1}</TopLeftConsoleRow>
+      <TopRightConsoleRow style={{fontSize: '15vw', lineHeight: '11vw'}}>{currentName2}</TopRightConsoleRow>
     </div>
   }
 
