@@ -5,7 +5,7 @@ import './ConsoleHeader.css';
 // import {generateNextFrame, generateNextName} from './DrawService.js';
 import { useNavigate } from "react-router-dom";
 
-const NavContainer = tw.div`z-20 grid grid-cols-3 gap-5 content-stretch`;
+const NavContainer = tw.div`z-20 grid grid-cols-3 gap-3 content-stretch`;
 const ConsoleNavButton = tw.div`z-20 border-[3px] rounded-[10px] hover:bg-blue-700`;
 const NavText = tw.p`relative font-mono text-center`;
 
