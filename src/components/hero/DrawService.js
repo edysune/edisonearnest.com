@@ -2,7 +2,7 @@ const cols = 180;
 const rows = 35;
 const hideCharPercent = .2;
 const copyCharPercent = .6;
-const chars = "abcdefghijklmnopqr:|_)({}[]stuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 
 const rateToChangeName = ".1"

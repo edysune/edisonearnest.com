@@ -3,6 +3,7 @@ import tw from "twin.macro";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 // import PlainHero from "components/hero/PlainNavLinkHeader.js";
 import ConsoleHero from "components/hero/ConsoleHeader.js";
+import ConsoleNavButtons from "components/hero/ConsoleNavButtons.js";
 import LoadingComponent from "components/features/LoadingSpinner.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { ReactComponent as RadioIcon } from "feather-icons/dist/icons/radio.svg";
@@ -21,7 +22,7 @@ export default () => { //eslint-disable-line
           Last Updated 03/06/2024 - Welcome to my site and pardon my dust! I'm currently working on the front page! Feel free to check out some of my other webpages in the meantime!
       </UpdateNotice> */}
       <ConsoleHero></ConsoleHero>
-      {/* <ConsoleHero></ConsoleHero> */}
+      <ConsoleNavButtons></ConsoleNavButtons>
       <Footer />
     </AnimationRevealPage>
   );

@@ -14,3 +14,51 @@
 .container {
   margin: -2rem !important;
 }
+
+.containerNavButtons {
+  /* margin-right: -2rem !important;
+  margin-left: -2rem !important; */
+  margin-top: calc(2rem + 5vh) !important;
+  margin-bottom: 5vh !important;
+}
+
+/* See https://tailwindcss.com/docs/customizing-colors for colors */
+
+.yellow {
+  border-color: #000 !important;
+  background-color: #eab308 !important;
+}
+
+.yellow:hover {
+  cursor: pointer;
+  background-color: #713f12 !important;
+}
+
+.green {
+  border-color: #000 !important;
+  background-color: #22c55e !important;
+}
+
+.green:hover {
+  cursor: pointer;
+  background-color: #14532d !important;
+}
+
+.blue {
+  border-color: #000 !important;
+  background-color: #0ea5e9 !important;
+}
+
+.blue:hover {
+  cursor: pointer;
+  background-color: #0c4a6e !important;
+}
+
+.nav-button-text {
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}

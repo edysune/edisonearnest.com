@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BlogIndex from "pages/BlogIndex";
 import RecipeIndex from "pages/RecipeIndex";
 import About from "pages/About";
-import SimpleLandingPage from "SimpleLandingPage";
+import MainLandingPage from "MainLandingPage";
 import RenderRecipeTemplate from "components/recipes/RenderRecipeTemplate"
 import RenderBlogTemplate from "components/blogs/RenderBlogTemplate"
 
@@ -21,8 +21,8 @@ export default function App() {
           <Route path="/blogs" element={<BlogIndex />} />
           <Route path="/recipe" element={<RecipeIndex />} />
           <Route path="/recipes" element={<RecipeIndex />} />
-          <Route path="/" element={<SimpleLandingPage />} />
-          <Route path="/home" element={<SimpleLandingPage />} />
+          <Route path="/" element={<MainLandingPage />} />
+          <Route path="/home" element={<MainLandingPage />} />
         </Routes>
       </Router>
     </>
