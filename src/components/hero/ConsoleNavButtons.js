@@ -7,7 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 const NavContainer = tw.div`z-20 grid grid-cols-3 gap-3 content-stretch`;
 const ConsoleNavButton = tw.div`z-20 border-[3px] rounded-[10px] hover:bg-blue-700`;
+const YESS = tw.div`relative z-30 w-full h-full overflow-hidden rounded-[10px]`;
 const NavText = tw.p`relative font-mono text-center`;
+const NavTest = tw.p`absolute text-center h-full w-full`;
+const TextBackground = tw.p`text-white `;
+const NavBackground = tw.p`font-mono text-center bg-black`;
 
 const NavButtonSize = '20vh';
 
@@ -57,9 +61,21 @@ export default ({ //eslint-disable-line
   function NavTextContent(text, color = "yellow") {
     // const customClasses = 'vertical-center ' + color;
     const customClasses = 'vertical-center nav-button-text';
-    return <>
-      <NavText className={customClasses} style={{fontSize: '6vw'}}>{text}</NavText>
-    </>
+    return <YESS>
+      <NavTest className={'vertical-center nav-button-text'}>{text}</NavTest>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
+      
+      {/* <NavText className={customClasses} style={{fontSize: '6vw'}}>{text}</NavText> */}
+      {/* <NavBackground className='nav-button-background' style={{fontSize: '6vw'}}>test</NavBackground> */}
+    </YESS>
   }
 
   return (

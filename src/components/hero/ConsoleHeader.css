@@ -18,8 +18,8 @@
 .containerNavButtons {
   margin-right: calc(-2rem + 10px) !important;
   margin-left: calc(-2rem + 10px) !important;
-  margin-top: calc(2rem + 5vh) !important;
-  margin-bottom: 5vh !important;
+  margin-top: calc(2rem + 2vh) !important;
+  margin-bottom: 8vh !important;
 }
 
 /* See https://tailwindcss.com/docs/customizing-colors for colors */
@@ -61,4 +61,8 @@
     1px -1px 0 #000,
     -1px 1px 0 #000,
      1px 1px 0 #000;
+}
+
+.nav-button-background {
+  height: 100%;
 }
