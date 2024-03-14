@@ -1,38 +1,33 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import tw from "twin.macro";
 import './ConsoleHeader.css';
-// import {generateNextFrame, generateNextName} from './DrawService.js';
 import { useNavigate } from "react-router-dom";
+import {generateNextButtonFrame} from './DrawService.js';
 
 const NavContainer = tw.div`z-20 grid grid-cols-3 gap-3 content-stretch`;
-const ConsoleNavButton = tw.div`z-20 border-[3px] rounded-[10px] hover:bg-blue-700`;
-const YESS = tw.div`relative z-30 w-full h-full overflow-hidden rounded-[10px]`;
-const NavText = tw.p`relative font-mono text-center`;
-const NavTest = tw.p`absolute text-center h-full w-full`;
-const TextBackground = tw.p`text-white `;
-const NavBackground = tw.p`font-mono text-center bg-black`;
+const ConsoleNavButton = tw.div`z-20 border-[5px] rounded-[10px] hover:bg-blue-700`;
+const NavButton = tw.div`relative z-30 w-full h-full overflow-hidden rounded-[10px]`;
+const NavButtonText = tw.p`absolute text-center h-full w-full`;
+const TextBackground = tw.p`text-white text-left opacity-25 whitespace-pre font-mono`;
 
 const NavButtonSize = '20vh';
 
 export default ({ //eslint-disable-line
 }) => {
   const navigate = useNavigate();
-  const buttonRefreshRate = 400;
-  // const backRefreshRate = 500;
-  // const firstModel = generateNextFrame([]);
-  // const [model, setModel] = useState(firstModel);
-  // const name1 = 'Edison';
-  // const name2 = 'Earnest';
-  // const [currentName1, setName1] = useState(name1);
-  // const [currentName2, setName2] = useState(name2);
-  // // const ref = useRef(null);
+  const buttonRefreshRate = 300;
+  const [aboutModel, setAboutModel] = useState(generateNextButtonFrame([]));
+  const [blogsModel, setBlogsModel] = useState(generateNextButtonFrame([]));
+  const [recipesModel, setRecipesModel] = useState(generateNextButtonFrame([]));
 
   const onButtonIntervalChange = () => {
-    //todo: figure out ratios, or maybe I need to figure out if I can stretch out text or something? Width doesn't work because zooming in/out doesn't 
-    // console.log('width', ref.current ? ref.current.offsetWidth : 0);
-    // let nextFrame = generateNextFrame(model);
-    // setModel(nextFrame);
+    let nextAboutFrame = generateNextButtonFrame(aboutModel);
+    let nextBlogsFrame = generateNextButtonFrame(blogsModel);
+    let nextRecipesFrame = generateNextButtonFrame(recipesModel);
+    setAboutModel(nextAboutFrame);
+    setBlogsModel(nextBlogsFrame);
+    setRecipesModel(nextRecipesFrame);
   };
 
   const onAboutNavigation = () => {
@@ -58,32 +53,25 @@ export default ({ //eslint-disable-line
     }
   }, []);//eslint-disable-line
 
-  function NavTextContent(text, color = "yellow") {
-    // const customClasses = 'vertical-center ' + color;
-    const customClasses = 'vertical-center nav-button-text';
-    return <YESS>
-      <NavTest className={'vertical-center nav-button-text'}>{text}</NavTest>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      <TextBackground>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</TextBackground>
-      
-      {/* <NavText className={customClasses} style={{fontSize: '6vw'}}>{text}</NavText> */}
-      {/* <NavBackground className='nav-button-background' style={{fontSize: '6vw'}}>test</NavBackground> */}
-    </YESS>
+  function ButtonBackgroundTex(model) {
+    return model.map(row => {
+      return <TextBackground style={{fontSize: '1vh', height: '1vh', lineHeight: '1vh'}}>{row}</TextBackground>;
+    });
+  }
+
+  function NavTextContent(text, model, color = "yellow") {
+    return <NavButton>
+      <NavButtonText><div style={{fontSize: '6vw'}} className="vertical-center nav-button-text">{text}</div></NavButtonText>
+      {ButtonBackgroundTex(model)}
+    </NavButton>
   }
 
   return (
     <>
       <NavContainer className="containerNavButtons" style={{ height: NavButtonSize }}>
-        <ConsoleNavButton onClick={onAboutNavigation} className="center yellow" style={{ height: NavButtonSize }}>{NavTextContent('About', 'yellow')}</ConsoleNavButton>
-        <ConsoleNavButton onClick={onBlogNavigation} className="center green" style={{ height: NavButtonSize }}>{NavTextContent('Blogs', 'green')}</ConsoleNavButton>
-        <ConsoleNavButton onClick={onRecipieNavigation} className="center blue" style={{ height: NavButtonSize }}>{NavTextContent('Recipes', 'blue')}</ConsoleNavButton>
+        <ConsoleNavButton onClick={onAboutNavigation} className="center yellow" style={{ height: NavButtonSize }}>{NavTextContent('About', aboutModel, 'yellow')}</ConsoleNavButton>
+        <ConsoleNavButton onClick={onBlogNavigation} className="center green" style={{ height: NavButtonSize }}>{NavTextContent('Blogs', blogsModel, 'green')}</ConsoleNavButton>
+        <ConsoleNavButton onClick={onRecipieNavigation} className="center blue" style={{ height: NavButtonSize }}>{NavTextContent('Recipes', recipesModel, 'blue')}</ConsoleNavButton>
       </NavContainer>
     </>
   );

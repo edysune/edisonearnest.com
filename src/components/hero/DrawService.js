@@ -1,3 +1,6 @@
+const buttonCols = 140;
+const buttonRows = 20;
+
 const cols = 180;
 const rows = 35;
 const hideCharPercent = .2;
@@ -12,11 +15,19 @@ export function getModelChar(model, i, j) {
   return model[i][j];
 };
 
+export function generateNextButtonFrame(model) {
+  if (!model || model.length === 0) {
+    return generateNewImage(model, buttonRows, buttonCols);
+  } else {
+    return modifyImage(model, buttonRows, buttonCols);
+  }
+};
+
 export function generateNextFrame(model) {
   if (!model || model.length === 0) {
-    return generateNewImage(model);
+    return generateNewImage(model, rows, cols);
   } else {
-    return modifyImage(model);
+    return modifyImage(model, rows, cols);
   }
 };
 
@@ -38,7 +49,6 @@ export function generateNextName(modifiedName, originalName){
 
   return newName;
 }
-
 
 function generateChar(r, c) {
   if(Math.random() < hideCharPercent) {
@@ -65,11 +75,11 @@ function generateRow(rowLength, r) {
   return randomString;
 }
 
-function modifyImage(model) {
+function modifyImage(model, _rows, _cols) {
   let newModel = [];
-  for(let r = 0; r < rows; r++) {
+  for(let r = 0; r < _rows; r++) {
     let nextLine = "";
-    for(let c = 0; c < cols; c++) {
+    for(let c = 0; c < _cols; c++) {
       nextLine = nextLine + generateCharFromChar(model, r, c);
     }
     newModel.push(nextLine);
@@ -77,10 +87,10 @@ function modifyImage(model) {
   return newModel;
 }
 
-function generateNewImage(model) {
+function generateNewImage(model, _rows, _cols) {
   model = [];
-  for(let r = 0; r < rows; r++) {
-    model.push(generateRow(cols, r));
+  for(let r = 0; r < _rows; r++) {
+    model.push(generateRow(_cols, r));
   }
   return model;
 }

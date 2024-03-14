@@ -26,32 +26,32 @@
 
 .yellow {
   border-color: #000 !important;
-  background-color: #eab308 !important;
+  background-color: #ca8a04 !important;
 }
 
 .yellow:hover {
   cursor: pointer;
-  background-color: #713f12 !important;
+  background-color: #422006 !important;
 }
 
 .green {
   border-color: #000 !important;
-  background-color: #22c55e !important;
+  background-color: #16a34a !important;
 }
 
 .green:hover {
   cursor: pointer;
-  background-color: #14532d !important;
+  background-color: #052e16 !important;
 }
 
 .blue {
   border-color: #000 !important;
-  background-color: #0ea5e9 !important;
+  background-color: #0369a1 !important;
 }
 
 .blue:hover {
   cursor: pointer;
-  background-color: #0c4a6e !important;
+  background-color: #082f49 !important;
 }
 
 .nav-button-text {
