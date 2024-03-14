@@ -1,0 +1,26 @@
+.highlight-instruction {
+  background-color: #ffffcc;
+}
+
+.ingrediant-item {
+  padding: 5px 5px 5px 20px;
+  margin: 7px;
+  border-radius: 10px;
+}
+
+.checked-ingrediant {
+  text-decoration: line-through;
+  color: green;
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    135deg,
+    #E0E0E0,
+    #E0E0E0 10px,
+    white 10px,
+    white 20px
+  );
+}
+
+.unchecked-ingrediant {
+  background-color: #E0E0E0;
+}

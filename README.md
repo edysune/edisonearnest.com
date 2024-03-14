@@ -1,6 +1,9 @@
 # EdisonEarnest.com SourceCode
 This is the source-code to my website. I keep this in case anyone cares, but I mostly do this all for fun.
 
+# Logo URL
+app.logomakr.com/7cmnnG
+
 # Local Environment Configurations 
 
 ## Recommended Node/NPM versions for running project locally
@@ -12,6 +15,7 @@ NPM Version: `9.8.0`
 ## React Documentation:
 - [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 - [React documentation](https://reactjs.org/).
+- [MUI - React Material UI](https://mui.com/material-ui/react-chip/).
 
 # Front-end development scripts
 
@@ -23,3 +27,14 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 
 ## Running unit tests
 Run `npm run test` to execute the unit tests in an interactive watch mode.
+
+# Development Info
+Ongoing changes will require following certain steps when adding new entries to recipes or blogs. These are documented steps for doing so:
+
+## Recipes
+1) Update `RecipeSearchService.js` with new entry for `recipeList`. Object created will automatically create entry to RecipeIndex.
+2) Update `RecipeSearchService.js` with new mapping in the function `searchForRecipeImage`, giving the recipe specific images for various widgets.
+3) [Nutrition Calculator](https://www.nutritionvalue.org)
+
+## Blogs
+Todo
