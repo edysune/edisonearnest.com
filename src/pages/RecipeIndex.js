@@ -24,7 +24,7 @@ const PostContainer = styled.div`
         ${tw`sm:flex-row! h-full sm:pr-4`}
       }
       ${Image} {
-        ${tw`sm:h-96 sm:min-h-full sm:w-1/2 lg:w-2/3 sm:rounded-t-none sm:rounded-l-lg`}
+        ${tw`sm:h-96 sm:min-h-full sm:w-1/2 lg:w-2/3 sm:rounded-r-none sm:rounded-l-lg`}
       }
       ${Info} {
         ${tw`sm:-mr-4 sm:pl-8 sm:flex-1 sm:rounded-none sm:rounded-r-lg sm:border-t-2 sm:border-l-0`}

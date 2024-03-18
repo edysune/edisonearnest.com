@@ -10,9 +10,10 @@ import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 import { getAllBlogs } from "components/blogs/BlogSearchService.js";
 import { Stack, Chip } from '@mui/material';
+import AutoCompleteWithTags from "components/misc/AutoCompleteWithTags.js"
 
 const HeadingRow = tw.div`flex`;
-const Heading = tw(SectionHeading)`text-gray-900`;
+const Heading = tw(SectionHeading)`text-gray-900 whitespace-nowrap`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
   ${tw`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`}
@@ -24,7 +25,7 @@ const PostContainer = styled.div`
         ${tw`sm:flex-row! h-full sm:pr-4`}
       }
       ${Image} {
-        ${tw`sm:h-96 sm:min-h-full sm:w-1/2 lg:w-2/3 sm:rounded-t-none sm:rounded-l-lg`}
+        ${tw`sm:h-96 sm:min-h-full sm:w-1/2 lg:w-2/3 sm:rounded-r-none sm:rounded-l-lg`}
       }
       ${Info} {
         ${tw`sm:-mr-4 sm:pl-8 sm:flex-1 sm:rounded-none sm:rounded-r-lg sm:border-t-2 sm:border-l-0`}
@@ -62,6 +63,7 @@ export default ({ //eslint-disable-line
         <ContentWithPaddingXl>
           <HeadingRow>
             <Heading>{headingText}</Heading>
+            <AutoCompleteWithTags></AutoCompleteWithTags>
           </HeadingRow>
           <Posts>
             {posts.slice(0, visible).map((post, index) => (
