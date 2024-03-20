@@ -5,8 +5,8 @@ import tw from "twin.macro";
 import Header from "components/headers/light.js";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 import { SectionHeading } from "components/misc/Headings";
-import { getAllBlogs, searchBlogs } from "components/blogs/BlogSearchService.js";
-import { getAllRecipes, searchRecipes } from "components/recipes/RecipeSearchService.js";
+import { searchBlogs } from "components/blogs/BlogSearchService.js";
+import { searchRecipes } from "components/recipes/RecipeSearchService.js";
 import SharedBlogCardRenderer from "pages/SharedBlogCardRenderer.js"
 import TextField from '@mui/material/TextField';
 import AutoComplete from '@mui/material/Autocomplete';
@@ -88,7 +88,7 @@ function getTags(items) {
 }
 
 function tagSort(tags) {
-  if (tags != [])
+  if (JSON.stringify(tags) !== '[]')
   {
     tags = tags.map((a) => a.title);
     tags = [...tags].sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}));
@@ -108,9 +108,9 @@ export default ({ //eslint-disable-line
 
   const onTagChange = (newTags) => {
     newTags = tagSort(newTags);
-    if (!newTags || newTags == [])
+    if (!newTags || JSON.stringify(newTags) === '[]')
     {
-      if (filterTags != []) {
+      if (JSON.stringify(filterTags) !== '[]') {
         setFilterTags([]);
       }
     } else {
