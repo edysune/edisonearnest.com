@@ -248,6 +248,12 @@ export function getAllRecipes() {
   return recipesResult;
 }
 
+export function searchRecipes(filterPhrase, filterTags) {
+  console.log('SEARCHRECIPES CALLED', filterPhrase, filterTags)
+  return getAllRecipes();
+}
+
+
 export function searchForRecipe(recipe) {
   const recipesResult = getRecipeList();
   return !!recipesResult[recipe] ? recipesResult[recipe] : UnknownRecipe;

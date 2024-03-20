@@ -83,6 +83,11 @@ export function getAllBlogs() {
   return blogsResult;
 }
 
+export function searchBlogs(filterPhrase, filterTags) {
+  console.log('SEARCHBLOGS CALLED', filterPhrase, filterTags)
+  return getAllBlogs();
+}
+
 export function searchForBlog(blog) {
   const blogsResult = getBlogList();
   return !!blogsResult[blog] ? blogsResult[blog] : UnknownBlog;
