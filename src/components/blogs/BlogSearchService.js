@@ -117,7 +117,7 @@ export function searchBlogs(filterPhrase, filterTags) {
 
   console.log("AFTER FILTERING TAGS", blogs.length);
 
-  return blogs;
+  return getAllBlogs();
 }
 
 export function searchForBlog(blog) {

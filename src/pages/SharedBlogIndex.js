@@ -14,10 +14,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled as styledmui } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 
-// const FilterContainer = tw.div`flex w-auto mx-8 float-right text-gray-500 text-4xl sm:text-5xl font-black tracking-wide text-center mt-10`;
-const FilterContainer = tw.div`relative w-full mt-12`;
-
-const HeadingRow = tw.div`flex`;
+const HeadingText = tw.h1`text-6xl sm:text-5xl font-black mt-0`;
+const FilterContainer = tw.div`relative w-full`;
+const HeadingRow = tw.div`flex flex-row flex-wrap`;
 const Heading = tw(SectionHeading)`text-gray-900 whitespace-nowrap`;
 
 let headingText = '';
@@ -147,7 +146,7 @@ export default ({ //eslint-disable-line
       <Container>
         <ContentWithPaddingXl>
           <HeadingRow>
-            <Heading>{headingText}</Heading>
+            <Heading><HeadingText>{headingText}</HeadingText></Heading>
             <FilterContainer>
               <AutoComplete
                   multiple

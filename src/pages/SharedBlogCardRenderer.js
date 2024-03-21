@@ -11,7 +11,7 @@ import noResults1 from "images/codes/noResults_1.jpg";
 const NoResultsTitle = tw.h1`mt-20 text-lg`;
 const NoResultsImage = tw.img`rounded-3xl mx-auto h-[40%] w-[40%]`;
 
-const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
+const Posts = tw.div`sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
   ${tw`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`}
   ${props =>
