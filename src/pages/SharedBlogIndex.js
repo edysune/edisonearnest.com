@@ -14,7 +14,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled as styledmui } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 
-const HeadingText = tw.h1`text-6xl sm:text-5xl font-black mt-0`;
+const HeadingText = tw.h1`text-6xl sm:text-4xl font-black mt-0`;
 const FilterContainer = tw.div`relative w-full`;
 const HeadingRow = tw.div`flex flex-row flex-wrap`;
 const Heading = tw(SectionHeading)`text-gray-900 whitespace-nowrap`;
@@ -133,7 +133,7 @@ export default ({ //eslint-disable-line
     }
   } else if (type === 'recipes') {
     // todo: fix random issue with random pictures being random - probably just create a random number for the first time and then use that to generate the pictures?
-    headingText = "My Recipes";
+    headingText = "Recipes";
     posts = searchRecipes(filterPhrases, filterTags);
     if (JSON.stringify(getTags(posts)) !== JSON.stringify(allTags)) {
       setAllTags(getTags(posts))
