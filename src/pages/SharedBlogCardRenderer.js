@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
-import { SectionHeading } from "components/misc/Headings";
+// import { SectionHeading } from "components/misc/Headings";
 import { PrimaryButton } from "components/misc/Buttons";
 import { Stack, Chip } from '@mui/material';
+
+import noResults1 from "images/codes/noResults_1.jpg";
+
+const NoResultsTitle = tw.h1`mt-20 text-lg`;
+const NoResultsImage = tw.img`rounded-3xl mx-auto h-[40%] w-[40%]`;
 
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
@@ -43,10 +48,19 @@ const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 export default ({ //eslint-disable-line
   posts = []
 }) => {
+  const errorNoResultsMsg = 'No matches found!';
   const [visible, setVisible] = useState(7);
   const onLoadMoreClick = () => { //eslint-disable-line
     setVisible(v => v + 6);
   };
+
+  if (!posts?.length || posts.length === 0) {
+    return (<>
+      <NoResultsTitle style={{textAlign:"center", fontSize: '3rem'}}>{errorNoResultsMsg}</NoResultsTitle>
+      <NoResultsImage src={noResults1}  />
+    </>);
+  }
+
   return (
     <>
       <Posts>

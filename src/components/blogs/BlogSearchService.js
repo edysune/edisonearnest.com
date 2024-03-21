@@ -84,8 +84,40 @@ export function getAllBlogs() {
 }
 
 export function searchBlogs(filterPhrase, filterTags) {
-  console.log('SEARCHBLOGS CALLED', filterPhrase, filterTags)
-  return getAllBlogs();
+  console.log('SEARCHBLOGS CALLED', filterPhrase, filterTags);
+  let blogs = getAllBlogs();
+
+  if (filterPhrase !== '') {
+    blogs = blogs.filter((blog) => {
+      if (!blog?.title) {
+        console.warn('No Title Found in Blog! Bad!');
+        return false;
+      }
+      return blog.title.toLowerCase().includes(filterPhrase.toLowerCase());
+    });
+  }
+
+  console.log("AFTER FILTERING PHRASE", blogs.length);
+
+  if (filterTags.length > 0 && blogs.length > 0) {
+    blogs = blogs.filter((blog) => {
+      if (!blog?.tags?.length || blog.tags.length === 0) {
+        console.warn('No Tags Found in Blog! Bad!');
+        return false;
+      }
+
+      return blog.tags.some((tag) => {
+        return filterTags.some((filterTag) => {
+          console.log(`${tag} === ${filterTag.title} = ${tag === filterTag.title}`);
+          return tag === filterTag.title;
+        })
+      });
+    });
+  }
+
+  console.log("AFTER FILTERING TAGS", blogs.length);
+
+  return blogs;
 }
 
 export function searchForBlog(blog) {

@@ -250,9 +250,40 @@ export function getAllRecipes() {
 
 export function searchRecipes(filterPhrase, filterTags) {
   console.log('SEARCHRECIPES CALLED', filterPhrase, filterTags)
-  return getAllRecipes();
-}
+  let recipes = getAllRecipes();
 
+  if (filterPhrase !== '') {
+    recipes = recipes.filter((recipe) => {
+      if (!recipe?.title) {
+        console.warn('No Title Found in Recipe! Bad!');
+        return false;
+      }
+      return recipe.title.toLowerCase().includes(filterPhrase.toLowerCase());
+    });
+  }
+
+  console.log("AFTER FILTERING PHRASE", recipes.length);
+
+  if (filterTags.length > 0 && recipes.length > 0) {
+    recipes = recipes.filter((recipe) => {
+      if (!recipe?.tags?.length || recipe.tags.length === 0) {
+        console.warn('No Tags Found in Recipe! Bad!');
+        return false;
+      }
+
+      return recipe.tags.some((tag) => {
+        return filterTags.some((filterTag) => {
+          console.log(`${tag} === ${filterTag.title} = ${tag === filterTag.title}`);
+          return tag === filterTag.title;
+        })
+      });
+    });
+  }
+
+  console.log("AFTER FILTERING TAGS", recipes.length);
+
+  return recipes;
+}
 
 export function searchForRecipe(recipe) {
   const recipesResult = getRecipeList();
