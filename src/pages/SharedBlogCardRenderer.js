@@ -25,19 +25,20 @@ const PostContainer = styled.div`
         ${tw`sm:h-96 sm:min-h-full sm:w-1/2 lg:w-2/3 sm:rounded-r-none sm:rounded-l-lg`}
       }
       ${Info} {
-        ${tw`sm:-mr-4 sm:pl-8 sm:flex-1 sm:rounded-none sm:rounded-r-lg sm:border-t-2 sm:border-l-0`}
+        ${tw`sm:-mr-4 sm:pl-8 sm:flex-1 sm:rounded-none sm:rounded-r-lg sm:border-l-0`}
       }
       ${Description} {
         ${tw`text-sm mt-3 leading-loose text-gray-600 font-medium`}
       }
     `}
 `;
-const Post = tw.div`cursor-pointer flex flex-col bg-gray-100 rounded-lg`;
+const Post = tw.div`cursor-pointer flex flex-col bg-gray-100 rounded-lg h-full border-2 hover:border-[#facc15] hover:bg-[#fefce8]`;
 const Image = styled.div`
   ${props => css`background-image: url("${props.imageSrc}");`}
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
 `;
-const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
+// const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
+const Info = tw.div`p-8`;
 const CreationDate = tw.div`mt-4 uppercase text-gray-600 italic font-semibold text-xs`;
 const Title = tw.div`mt-1 font-black text-2xl text-gray-900 group-hover:text-[#013a6a] transition duration-300`;
 const Description = tw.div``;
