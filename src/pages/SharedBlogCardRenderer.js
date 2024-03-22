@@ -8,8 +8,8 @@ import { Stack, Chip } from '@mui/material';
 
 import noResults1 from "images/codes/noResults_1.jpg";
 
-const NoResultsTitle = tw.h1`mt-20 text-lg`;
-const NoResultsImage = tw.img`rounded-3xl mx-auto h-[40%] w-[40%]`;
+const NoResultsTitle = tw.h1`mt-2 text-center text-3xl`;
+const NoResultsImage = tw.img`rounded-3xl mx-auto h-80 mx-10`;
 
 const Posts = tw.div`sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
@@ -57,7 +57,7 @@ export default ({ //eslint-disable-line
 
   if (!posts?.length || posts.length === 0) {
     return (<>
-      <NoResultsTitle style={{textAlign:"center", fontSize: '3rem'}}>{errorNoResultsMsg}</NoResultsTitle>
+      <NoResultsTitle>{errorNoResultsMsg}</NoResultsTitle>
       <NoResultsImage src={noResults1}  />
     </>);
   }

@@ -14,10 +14,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled as styledmui } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 
-const HeadingText = tw.h1`text-6xl sm:text-4xl font-black mt-0`;
+const HeadingText = tw.h1`font-black mt-0`;
 const FilterContainer = tw.div`relative w-full`;
 const HeadingRow = tw.div`flex flex-row flex-wrap`;
 const Heading = tw(SectionHeading)`text-gray-900 whitespace-nowrap`;
+const Divider = tw.hr`my-[2rem]`;
 
 let headingText = '';
 let posts = [];
@@ -177,6 +178,7 @@ export default ({ //eslint-disable-line
               </Search>
             </FilterContainer>
           </HeadingRow>
+          <Divider></Divider>
           <SharedBlogCardRenderer posts={posts}></SharedBlogCardRenderer>
         </ContentWithPaddingXl>
       </Container>
