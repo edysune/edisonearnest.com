@@ -27,6 +27,7 @@ export default ({ //eslint-disable-line
   const [currentName2, setName2] = useState(name2);
 
   const [modelCache, setCache] = useState([]);
+  // eslint-disable-next-line
   const [currentImageIndex, setImageIndex] = useState(0);
   const imageType = 'water-color';
 

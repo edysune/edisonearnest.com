@@ -46,12 +46,12 @@ export function generateNextFrameV2(model) {
   return modifyImage(model, rows, cols);
 };
 
-function generateCharFromChar(model, r, c) {
+function generateCharFromChar(modelLine, c) {
   if(Math.random() < hideCharPercent) {
     return ' ';
   }
   if(Math.random() < hideCharPercent + copyCharPercent) {
-    return model[r][c];
+    return modelLine[c];
   }
   return chars[Math.floor(Math.random() * chars.length)];
 }
@@ -60,10 +60,12 @@ function modifyImage(model, _rows, _cols) {
   let newModel = [];
   for(let r = 0; r < _rows; r++) {
     const wholeStr = model[r];
-    const [first, second] = [wholeStr.slice(0, _cols), wholeStr.slice(_cols)]
+
+    // eslint-disable-next-line
+    const [first, second] = [wholeStr.slice(0, _cols), wholeStr.slice(_cols)];
     let nextLine = '';
     for(let c = 0; c < _cols; c++) {
-      nextLine = nextLine + generateCharFromChar(model, r, c);
+      nextLine = nextLine + generateCharFromChar(first, c);
     }
     newModel.push(nextLine);
   }
