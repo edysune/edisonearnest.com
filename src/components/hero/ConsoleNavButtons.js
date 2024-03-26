@@ -5,8 +5,8 @@ import './ConsoleHeader.css';
 import { useNavigate } from "react-router-dom";
 import {generateNextButtonFrame} from './DrawService.js';
 
-const NavContainer = tw.div`z-20 grid grid-cols-3 gap-3 content-stretch`;
-const ConsoleNavButton = tw.div`z-20 border-[5px] rounded-[10px] hover:bg-blue-700`;
+const NavContainer = tw.div`z-20 grid grid-cols-3 gap-[1px] content-stretch`;
+const ConsoleNavButton = tw.div`z-20 hover:bg-blue-700`;
 const NavButton = tw.div`relative z-30 w-full h-full overflow-hidden rounded-[10px]`;
 const NavButtonText = tw.p`absolute text-center h-full w-full`;
 const TextBackground = tw.p`text-white text-left opacity-25 whitespace-pre font-mono`;

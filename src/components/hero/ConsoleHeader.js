@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import tw from "twin.macro";
 import './ConsoleHeader.css';
 import {generateNextFrame, generateNextName} from './DrawService.js';
+import {fetchNextImage, generateNextFrameV2} from './DrawServiceV2.js';
 
 const Console = tw.div`z-0 bg-black relative overflow-hidden`;
 
@@ -17,23 +18,43 @@ const BottomConsoleRow = tw.p`font-mono text-xl text-[#60a5fa] opacity-25 overfl
 export default ({ //eslint-disable-line
 }) => {
   const frontRefreshRate = 400;
-  const backRefreshRate = 500;
+  const backRefreshRate = 200;
   const firstModel = generateNextFrame([]);
   const [model, setModel] = useState(firstModel);
   const name1 = 'Edison';
   const name2 = 'Earnest';
   const [currentName1, setName1] = useState(name1);
   const [currentName2, setName2] = useState(name2);
+
+  const [modelCache, setCache] = useState([]);
+  const [currentImageIndex, setImageIndex] = useState(0);
+  const imageType = 'water-color';
+
   // const ref = useRef(null);
 
   const onBackIntervalChange = () => {
     //todo: figure out ratios, or maybe I need to figure out if I can stretch out text or something? Width doesn't work because zooming in/out doesn't 
     // console.log('width', ref.current ? ref.current.offsetWidth : 0);
-    let nextFrame = generateNextFrame(model);
-    setModel(nextFrame);
+
+    if (modelCache.length === 0 || !modelCache[currentImageIndex]){
+      fetchNextImage(imageType, currentImageIndex).then((r) => {
+  
+        modelCache[currentImageIndex] = r.split('\r\n');
+        setCache(modelCache);
+
+        let nextFrame = generateNextFrameV2(modelCache[currentImageIndex]);
+        setModel(nextFrame);
+      })
+    } else {
+      console.log(modelCache)
+      let nextFrame = generateNextFrameV2(modelCache[currentImageIndex]);
+      setModel(nextFrame);
+    }
   };
 
   const onFrontIntervalChange = () => {
+    
+
     let nextName1 = generateNextName(currentName1, name1);
     let nextName2 = generateNextName(currentName2, name2);
     setName1(nextName1);
@@ -57,8 +78,6 @@ export default ({ //eslint-disable-line
     }
   }, []);//eslint-disable-line
 
-
-
   function TopConsoleContent() {
     return <div className="vertical-center center">
       <TopLeftConsoleRow style={{fontSize: '15vw', lineHeight: '11vw'}}>{currentName1}</TopLeftConsoleRow>
@@ -68,7 +87,7 @@ export default ({ //eslint-disable-line
 
   function BottomConsoleContent() {
     return model.map(row => {
-      return <BottomConsoleRow style={{fontSize: '2vh', height: '2vh', lineHeight: '2vh'}}>{row}</BottomConsoleRow>;
+      return <BottomConsoleRow style={{fontSize: '1vh', height: '1vh', lineHeight: '1vh'}}>{row}</BottomConsoleRow>;
     });
   }
 
