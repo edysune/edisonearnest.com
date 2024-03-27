@@ -58,16 +58,20 @@ function generateCharFromChar(modelLine, c) {
 
 function modifyImage(model, _rows, _cols) {
   let newModel = [];
-  for(let r = 0; r < _rows; r++) {
-    const wholeStr = model[r];
-
-    // eslint-disable-next-line
-    const [first, second] = [wholeStr.slice(0, _cols), wholeStr.slice(_cols)];
-    let nextLine = '';
-    for(let c = 0; c < _cols; c++) {
-      nextLine = nextLine + generateCharFromChar(first, c);
+  try {    
+    for(let r = 0; r < _rows; r++) {
+      const wholeStr = model[r];
+  
+      // eslint-disable-next-line
+      const [first, second] = [wholeStr.slice(0, _cols), wholeStr.slice(_cols)];
+      let nextLine = '';
+      for(let c = 0; c < _cols; c++) {
+        nextLine = nextLine + generateCharFromChar(first, c);
+      }
+      newModel.push(nextLine);
     }
-    newModel.push(nextLine);
+  } catch (e) {
+    console.log('something bad happened when modifying image...', e);
   }
   return newModel;
 }
