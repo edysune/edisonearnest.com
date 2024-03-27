@@ -42,7 +42,7 @@ export default ({ //eslint-disable-line
   
         modelCache[currentImageIndex] = r.split('\r\n');
 
-        if (modelCache[currentImageIndex].length === 0) {
+        if (modelCache[currentImageIndex].length === 1) {
           console.warn('linux line endings found!');
           modelCache[currentImageIndex] = r.split('\n');
         }
@@ -60,8 +60,6 @@ export default ({ //eslint-disable-line
   };
 
   const onFrontIntervalChange = () => {
-    
-
     let nextName1 = generateNextName(currentName1, name1);
     let nextName2 = generateNextName(currentName2, name2);
     setName1(nextName1);
