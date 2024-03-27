@@ -116,17 +116,39 @@ const hideCharPercent = .005;
 
 const lowLimit = 0;
 const highLimit = 100;
-const incFramePercent = 1;
 
 export function updateImageState(type, dir, currI) {
+  let multiplier = .20;
+
   if (currI === lowLimit) {
     dir = 1;
   } else if (currI === highLimit) {
     dir = -1;
   }
 
-  if(Math.random() < incFramePercent) {
-    console.log('hello?????')
+  console.log(currI)
+
+  if (currI > 10 && currI < 90) {
+    multiplier = .30;
+    if (currI > 20 && currI < 80) {
+      multiplier = .40;
+      if (currI > 30 && currI < 70) {
+        multiplier = .50;
+        if (currI > 40 && currI < 60) {
+          multiplier = .60;
+          if (currI >= 48 && currI < 52) {
+            multiplier = .15;
+            if (currI === 50) {
+              multiplier = .05;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  if(Math.random() < multiplier) {
+    console.log('Move Triggered');
     currI = currI + dir;
   }
 
@@ -369,13 +391,16 @@ function generateCharFromChar(modelLine, c, currentImageIndex) {
   if (currentImageIndex.current > 10 && currentImageIndex.current < 90) {
     multiplier = 1.5;
     if (currentImageIndex.current > 20 && currentImageIndex.current < 80) {
-      multiplier = 2;
+      multiplier = 3;
       if (currentImageIndex.current > 30 && currentImageIndex.current < 70) {
-        multiplier = 4;
+        multiplier = 7;
         if (currentImageIndex.current > 40 && currentImageIndex.current < 60) {
-          multiplier = 6;
-          if (currentImageIndex.current > 45 && currentImageIndex.current < 55) {
-            multiplier = 10;
+          multiplier = 15;
+          if (currentImageIndex.current >= 48 && currentImageIndex.current <= 52) {
+            multiplier = 20;
+            if (currentImageIndex.current === 50) {
+              multiplier = 25;
+            }
           }
         }
       }
