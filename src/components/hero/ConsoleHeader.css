@@ -1,0 +1,68 @@
+.vertical-center {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
+}
+
+.container {
+  margin: -2rem !important;
+}
+
+.containerNavButtons {
+  margin-right: calc(-2rem + 10px) !important;
+  margin-left: calc(-2rem + 10px) !important;
+  margin-top: calc(2rem + 2vh) !important;
+  margin-bottom: 8vh !important;
+}
+
+/* See https://tailwindcss.com/docs/customizing-colors for colors */
+
+.yellow {
+  border-color: #000 !important;
+  background-color: #ca8a04 !important;
+}
+
+.yellow:hover {
+  cursor: pointer;
+  background-color: #422006 !important;
+}
+
+.green {
+  border-color: #000 !important;
+  background-color: #16a34a !important;
+}
+
+.green:hover {
+  cursor: pointer;
+  background-color: #052e16 !important;
+}
+
+.blue {
+  border-color: #000 !important;
+  background-color: #0369a1 !important;
+}
+
+.blue:hover {
+  cursor: pointer;
+  background-color: #082f49 !important;
+}
+
+.nav-button-text {
+  color: white;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+.nav-button-background {
+  height: 100%;
+}
