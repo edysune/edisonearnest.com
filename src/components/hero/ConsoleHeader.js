@@ -41,6 +41,12 @@ export default ({ //eslint-disable-line
       fetchNextImage(imageType, currentImageIndex).then((r) => {
   
         modelCache[currentImageIndex] = r.split('\r\n');
+
+        if (modelCache[currentImageIndex].length === 0) {
+          console.warn('linux line endings found!');
+          modelCache[currentImageIndex] = r.split('\n');
+        }
+
         setCache(modelCache);
 
         let nextFrame = generateNextFrameV2(modelCache[currentImageIndex]);
