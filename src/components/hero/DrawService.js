@@ -1,8 +1,8 @@
 const buttonCols = 140;
 const buttonRows = 20;
 
-const cols = 180;
-const rows = 35;
+const cols = 370;
+const rows = 70;
 const hideCharPercent = .2;
 const copyCharPercent = .6;
 const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
