@@ -271,7 +271,7 @@ function getWaterColorFile(imageNumber) {
     case 59:
       return WaterColor59;
     case 60:
-      return WaterColor50;
+      return WaterColor60;
     case 61:
       return WaterColor61;
     case 62:
